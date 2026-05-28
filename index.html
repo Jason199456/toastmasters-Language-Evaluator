@@ -15,47 +15,71 @@
     input,textarea{font-family:inherit;outline:none;border:none}
     #app{height:100%;width:100%;display:flex;flex-direction:column;position:relative}
 
-    /* ===== Theme Gradients (same as before) ===== */
-    .t-cyber .bg1{background:linear-gradient(135deg,#0d0221,#1a0033,#2d1b69)}
-    .t-cyber .bg2{background:linear-gradient(135deg,#1a0033,#2d1b69,#4934a8)}
-    .t-cyber .bg3{background:linear-gradient(135deg,#2d1b69,#4934a8,#ff2a6d33)}
-    .t-cyber .bg4{background:linear-gradient(135deg,#0d0221,#1a0033,#05d9e033)}
-    .t-cyber .bg5{background:linear-gradient(135deg,#1a0033,#2d1b69,#ff2a6d22)}
-    .t-cyber .nav-ar{color:#ff2a6d;background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
-    .t-cyber .card-inner{border-color:rgba(255,42,109,.25)}
+    /* ===== Theme: Dream (渐变梦境) ===== */
+    .t-dream .bg1{background:linear-gradient(145deg,#2d1b69,#6c5ce7)}
+    .t-dream .bg2{background:linear-gradient(145deg,#6c5ce7,#a29bfe)}
+    .t-dream .bg3{background:linear-gradient(145deg,#2d1b69,#a29bfe)}
+    .t-dream .bg4{background:linear-gradient(145deg,#6c5ce7,#fd79a8)}
+    .t-dream .bg5{background:linear-gradient(145deg,#2d1b69,#fd79a8)}
+    .t-dream .pat{background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.15) 0,transparent 20px),radial-gradient(circle at 80% 15%,rgba(255,255,255,.1) 0,transparent 25px),radial-gradient(circle at 50% 80%,rgba(255,255,255,.08) 0,transparent 30px),radial-gradient(circle at 10% 60%,rgba(255,255,255,.06) 0,transparent 15px),radial-gradient(circle at 70% 50%,rgba(255,255,255,.05) 0,transparent 18px)}
+    .t-dream .nav-ar{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+    .t-dream .exit-btn{background:rgba(255,255,255,.08)}
+    .t-dream .card-inner{background:transparent}
 
-    .t-nature .bg1{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#2d6b4a)}
-    .t-nature .bg2{background:linear-gradient(135deg,#1a4a2e,#2d6b4a,#4a8c6a)}
-    .t-nature .bg3{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#8fbc8f44)}
-    .t-nature .bg4{background:linear-gradient(135deg,#1a4a2e,#2d6b4a,#a8d5ba44)}
-    .t-nature .bg5{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#6b9e7a)}
-    .t-nature .nav-ar{color:#8fbc8f;background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
-    .t-nature .card-inner{border-color:rgba(143,188,143,.25)}
+    /* ===== Theme: Cyber (赛博朋克) ===== */
+    .t-cyber .bg1{background:linear-gradient(145deg,#0d0221,#1a0033)}
+    .t-cyber .bg2{background:linear-gradient(145deg,#1a0033,#2d1b69)}
+    .t-cyber .bg3{background:linear-gradient(145deg,#0d0221,#2d1b69)}
+    .t-cyber .bg4{background:linear-gradient(145deg,#1a0033,#ff2a6d33)}
+    .t-cyber .bg5{background:linear-gradient(145deg,#0d0221,#ff2a6d22)}
+    .t-cyber .pat{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),radial-gradient(circle at 30% 40%,rgba(255,42,109,.08) 0,transparent 40px),radial-gradient(circle at 70% 60%,rgba(5,217,224,.06) 0,transparent 35px);background-size:24px 24px,24px 24px,100% 100%,100% 100%}
+    .t-cyber .nav-ar{background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
+    .t-cyber .exit-btn{background:rgba(255,42,109,.15)}
+    .t-cyber .card-inner{background:transparent}
 
-    .t-sky .bg1{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#6bb5e0)}
-    .t-sky .bg2{background:linear-gradient(135deg,#2d6a9f,#6bb5e0,#a8d8ea)}
-    .t-sky .bg3{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#f0d9b544)}
-    .t-sky .bg4{background:linear-gradient(135deg,#2d6a9f,#6bb5e0,#f5e6ca44)}
-    .t-sky .bg5{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#87ceeb)}
-    .t-sky .nav-ar{color:#f0d9b5;background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
-    .t-sky .card-inner{border-color:rgba(240,217,181,.25)}
+    /* ===== Theme: Nature (青山绿水) ===== */
+    .t-nature .bg1{background:linear-gradient(165deg,#0b2d1b,#1a4a2e)}
+    .t-nature .bg2{background:linear-gradient(165deg,#1a4a2e,#2d6b4a)}
+    .t-nature .bg3{background:linear-gradient(165deg,#0b2d1b,#2d6b4a)}
+    .t-nature .bg4{background:linear-gradient(165deg,#1a4a2e,#4a8c6a)}
+    .t-nature .bg5{background:linear-gradient(165deg,#0b2d1b,#4a8c6a)}
+    .t-nature .pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cpath d='M0 160 Q60 80 120 120 Q180 60 240 110 Q300 50 360 100 Q380 80 400 90 L400 200 L0 200Z' fill='rgba(255,255,255,.04)'/%3E%3Cpath d='M0 180 Q80 130 160 150 Q240 110 320 140 Q360 120 400 130 L400 200 L0 200Z' fill='rgba(255,255,255,.03)'/%3E%3C/svg%3E");background-position:center bottom;background-size:100% auto;background-repeat:no-repeat}
+    .t-nature .nav-ar{background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
+    .t-nature .exit-btn{background:rgba(143,188,143,.15)}
+    .t-nature .card-inner{background:transparent}
 
-    .t-dream .bg1{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#a29bfe)}
-    .t-dream .bg2{background:linear-gradient(135deg,#6c5ce7,#a29bfe,#fd79a888)}
-    .t-dream .bg3{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#fd79a8)}
-    .t-dream .bg4{background:linear-gradient(135deg,#6c5ce7,#a29bfe,#fdcb6e88)}
-    .t-dream .bg5{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#a29bfe)}
-    .t-dream .nav-ar{color:#fdcb6e;background:rgba(255,255,255,.06);border:1px solid rgba(253,203,110,.25)}
-    .t-dream .card-inner{border-color:rgba(253,203,110,.25)}
+    /* ===== Theme: Sky (蓝天白云) ===== */
+    .t-sky .bg1{background:linear-gradient(160deg,#1a3a5c,#2d6a9f)}
+    .t-sky .bg2{background:linear-gradient(160deg,#2d6a9f,#6bb5e0)}
+    .t-sky .bg3{background:linear-gradient(160deg,#1a3a5c,#6bb5e0)}
+    .t-sky .bg4{background:linear-gradient(160deg,#2d6a9f,#a8d8ea)}
+    .t-sky .bg5{background:linear-gradient(160deg,#1a3a5c,#a8d8ea)}
+    .t-sky .pat{background-image:radial-gradient(ellipse 60px 30px at 15% 25%,rgba(255,255,255,.08) 0,transparent 50%),radial-gradient(ellipse 80px 35px at 50% 20%,rgba(255,255,255,.06) 0,transparent 50%),radial-gradient(ellipse 50px 25px at 78% 30%,rgba(255,255,255,.05) 0,transparent 50%),radial-gradient(ellipse 40px 20px at 35% 35%,rgba(255,255,255,.04) 0,transparent 50%)}
+    .t-sky .nav-ar{background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
+    .t-sky .exit-btn{background:rgba(240,217,181,.15)}
+    .t-sky .card-inner{background:transparent}
+
+    /* ===== Theme: Chinese (中国风·绛红) ===== */
+    .t-chinese .bg1{background:linear-gradient(150deg,#3d0a0a,#6b1d1d)}
+    .t-chinese .bg2{background:linear-gradient(150deg,#6b1d1d,#8b3a3a)}
+    .t-chinese .bg3{background:linear-gradient(150deg,#3d0a0a,#8b3a3a)}
+    .t-chinese .bg4{background:linear-gradient(150deg,#5a1515,#7a2a2a)}
+    .t-chinese .bg5{background:linear-gradient(150deg,#3d0a0a,#5a1515)}
+    .t-chinese .pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='rgba(212,175,55,.08)' stroke-width='1.2'%3E%3Cpath d='M60 80 Q80 55 105 65 Q125 55 145 65 Q165 55 185 65 Q200 75 200 80 Q200 75 185 65 Q165 55 145 65 Q125 55 105 65 Q80 55 60 80Z' /%3E%3Cpath d='M230 100 Q250 75 275 85 Q295 75 315 85 Q335 75 355 85 Q370 95 370 100 Q370 95 355 85 Q335 75 315 85 Q295 75 275 85 Q250 75 230 100Z' /%3E%3Cpath d='M120 240 Q140 215 165 225 Q185 215 205 225 Q225 215 245 225 Q260 235 260 240 Q260 235 245 225 Q225 215 205 225 Q185 215 165 225 Q140 215 120 240Z' /%3E%3Cpath d='M280 300 Q300 275 325 285 Q345 275 365 285 Q380 295 380 300' /%3E%3C/g%3E%3C/svg%3E");background-size:70% auto;background-position:center;background-repeat:no-repeat}
+    .t-chinese .card-inner{border-color:rgba(212,175,55,.2)}
+    .t-chinese .card-inner::before,.t-chinese .card-inner::after{border-color:rgba(212,175,55,.25)}
+    .t-chinese .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
+    .t-chinese .nav-ar{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2)}
+    .t-chinese .exit-btn{background:rgba(212,175,55,.12)}
 
     /* ===== Header - Centered ===== */
     header{
-      padding:14px 16px 10px;background:#FFF;flex-shrink:0;
+      padding:16px 16px 10px;background:#FFF;flex-shrink:0;
       z-index:20;position:relative;color:#2D3436;text-align:center
     }
     .club-name-area{
-      display:inline-block;position:relative;
-      padding:4px 16px 4px 12px;
+      display:inline-flex;align-items:center;gap:5px;
+      padding:5px 14px 5px 10px;
       border-radius:10px;cursor:pointer;
       border:2px dashed #D5D0CC;
       background:#FAF8F6;
@@ -67,13 +91,14 @@
       background:#F5F0FF;
       box-shadow:0 0 0 3px rgba(108,92,231,.1)
     }
-    .club-name-area .edit-hint{
-      font-size:10px;color:#6C5CE7;font-weight:500;
-      display:inline-block;margin-left:6px;
-      opacity:0;transition:opacity .25s;
-      vertical-align:middle
+    .club-name-area .icon-edit{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:20px;height:20px;border-radius:50%;
+      background:#6C5CE7;color:#FFF;
+      font-size:11px;line-height:1;flex-shrink:0;
+      transition:transform .2s
     }
-    .club-name-area:hover .edit-hint{opacity:1}
+    .club-name-area:hover .icon-edit{transform:scale(1.15)}
     #clubNameDisplay{
       font-size:18px;font-weight:700;color:#2D3436;
       vertical-align:middle
@@ -81,12 +106,12 @@
     #clubNameInput{
       font-size:17px;font-weight:700;color:#2D3436;
       background:#FFF;border:2px solid #6C5CE7;border-radius:8px;
-      padding:4px 10px;width:220px;text-align:center;
+      padding:4px 10px;width:200px;text-align:center;
       display:none
     }
     .subtitle{
       font-size:13px;font-weight:600;color:#E17055;
-      letter-spacing:3px;margin-top:3px
+      letter-spacing:3px;margin-top:4px
     }
 
     /* ===== Edit Mode ===== */
@@ -127,10 +152,10 @@
 
     /* Theme picker */
     .theme-row{display:flex;align-items:center;gap:6px;padding:2px 0;flex-wrap:wrap}
-    .theme-row .l{font-size:11px;font-weight:500;color:#999}
+    .theme-row .l{font-size:11px;font-weight:500;color:#999;flex-shrink:0}
     .theme-opt{
       padding:4px 10px;border-radius:7px;font-size:11px;font-weight:500;
-      border:1.5px solid #D8D0F0;color:#6C5CE7;background:transparent;transition:all .2s
+      border:1.5px solid #D8D0F0;color:#6C5CE7;background:transparent;transition:all .2s;cursor:pointer
     }
     .theme-opt.active{background:#6C5CE7;color:#FFF;border-color:#6C5CE7}
 
@@ -142,60 +167,72 @@
     .card-full{
       position:absolute;inset:0;
       display:flex;align-items:center;justify-content:center;
-      padding:24px;
+      padding:16px;
       transition:opacity .4s ease,transform .4s cubic-bezier(.25,.46,.45,.94)
     }
     .card-full.prev{transform:translateX(-100%);opacity:0}
     .card-full.active{transform:translateX(0);opacity:1}
     .card-full.next{transform:translateX(100%);opacity:0}
 
-    /* Card inner - the visible card border */
+    /* Card inner - the visible card */
     .card-inner{
-      width:100%;max-width:520px;
-      height:calc(100% - 48px);max-height:740px;
-      border:1.5px solid rgba(255,255,255,.18);
+      width:100%;max-width:560px;
+      height:calc(100% - 32px);max-height:780px;
+      border:1.5px solid rgba(255,255,255,.15);
       border-radius:18px;
       display:flex;flex-direction:column;
       align-items:center;justify-content:center;
-      padding:36px 24px;
-      position:relative;
-      backdrop-filter:blur(2px);
-      -webkit-backdrop-filter:blur(2px);
-      box-shadow:
-        0 8px 32px rgba(0,0,0,.15),
-        inset 0 1px 0 rgba(255,255,255,.08);
+      padding:40px 28px;
+      position:relative;overflow:hidden;
+      box-shadow:0 8px 40px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.06)
     }
-    /* Decorative corners */
-    .card-inner::before,.card-inner::after{
-      content:'';position:absolute;
-      width:20px;height:20px;
-      border-color:rgba(255,255,255,.25);
-      border-style:solid
+    /* Pattern layer inside card */
+    .card-inner .pat{
+      position:absolute;inset:0;z-index:0;
+      pointer-events:none
     }
-    .card-inner::before{top:10px;left:10px;border-top-width:2px;border-left-width:2px;border-radius:3px 0 0 0}
-    .card-inner::after{bottom:10px;right:10px;border-bottom-width:2px;border-right-width:2px;border-radius:0 0 3px 0}
-    /* Inner decorative lines top/bottom */
-    .card-inner .deco-line{
-      position:absolute;left:20px;right:20px;
-      height:1px;
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent)
-    }
-    .card-inner .deco-line.t{top:38px}
-    .card-inner .deco-line.b{bottom:38px}
-
     .card-inner .txt{
+      position:relative;z-index:1;
       font-size:clamp(20px,5.5vw,38px);
       font-weight:600;line-height:1.7;
       text-align:center;width:100%;
       word-break:break-word;
-      text-shadow:0 2px 16px rgba(0,0,0,.2);
-      padding:10px 0
+      text-shadow:0 2px 20px rgba(0,0,0,.3);
+      padding:12px 0
     }
     .card-inner .num{
       position:absolute;bottom:12px;left:50%;
       transform:translateX(-50%);
-      font-size:11px;font-weight:500;opacity:.3;letter-spacing:1px
+      font-size:11px;font-weight:500;opacity:.25;letter-spacing:1px;z-index:1
     }
+    /* Inner decorative lines top/bottom */
+    .card-inner .deco-line{
+      position:absolute;left:20px;right:20px;
+      height:1px;z-index:1;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)
+    }
+    .card-inner .deco-line.t{top:36px}
+    .card-inner .deco-line.b{bottom:36px}
+    /* Decorative corners */
+    .card-inner::before,.card-inner::after{
+      content:'';position:absolute;z-index:1;
+      width:18px;height:18px;
+      border-color:rgba(255,255,255,.2);
+      border-style:solid
+    }
+    .card-inner::before{top:12px;left:12px;border-top-width:2px;border-left-width:2px;border-radius:3px 0 0 0}
+    .card-inner::after{bottom:12px;right:12px;border-bottom-width:2px;border-right-width:2px;border-radius:0 0 3px 0}
+
+    /* ===== Exit Button (top-right) ===== */
+    .exit-btn{
+      position:fixed;top:12px;right:12px;z-index:120;
+      width:32px;height:32px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:16px;line-height:1;
+      transition:all .2s;
+      backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
+    }
+    .exit-btn:active{transform:scale(.85)}
 
     /* Nav arrows */
     .nav-ar{
@@ -203,7 +240,7 @@
       z-index:110;
       width:36px;height:36px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      font-size:18px;
+      font-size:20px;
       transition:all .2s;
       backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
     }
@@ -212,7 +249,7 @@
     .nav-ar.r{right:6px}
     .nav-ar:disabled{opacity:.12;pointer-events:none}
 
-    /* ===== Quick Add ===== */
+    /* ===== Quick Add Modal ===== */
     .modal-ov{
       position:fixed;top:0;left:0;right:0;bottom:0;
       background:rgba(0,0,0,.45);display:flex;align-items:flex-end;
@@ -235,6 +272,8 @@
     .modal-sh textarea:focus{border-color:#6C5CE7;background:#FFF}
     .modal-sh .acts{display:flex;gap:10px;margin-top:12px}
     .modal-sh .acts .btn{flex:1;justify-content:center}
+    .modal-sh .acts .btn-pri{background:#6C5CE7;color:#FFF;box-shadow:0 3px 10px rgba(108,92,231,.25)}
+    .modal-sh .acts .btn-sec{background:#EDE9E6;color:#555}
 
     /* Toast */
     .toast{
@@ -247,21 +286,27 @@
     }
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+    /* Hover effects for theme buttons */
+    .theme-opt:hover{background:#F0EBFF}
+
     @media(min-width:768px){
-      .card-inner{padding:48px 40px}
+      .card-full{padding:24px}
+      .card-inner{padding:52px 44px}
       .card-inner .txt{font-size:clamp(26px,3.8vw,42px)}
-      .nav-ar{width:44px;height:44px;font-size:22px}
+      .nav-ar{width:44px;height:44px;font-size:24px}
       .nav-ar.l{left:16px}
       .nav-ar.r{right:16px}
+      .exit-btn{width:36px;height:36px;font-size:18px;top:16px;right:16px}
     }
     @media(min-width:1024px){
-      .card-inner{max-width:580px;max-height:800px}
+      .card-inner{max-width:620px;max-height:840px}
       .card-inner .txt{font-size:clamp(30px,3.2vw,48px)}
     }
-    /* Mobile: tighter card */
     @media(max-width:420px){
       .card-inner{padding:28px 18px;border-radius:14px}
       .card-inner .txt{font-size:clamp(18px,5vw,28px)}
+      .card-full{padding:10px}
+      .card-inner{height:calc(100% - 20px)}
     }
   </style>
 </head>
@@ -272,8 +317,8 @@
   <!-- ===== Header - Centered ===== -->
   <header>
     <div class="club-name-area" onclick="editClubName()" title="点击编辑俱乐部名称">
+      <span class="icon-edit">✎</span>
       <span id="clubNameDisplay">申花头马俱乐部</span>
-      <span class="edit-hint">✏️ 点击编辑</span>
       <input type="text" id="clubNameInput" placeholder="输入俱乐部名称"
              onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
     </div>
@@ -284,10 +329,11 @@
   <div id="editMode">
     <div class="theme-row">
       <span class="l">风格</span>
-      <button class="theme-opt active" data-t="dream" onclick="setTheme('dream')">🌈 渐变梦境</button>
-      <button class="theme-opt" data-t="cyber" onclick="setTheme('cyber')">🤖 赛博朋克</button>
-      <button class="theme-opt" data-t="nature" onclick="setTheme('nature')">🌿 青山绿水</button>
-      <button class="theme-opt" data-t="sky" onclick="setTheme('sky')">☁️ 蓝天白云</button>
+      <button class="theme-opt active" data-t="dream" onclick="setTheme('dream')">🌈 梦境</button>
+      <button class="theme-opt" data-t="cyber" onclick="setTheme('cyber')">🤖 赛博</button>
+      <button class="theme-opt" data-t="nature" onclick="setTheme('nature')">🌿 山水</button>
+      <button class="theme-opt" data-t="sky" onclick="setTheme('sky')">☁️ 蓝天</button>
+      <button class="theme-opt" data-t="chinese" onclick="setTheme('chinese')">🏮 中国风</button>
     </div>
     <div id="editorList"></div>
     <button class="btn-add" onclick="addCard()">＋ 添加一张卡片</button>
@@ -300,11 +346,12 @@
 
   <!-- ===== Browse Mode ===== -->
   <div id="browseMode">
+    <button class="exit-btn" onclick="exitBrowse()">✕</button>
     <button class="nav-ar l" id="prevBtn" onclick="prevCard()">‹</button>
     <button class="nav-ar r" id="nextBtn" onclick="nextCard()">›</button>
   </div>
 
-  <!-- ===== Quick Add ===== -->
+  <!-- ===== Quick Add Modal ===== -->
   <div class="modal-ov" id="quickAddModal" onclick="closeQAdd(event)">
     <div class="modal-sh" onclick="event.stopPropagation()">
       <div class="modal-h"></div>
@@ -322,7 +369,7 @@
 
 <script>
   let cards=[],cur=0,curTheme='dream';
-  const T={dream:'t-dream',cyber:'t-cyber',nature:'t-nature',sky:'t-sky'};
+  const T={dream:'t-dream',cyber:'t-cyber',nature:'t-nature',sky:'t-sky',chinese:'t-chinese'};
   const TK=Object.keys(T);
 
   function init(){
@@ -349,7 +396,8 @@
     const d=document.getElementById('clubNameDisplay'),i=document.getElementById('clubNameInput');
     const n=i.value.trim()||'头马俱乐部';
     d.textContent=n;d.style.display='inline';i.style.display='none';
-    localStorage.setItem('tm_clubName',n)
+    localStorage.setItem('tm_clubName',n);
+    toast('已保存')
   }
 
   function setTheme(k){
@@ -396,7 +444,7 @@
     const valid=cards.filter(c=>c.trim());
     if(valid.length===0){
       const e=document.createElement('div');e.className='card-full active';
-      e.innerHTML=`<div class="card-inner"><div class="txt" style="opacity:.5;font-size:18px">还没有卡片</div></div>`;
+      e.innerHTML=`<div class="card-inner"><div class="pat"></div><div class="txt" style="opacity:.5;font-size:18px">还没有卡片</div></div>`;
       stage.appendChild(e);
       document.getElementById('prevBtn').disabled=true;document.getElementById('nextBtn').disabled=true;
       return
@@ -408,7 +456,7 @@
       if(i===cur)d.classList.add('active');
       else if(i<cur)d.classList.add('prev');
       else d.classList.add('next');
-      d.innerHTML=`<div class="card-inner"><div class="deco-line t"></div><div class="txt">${esc(c).replace(/\n/g,'<br>')}</div><div class="deco-line b"></div><div class="num">${i+1}/${valid.length}</div></div>`;
+      d.innerHTML=`<div class="card-inner"><div class="pat"></div><div class="deco-line t"></div><div class="txt">${esc(c).replace(/\n/g,'<br>')}</div><div class="deco-line b"></div><div class="num">${i+1}/${valid.length}</div></div>`;
       stage.appendChild(d)
     });
     document.getElementById('prevBtn').disabled=cur<=0;
@@ -473,7 +521,7 @@
   },{passive:true});
   document.addEventListener('click',e=>{
     if(document.getElementById('browseMode').style.display==='none')return;
-    if(e.target.closest('.nav-ar')||e.target.closest('.card-inner'))return;
+    if(e.target.closest('.nav-ar')||e.target.closest('.exit-btn')||e.target.closest('.card-inner'))return;
     const n=Date.now();
     if(n-lastTap<350){exitBrowse();lastTap=0;return}
     lastTap=n;
