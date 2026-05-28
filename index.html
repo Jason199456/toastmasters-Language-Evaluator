@@ -6,372 +6,205 @@
   <title>头马语言官</title>
   <style>
     *::before,*::after,*{box-sizing:border-box;margin:0;padding:0}
-    html,body{
-      height:100%;width:100%;
+    html,body{height:100%;width:100%;overflow:hidden;-webkit-tap-highlight-color:transparent}
+    body{
       font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
-      color:#fff;
-      overflow:hidden;
-      -webkit-tap-highlight-color:transparent;
-      user-select:none;
-      background:#1a1a2e
+      color:#fff;user-select:none;background:#1a1a2e
     }
     button{font-family:inherit;border:none;cursor:pointer;background:none;color:inherit}
     input,textarea{font-family:inherit;outline:none;border:none}
     #app{height:100%;width:100%;display:flex;flex-direction:column;position:relative}
 
-    /* ===== Style Themes ===== */
-    .theme-cyberpunk .card-bg{
-      background:linear-gradient(135deg,#0d0221 0%,#1a0033 30%,#2d1b69 60%,#ff2a6d 140%);
-    }
-    .theme-cyberpunk .card-bg-1{background:linear-gradient(135deg,#0d0221,#1a0033,#2d1b69);}
-    .theme-cyberpunk .card-bg-2{background:linear-gradient(135deg,#1a0033,#2d1b69,#4934a8);}
-    .theme-cyberpunk .card-bg-3{background:linear-gradient(135deg,#2d1b69,#4934a8,#ff2a6d33);}
-    .theme-cyberpunk .card-bg-4{background:linear-gradient(135deg,#0d0221,#1a0033,#05d9e033);}
-    .theme-cyberpunk .card-bg-5{background:linear-gradient(135deg,#1a0033,#2d1b69,#ff2a6d22);}
-    .theme-cyberpunk .accent{color:#ff2a6d}
-    .theme-cyberpunk .dot.active{background:#ff2a6d;box-shadow:0 0 8px #ff2a6d88}
-    .theme-cyberpunk .nav-arrow{background:rgba(255,255,255,0.08);color:#ff2a6d;border:1px solid rgba(255,42,109,0.3)}
-    .theme-cyberpunk .browse-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.85)}
+    /* ===== Styles ===== */
+    .theme-cyberpunk .card-bg-1{background:linear-gradient(135deg,#0d0221,#1a0033,#2d1b69)}
+    .theme-cyberpunk .card-bg-2{background:linear-gradient(135deg,#1a0033,#2d1b69,#4934a8)}
+    .theme-cyberpunk .card-bg-3{background:linear-gradient(135deg,#2d1b69,#4934a8,#ff2a6d33)}
+    .theme-cyberpunk .card-bg-4{background:linear-gradient(135deg,#0d0221,#1a0033,#05d9e033)}
+    .theme-cyberpunk .card-bg-5{background:linear-gradient(135deg,#1a0033,#2d1b69,#ff2a6d22)}
+    .theme-cyberpunk .card-full::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+    .theme-cyberpunk .nav-arrow{color:#ff2a6d;background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
 
-    .theme-nature .card-bg{
-      background:linear-gradient(135deg,#0b2d1b 0%,#1a4a2e 30%,#2d6b4a 60%,#8fbc8f 140%);
-    }
-    .theme-nature .card-bg-1{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#2d6b4a);}
-    .theme-nature .card-bg-2{background:linear-gradient(135deg,#1a4a2e,#2d6b4a,#4a8c6a);}
-    .theme-nature .card-bg-3{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#8fbc8f44);}
-    .theme-nature .card-bg-4{background:linear-gradient(135deg,#1a4a2e,#2d6b4a,#a8d5ba44);}
-    .theme-nature .card-bg-5{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#6b9e7a);}
-    .theme-nature .accent{color:#8fbc8f}
-    .theme-nature .dot.active{background:#8fbc8f;box-shadow:0 0 8px #8fbc8f88}
-    .theme-nature .nav-arrow{background:rgba(255,255,255,0.08);color:#8fbc8f;border:1px solid rgba(143,188,143,0.3)}
-    .theme-nature .browse-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.85)}
+    .theme-nature .card-bg-1{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#2d6b4a)}
+    .theme-nature .card-bg-2{background:linear-gradient(135deg,#1a4a2e,#2d6b4a,#4a8c6a)}
+    .theme-nature .card-bg-3{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#8fbc8f44)}
+    .theme-nature .card-bg-4{background:linear-gradient(135deg,#1a4a2e,#2d6b4a,#a8d5ba44)}
+    .theme-nature .card-bg-5{background:linear-gradient(135deg,#0b2d1b,#1a4a2e,#6b9e7a)}
+    .theme-nature .card-full::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.05) 0%,transparent 50%);pointer-events:none}
+    .theme-nature .nav-arrow{color:#8fbc8f;background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
 
-    .theme-sky .card-bg{
-      background:linear-gradient(135deg,#1a3a5c 0%,#2d6a9f 30%,#6bb5e0 60%,#f0d9b5 140%);
-    }
-    .theme-sky .card-bg-1{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#6bb5e0);}
-    .theme-sky .card-bg-2{background:linear-gradient(135deg,#2d6a9f,#6bb5e0,#a8d8ea);}
-    .theme-sky .card-bg-3{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#f0d9b544);}
-    .theme-sky .card-bg-4{background:linear-gradient(135deg,#2d6a9f,#6bb5e0,#f5e6ca44);}
-    .theme-sky .card-bg-5{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#87ceeb);}
-    .theme-sky .accent{color:#f0d9b5}
-    .theme-sky .dot.active{background:#f0d9b5;box-shadow:0 0 8px #f0d9b588}
-    .theme-sky .nav-arrow{background:rgba(255,255,255,0.08);color:#f0d9b5;border:1px solid rgba(240,217,181,0.3)}
-    .theme-sky .browse-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.85)}
+    .theme-sky .card-bg-1{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#6bb5e0)}
+    .theme-sky .card-bg-2{background:linear-gradient(135deg,#2d6a9f,#6bb5e0,#a8d8ea)}
+    .theme-sky .card-bg-3{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#f0d9b544)}
+    .theme-sky .card-bg-4{background:linear-gradient(135deg,#2d6a9f,#6bb5e0,#f5e6ca44)}
+    .theme-sky .card-bg-5{background:linear-gradient(135deg,#1a3a5c,#2d6a9f,#87ceeb)}
+    .theme-sky .card-full::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.08) 0%,transparent 50%);pointer-events:none}
+    .theme-sky .nav-arrow{color:#f0d9b5;background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
 
-    .theme-dream .card-bg{
-      background:linear-gradient(135deg,#2d1b69 0%,#6c5ce7 30%,#fd79a8 60%,#fdcb6e 140%);
-    }
-    .theme-dream .card-bg-1{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#a29bfe);}
-    .theme-dream .card-bg-2{background:linear-gradient(135deg,#6c5ce7,#a29bfe,#fd79a888);}
-    .theme-dream .card-bg-3{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#fd79a8);}
-    .theme-dream .card-bg-4{background:linear-gradient(135deg,#6c5ce7,#a29bfe,#fdcb6e88);}
-    .theme-dream .card-bg-5{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#a29bfe);}
-    .theme-dream .accent{color:#fdcb6e}
-    .theme-dream .dot.active{background:#fdcb6e;box-shadow:0 0 8px #fdcb6e88}
-    .theme-dream .nav-arrow{background:rgba(255,255,255,0.08);color:#fdcb6e;border:1px solid rgba(253,203,110,0.3)}
-    .theme-dream .browse-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.85)}
+    .theme-dream .card-bg-1{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#a29bfe)}
+    .theme-dream .card-bg-2{background:linear-gradient(135deg,#6c5ce7,#a29bfe,#fd79a888)}
+    .theme-dream .card-bg-3{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#fd79a8)}
+    .theme-dream .card-bg-4{background:linear-gradient(135deg,#6c5ce7,#a29bfe,#fdcb6e88)}
+    .theme-dream .card-bg-5{background:linear-gradient(135deg,#2d1b69,#6c5ce7,#a29bfe)}
+    .theme-dream .card-full::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.08) 0%,transparent 50%);pointer-events:none}
+    .theme-dream .nav-arrow{color:#fdcb6e;background:rgba(255,255,255,.06);border:1px solid rgba(253,203,110,.25)}
 
-    /* ===== Header ===== */
+    /* ===== Header (edit mode only) ===== */
     header{
-      padding:12px 20px 10px;
-      background:#FFF;
-      flex-shrink:0;
-      z-index:20;
-      position:relative;
-      transition:transform .35s cubic-bezier(.32,.72,0,1);
+      padding:12px 16px 10px;background:#FFF;flex-shrink:0;
+      z-index:20;position:relative;color:#2D3436
     }
-    header.hidden{transform:translateY(-100%)}
-    .club-name-row{display:flex;align-items:center;gap:8px}
+    .club-row{display:flex;align-items:center;gap:6px}
     #clubNameInput{
-      font-size:18px;font-weight:700;color:#2D3436;
+      font-size:17px;font-weight:700;color:#2D3436;
       background:#F8F6F4;border:1.5px solid #E8E4E0;border-radius:8px;
-      padding:3px 10px;width:100%;max-width:260px;
-      transition:border-color .2s
+      padding:3px 10px;width:100%;max-width:240px
     }
     #clubNameInput:focus{border-color:#6C5CE7;background:#FFF}
     #clubNameDisplay{
-      font-size:18px;font-weight:700;color:#2D3436;
-      cursor:pointer;padding:3px 10px;border-radius:8px;
-      display:inline-block;transition:background .2s
+      font-size:17px;font-weight:700;color:#2D3436;
+      cursor:pointer;padding:3px 10px;border-radius:8px;display:inline-block
     }
     #clubNameDisplay:hover{background:#F0EDEA}
-    .edit-icon{font-size:13px;color:#999;cursor:pointer;opacity:0;transition:opacity .2s}
-    .club-name-row:hover .edit-icon{opacity:1}
-    .subtitle{
-      font-size:13px;font-weight:600;color:#E17055;
+    .sub-row{
+      font-size:12px;font-weight:600;color:#E17055;
       letter-spacing:2px;margin-top:1px
     }
-    .mode-tabs{
-      display:flex;background:#EDE9E6;border-radius:10px;
-      padding:3px;margin:10px 0 0;gap:3px
-    }
-    .mode-tab{
-      flex:1;padding:6px 0;font-size:13px;font-weight:500;
-      color:#888;border-radius:8px;transition:all .3s;text-align:center
-    }
-    .mode-tab.active{background:#FFF;color:#2D3436;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-
-    /* ===== Main Content ===== */
-    .main-content{flex:1;overflow:hidden;position:relative}
 
     /* ===== Edit Mode ===== */
     #editMode{
-      height:100%;padding:12px 16px 16px;
-      overflow-y:auto;display:flex;flex-direction:column;gap:10px;
+      height:100%;padding:10px 14px 14px;overflow-y:auto;
+      display:flex;flex-direction:column;gap:8px;
       background:#F3F1EE;color:#2D3436
     }
     #editMode::-webkit-scrollbar{width:4px}
     #editMode::-webkit-scrollbar-thumb{background:#DDD;border-radius:2px}
     .card-editor{
-      background:#FFF;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);
-      border-left:4px solid #DDD;position:relative;transition:border-color .3s
+      background:#FFF;border-radius:10px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.04);
+      border-left:4px solid #DDD;position:relative
     }
-    .card-editor .card-label{font-size:11px;font-weight:600;color:#999;margin-bottom:6px;letter-spacing:1px}
+    .card-editor .lbl{font-size:11px;font-weight:600;color:#999;margin-bottom:5px;letter-spacing:1px}
     .card-editor textarea{
-      width:100%;min-height:52px;max-height:130px;
-      font-size:15px;line-height:1.6;color:#2D3436;
-      background:#FAFAFA;border-radius:8px;padding:8px 10px;resize:vertical;transition:background .2s
+      width:100%;min-height:48px;max-height:120px;
+      font-size:14px;line-height:1.6;color:#2D3436;
+      background:#FAFAFA;border-radius:8px;padding:7px 10px;resize:vertical
     }
     .card-editor textarea:focus{background:#FFF;box-shadow:inset 0 0 0 1.5px #6C5CE7}
-    .card-editor textarea::placeholder{color:#C5C0BB}
-    .card-editor .delete-btn{
-      position:absolute;top:8px;right:8px;
-      width:22px;height:22px;border-radius:50%;background:#F0EDEA;
-      color:#999;font-size:13px;display:flex;align-items:center;justify-content:center;transition:all .2s
+    .card-editor .del{
+      position:absolute;top:7px;right:7px;
+      width:20px;height:20px;border-radius:50%;background:#F0EDEA;
+      color:#999;font-size:12px;display:flex;align-items:center;justify-content:center
     }
-    .card-editor .delete-btn:hover{background:#FFE0D6;color:#E17055}
-    .edit-actions{display:flex;gap:8px;padding-top:2px;flex-wrap:wrap}
+    .card-editor .del:hover{background:#FFE0D6;color:#E17055}
+    .edit-acts{display:flex;gap:6px;padding-top:2px;flex-wrap:wrap}
     .btn{
-      padding:8px 16px;border-radius:10px;font-size:13px;font-weight:600;
-      transition:all .2s;display:flex;align-items:center;gap:5px
+      padding:7px 14px;border-radius:9px;font-size:12px;font-weight:600;
+      display:flex;align-items:center;gap:4px;transition:all .2s
     }
     .btn:active{transform:scale(.97)}
-    .btn-primary{
+    .btn-pri{
       background:linear-gradient(135deg,#6C5CE7,#A29BFE);color:#FFF;
       box-shadow:0 3px 10px rgba(108,92,231,.25)
     }
-    .btn-secondary{background:#EDE9E6;color:#555}
-    .btn-outline{background:transparent;color:#6C5CE7;border:1.5px solid #D8D0F0}
-    .btn-add{color:#6C5CE7;font-size:13px;font-weight:500;padding:6px 0;display:flex;align-items:center;gap:4px}
+    .btn-sec{background:#EDE9E6;color:#555}
+    .btn-out{background:transparent;color:#6C5CE7;border:1.5px solid #D8D0F0}
+    .btn-add{color:#6C5CE7;font-size:12px;font-weight:500;padding:5px 0;display:flex;align-items:center;gap:4px}
 
-    /* ===== Browse Mode ===== */
+    /* ===== Browse Mode - Fullscreen ===== */
     #browseMode{
-      height:100%;display:flex;flex-direction:column;
-      position:relative;overflow:hidden
-    }
-    .card-stage{
-      flex:1;position:relative;overflow:hidden;
-      display:flex;align-items:center;justify-content:center
+      position:fixed;top:0;left:0;right:0;bottom:0;
+      z-index:100;display:none;overflow:hidden
     }
     .card-full{
       position:absolute;inset:0;
       display:flex;flex-direction:column;
       align-items:center;justify-content:center;
-      padding:60px 28px;
-      transition:opacity .45s ease,transform .45s cubic-bezier(.25,.46,.45,.94);
-      will-change:transform,opacity
+      padding:60px 24px;
+      transition:opacity .4s ease,transform .4s cubic-bezier(.25,.46,.45,.94)
     }
-    .card-full.prev{
-      transform:translateX(-100%);opacity:0
-    }
-    .card-full.active{
-      transform:translateX(0);opacity:1;position:absolute
-    }
-    .card-full.next{
-      transform:translateX(100%);opacity:0
-    }
-    .card-full .content-text{
-      font-size:clamp(22px,5.5vw,40px);
-      font-weight:600;
-      line-height:1.6;
-      text-align:center;
-      width:100%;
+    .card-full.prev{transform:translateX(-100%);opacity:0}
+    .card-full.active{transform:translateX(0);opacity:1}
+    .card-full.next{transform:translateX(100%);opacity:0}
+    .card-full .txt{
+      font-size:clamp(22px,6vw,42px);
+      font-weight:600;line-height:1.7;
+      text-align:center;width:100%;max-width:800px;
       word-break:break-word;
-      text-shadow:0 2px 16px rgba(0,0,0,.25);
-      position:relative;
-      z-index:2;
-      padding:20px 0
+      text-shadow:0 2px 20px rgba(0,0,0,.3);
+      padding:20px 0;
+      z-index:2;position:relative
     }
-    .card-full .card-number{
+    .card-full .num{
       position:absolute;top:20px;right:24px;
-      font-size:13px;font-weight:500;opacity:.5;
-      letter-spacing:1px
-    }
-    .card-full .card-footer{
-      position:absolute;bottom:80px;left:0;right:0;
-      text-align:center;font-size:14px;opacity:.5;
-      padding:0 20px
+      font-size:12px;font-weight:500;opacity:.35;letter-spacing:1px
     }
 
-    /* Grid overlay for cyberpunk */
-    .theme-cyberpunk .card-full::after{
-      content:'';position:absolute;inset:0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-      background-size:40px 40px;
-      pointer-events:none
-    }
-    /* Subtle pattern for others */
-    .theme-nature .card-full::after{
-      content:'';position:absolute;inset:0;
-      background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.05) 0%,transparent 50%);
-      pointer-events:none
-    }
-    .theme-sky .card-full::after{
-      content:'';position:absolute;inset:0;
-      background:radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.08) 0%,transparent 50%);
-      pointer-events:none
-    }
-    .theme-dream .card-full::after{
-      content:'';position:absolute;inset:0;
-      background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.08) 0%,transparent 50%);
-      pointer-events:none
-    }
-
-    /* Navigation arrows */
+    /* Navigation arrows - minimal */
     .nav-arrow{
-      position:absolute;top:50%;transform:translateY(-50%);
-      z-index:10;
-      width:44px;height:44px;border-radius:50%;
+      position:fixed;top:50%;transform:translateY(-50%);
+      z-index:110;
+      width:36px;height:36px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      font-size:22px;transition:all .25s;
-      backdrop-filter:blur(4px);
-      -webkit-backdrop-filter:blur(4px)
+      font-size:18px;
+      transition:all .2s;
+      backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
     }
-    .nav-arrow:active{transform:translateY(-50%) scale(.9)}
-    .nav-arrow.left{left:12px}
-    .nav-arrow.right{right:12px}
-    .nav-arrow:disabled{opacity:.2;pointer-events:none}
+    .nav-arrow:active{transform:translateY(-50%) scale(.88)}
+    .nav-arrow.left{left:8px}
+    .nav-arrow.right{right:8px}
+    .nav-arrow:disabled{opacity:.15;pointer-events:none}
 
-    /* Bottom bar */
-    .browse-bottom{
-      position:absolute;bottom:0;left:0;right:0;
-      padding:12px 20px 28px;
-      display:flex;flex-direction:column;align-items:center;gap:10px;
-      z-index:10;
-      background:linear-gradient(transparent 0%,rgba(0,0,0,.3) 100%);
-      pointer-events:none
+    /* ===== Theme Picker in Edit ===== */
+    .theme-row{display:flex;align-items:center;gap:6px;padding:2px 0;flex-wrap:wrap}
+    .theme-row .l{font-size:11px;font-weight:500;color:#999}
+    .theme-opt{
+      padding:4px 10px;border-radius:7px;font-size:11px;font-weight:500;
+      border:1.5px solid #D8D0F0;color:#6C5CE7;background:transparent;transition:all .2s
     }
-    .browse-bottom>*{pointer-events:auto}
-    .dots{display:flex;gap:6px;align-items:center}
-    .dot{
-      width:6px;height:6px;border-radius:50%;
-      background:rgba(255,255,255,.3);
-      transition:all .35s
-    }
-    .dot.active{width:24px;border-radius:3px}
-    .browse-btns{display:flex;gap:8px;width:100%;max-width:440px}
-    .browse-btn{
-      flex:1;padding:8px 0;border-radius:10px;
-      font-size:13px;font-weight:500;text-align:center;
-      transition:all .25s;
-      backdrop-filter:blur(4px);
-      -webkit-backdrop-filter:blur(4px)
-    }
-    .browse-btn:active{transform:scale(.95)}
-    .browse-btn.primary{
-      background:rgba(255,255,255,.15);
-      border:1px solid rgba(255,255,255,.2);color:#FFF
-    }
+    .theme-opt.active{background:#6C5CE7;color:#FFF;border-color:#6C5CE7}
 
-    /* ===== Style Picker ===== */
-    .style-picker{
-      position:fixed;bottom:100px;right:14px;z-index:50;
-      display:flex;flex-direction:column;gap:6px
-    }
-    .style-btn{
-      width:32px;height:32px;border-radius:50%;
-      border:2px solid rgba(255,255,255,.2);
-      transition:all .25s;box-shadow:0 2px 8px rgba(0,0,0,.15)
-    }
-    .style-btn.active{border-color:#FFF;transform:scale(1.15);box-shadow:0 0 12px rgba(255,255,255,.2)}
-    .style-btn.s-cyberpunk{background:linear-gradient(135deg,#0d0221,#ff2a6d)}
-    .style-btn.s-nature{background:linear-gradient(135deg,#0b2d1b,#8fbc8f)}
-    .style-btn.s-sky{background:linear-gradient(135deg,#1a3a5c,#f0d9b5)}
-    .style-btn.s-dream{background:linear-gradient(135deg,#2d1b69,#fdcb6e)}
-
-    /* ===== Overlay Header in Browse ===== */
-    .browse-header{
-      position:absolute;top:0;left:0;right:0;
-      padding:10px 16px;
-      display:flex;align-items:center;justify-content:space-between;
-      z-index:15;
-      background:linear-gradient(rgba(0,0,0,.3) 0%,transparent 100%);
-      pointer-events:none
-    }
-    .browse-header>*{pointer-events:auto}
-    .browse-header .back-btn{
-      font-size:13px;font-weight:500;
-      padding:6px 12px;border-radius:8px;
-      background:rgba(255,255,255,.1);
-      color:rgba(255,255,255,.8);
-      backdrop-filter:blur(4px);
-      -webkit-backdrop-filter:blur(4px)
-    }
-    .browse-header .site-title{font-size:13px;font-weight:500;color:rgba(255,255,255,.7)}
-
-    /* ===== Quick Add Modal ===== */
+    /* ===== Quick Add ===== */
     .modal-overlay{
       position:fixed;top:0;left:0;right:0;bottom:0;
-      background:rgba(0,0,0,.45);
-      display:flex;align-items:flex-end;z-index:100;
-      opacity:0;pointer-events:none;transition:opacity .3s
+      background:rgba(0,0,0,.45);display:flex;align-items:flex-end;
+      z-index:200;opacity:0;pointer-events:none;transition:opacity .3s
     }
     .modal-overlay.open{opacity:1;pointer-events:auto}
     .modal-sheet{
       background:#FFF;border-radius:20px 20px 0 0;
-      padding:18px 20px 28px;width:100%;color:#2D3436;
+      padding:16px 20px 26px;width:100%;color:#2D3436;
       transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1)
     }
     .modal-overlay.open .modal-sheet{transform:translateY(0)}
-    .modal-handle{width:36px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 14px}
-    .modal-title{font-size:16px;font-weight:600;margin-bottom:12px}
+    .modal-handle{width:32px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 12px}
+    .modal-title{font-size:15px;font-weight:600;margin-bottom:10px}
     .modal-sheet textarea{
-      width:100%;min-height:90px;font-size:15px;line-height:1.6;
+      width:100%;min-height:80px;font-size:14px;line-height:1.6;
       color:#2D3436;background:#FAFAFA;border-radius:10px;
-      padding:10px 12px;resize:vertical;
-      border:1.5px solid #EDE9E6;transition:border-color .2s
+      padding:10px 12px;resize:vertical;border:1.5px solid #EDE9E6
     }
     .modal-sheet textarea:focus{border-color:#6C5CE7;background:#FFF}
-    .modal-actions{display:flex;gap:10px;margin-top:12px}
-    .modal-actions .btn{flex:1;justify-content:center}
-
-    /* ===== Theme Selector in Edit ===== */
-    .theme-selector{
-      display:flex;gap:8px;padding:4px 0;flex-wrap:wrap
-    }
-    .theme-option{
-      padding:5px 12px;border-radius:8px;font-size:12px;font-weight:500;
-      border:1.5px solid #D8D0F0;color:#6C5CE7;background:transparent;
-      transition:all .2s
-    }
-    .theme-option.active{
-      background:#6C5CE7;color:#FFF;border-color:#6C5CE7
-    }
+    .modal-acts{display:flex;gap:10px;margin-top:12px}
+    .modal-acts .btn{flex:1;justify-content:center}
 
     /* ===== Toast ===== */
     .toast{
       position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);
-      background:rgba(45,52,54,.92);
-      color:#FFF;padding:10px 22px;border-radius:10px;
-      font-size:14px;font-weight:500;opacity:0;
+      background:rgba(45,52,54,.92);color:#FFF;padding:10px 20px;border-radius:10px;
+      font-size:13px;font-weight:500;opacity:0;
       transition:all .35s cubic-bezier(.32,.72,0,1);
-      z-index:200;pointer-events:none;white-space:nowrap;
+      z-index:300;pointer-events:none;white-space:nowrap;
       backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
     }
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
     @media(min-width:768px){
-      .card-full{padding:80px 60px}
-      .card-full .content-text{font-size:clamp(28px,4vw,48px);max-width:700px}
-      .nav-arrow{width:48px;height:48px;font-size:24px}
-      .nav-arrow.left{left:24px}
-      .nav-arrow.right{right:24px}
+      .card-full .txt{font-size:clamp(28px,4.5vw,48px)}
+      .nav-arrow{width:44px;height:44px;font-size:22px}
+      .nav-arrow.left{left:20px}
+      .nav-arrow.right{right:20px}
     }
     @media(min-width:1024px){
-      .card-full .content-text{font-size:clamp(32px,3.5vw,52px);max-width:800px}
+      .card-full .txt{font-size:clamp(32px,3.5vw,52px)}
     }
   </style>
 </head>
@@ -379,116 +212,75 @@
 
 <div id="app">
 
-  <!-- ===== Header ===== -->
-  <header id="mainHeader">
-    <div class="club-name-row">
+  <!-- Header -->
+  <header>
+    <div class="club-row">
       <span id="clubNameDisplay" onclick="editClubName()">申花头马俱乐部</span>
-      <span class="edit-icon" onclick="editClubName()">✏️</span>
+      <span style="font-size:12px;color:#999;cursor:pointer" onclick="editClubName()">✏️</span>
       <input type="text" id="clubNameInput" style="display:none"
              placeholder="输入俱乐部名称"
              onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
     </div>
-    <div class="subtitle">头马语言官</div>
-    <div class="mode-tabs">
-      <button class="mode-tab active" id="tabEdit" onclick="switchMode('edit')">✍️ 编辑</button>
-      <button class="mode-tab" id="tabBrowse" onclick="switchMode('browse')">👁️ 浏览</button>
-    </div>
+    <div class="sub-row">头马语言官</div>
   </header>
 
-  <div class="main-content">
-
-    <!-- ===== Edit Mode ===== -->
-    <div id="editMode">
-      <div style="display:flex;align-items:center;gap:8px;padding:2px 0">
-        <span style="font-size:12px;font-weight:500;color:#999">卡片风格：</span>
-        <div class="theme-selector">
-          <button class="theme-option active" data-theme="dream" onclick="setTheme('dream')">🌈 渐变梦境</button>
-          <button class="theme-option" data-theme="cyberpunk" onclick="setTheme('cyberpunk')">🤖 赛博朋克</button>
-          <button class="theme-option" data-theme="nature" onclick="setTheme('nature')">🌿 青山绿水</button>
-          <button class="theme-option" data-theme="sky" onclick="setTheme('sky')">☁️ 蓝天白云</button>
-        </div>
-      </div>
-      <div id="editorList"></div>
-      <button class="btn-add" onclick="addCard()">＋ 添加一张卡片</button>
-      <div class="edit-actions">
-        <button class="btn btn-primary" onclick="startBrowsing()">👁️ 预览卡片</button>
-        <button class="btn btn-outline" onclick="shareCards()">🔗 分享链接</button>
-        <button class="btn btn-secondary" onclick="clearAll()">🗑️ 清空</button>
-      </div>
+  <!-- Edit Mode -->
+  <div id="editMode">
+    <div class="theme-row">
+      <span class="l">风格</span>
+      <button class="theme-opt active" data-t="dream" onclick="setTheme('dream')">🌈 渐变梦境</button>
+      <button class="theme-opt" data-t="cyberpunk" onclick="setTheme('cyberpunk')">🤖 赛博朋克</button>
+      <button class="theme-opt" data-t="nature" onclick="setTheme('nature')">🌿 青山绿水</button>
+      <button class="theme-opt" data-t="sky" onclick="setTheme('sky')">☁️ 蓝天白云</button>
     </div>
-
-    <!-- ===== Browse Mode ===== -->
-    <div id="browseMode" style="display:none;">
-      <div class="browse-header">
-        <button class="back-btn" onclick="switchMode('edit')">← 编辑</button>
-        <span class="site-title">头马语言官</span>
-        <button class="back-btn" onclick="shareCards()">🔗 分享</button>
-      </div>
-      <div class="card-stage" id="cardStage">
-        <button class="nav-arrow left" id="prevBtn" onclick="prevCard()">‹</button>
-        <button class="nav-arrow right" id="nextBtn" onclick="nextCard()">›</button>
-
-        <div id="emptyState" style="display:none;text-align:center;color:rgba(255,255,255,.5);padding:40px 20px">
-          <div style="font-size:48px;margin-bottom:12px;opacity:.5">📋</div>
-          <p style="font-size:15px;line-height:1.6">还没有卡片<br>先切换到编辑模式写几句话吧</p>
-        </div>
-      </div>
-      <div class="browse-bottom">
-        <div class="dots" id="dotsContainer"></div>
-        <div class="browse-btns">
-          <button class="browse-btn" onclick="openQuickAdd()">＋ 添加</button>
-          <button class="browse-btn primary" onclick="switchMode('edit')">✍️ 编辑</button>
-        </div>
-      </div>
+    <div id="editorList"></div>
+    <button class="btn-add" onclick="addCard()">＋ 添加一张卡片</button>
+    <div class="edit-acts">
+      <button class="btn btn-pri" onclick="startBrowsing()">👁️ 全屏显示</button>
+      <button class="btn btn-out" onclick="shareCards()">🔗 分享</button>
+      <button class="btn btn-sec" onclick="clearAll()">🗑️</button>
     </div>
-
   </div>
 
-  <!-- ===== Quick Add ===== -->
+  <!-- Browse Mode - Pure Fullscreen -->
+  <div id="browseMode">
+    <button class="nav-arrow left" id="prevBtn" onclick="prevCard()">‹</button>
+    <button class="nav-arrow right" id="nextBtn" onclick="nextCard()">›</button>
+    <!-- Cards rendered by JS -->
+  </div>
+
+  <!-- Quick Add -->
   <div class="modal-overlay" id="quickAddModal" onclick="closeQuickAdd(event)">
     <div class="modal-sheet" onclick="event.stopPropagation()">
       <div class="modal-handle"></div>
       <div class="modal-title">添加卡片</div>
-      <textarea id="quickAddInput" placeholder="输入一句话或一段话…" rows="3"></textarea>
-      <div class="modal-actions">
-        <button class="btn btn-secondary" onclick="closeQuickAdd()">取消</button>
-        <button class="btn btn-primary" onclick="confirmQuickAdd()">确认添加</button>
+      <textarea id="quickAddInput" placeholder="输入一句话…" rows="3"></textarea>
+      <div class="modal-acts">
+        <button class="btn btn-sec" onclick="closeQuickAdd()">取消</button>
+        <button class="btn btn-pri" onclick="confirmQuickAdd()">确认添加</button>
       </div>
     </div>
   </div>
 
-  <!-- ===== Toast ===== -->
   <div class="toast" id="toast"></div>
 </div>
 
 <script>
   let cards=[],currentIndex=0,currentTheme='dream';
-
-  const THEMES={
-    dream:{name:'渐变梦境',class:'theme-dream'},
-    cyberpunk:{name:'赛博朋克',class:'theme-cyberpunk'},
-    nature:{name:'青山绿水',class:'theme-nature'},
-    sky:{name:'蓝天白云',class:'theme-sky'}
-  };
-
-  const THEME_KEYS=['dream','cyberpunk','nature','sky'];
+  const THEMES={dream:'theme-dream',cyberpunk:'theme-cyberpunk',nature:'theme-nature',sky:'theme-sky'};
+  const KEYS=Object.keys(THEMES);
 
   function init(){
-    const saved=localStorage.getItem('tm_clubName');
-    if(saved)document.getElementById('clubNameDisplay').textContent=saved;
-
-    const savedTheme=localStorage.getItem('tm_theme');
-    if(savedTheme&&THEMES[savedTheme])setTheme(savedTheme);
-
-    const hash=window.location.hash;
-    if(hash&&hash.length>1){
-      try{
-        const parsed=JSON.parse(atob(decodeURIComponent(hash.slice(1))));
-        if(Array.isArray(parsed)&&parsed.length>0){cards=parsed;renderEditors();switchMode('browse');renderCarousel();return}
-      }catch(e){}
+    const n=localStorage.getItem('tm_clubName');
+    if(n)document.getElementById('clubNameDisplay').textContent=n;
+    const t=localStorage.getItem('tm_theme');
+    if(t&&THEMES[t])setTheme(t);
+    const h=window.location.hash;
+    if(h&&h.length>1){
+      try{const p=JSON.parse(atob(decodeURIComponent(h.slice(1))));if(Array.isArray(p)&&p.length>0){cards=p;renderEditors();enterBrowse();renderCards();return}}catch(e){}
     }
-    const stored=localStorage.getItem('tm_cards');
-    if(stored){try{cards=JSON.parse(stored)}catch(e){cards=[]}}
+    const s=localStorage.getItem('tm_cards');
+    if(s){try{cards=JSON.parse(s)}catch(e){cards=[]}}
     if(cards.length===0)cards=['',''];
     renderEditors();
   }
@@ -504,120 +296,89 @@
     localStorage.setItem('tm_clubName',n)
   }
 
-  function setTheme(key){
-    if(!THEMES[key])return;
-    currentTheme=key;
-    // Remove all theme classes from body
-    THEME_KEYS.forEach(k=>document.body.classList.remove(THEMES[k].class));
-    document.body.classList.add(THEMES[key].class);
-    localStorage.setItem('tm_theme',key);
-    document.querySelectorAll('.theme-option').forEach(el=>el.classList.toggle('active',el.dataset.theme===key));
-    if(document.getElementById('browseMode').style.display!=='none')renderCarousel();
+  function setTheme(k){
+    if(!THEMES[k])return;
+    currentTheme=k;
+    KEYS.forEach(x=>document.body.classList.remove(THEMES[x]));
+    document.body.classList.add(THEMES[k]);
+    localStorage.setItem('tm_theme',k);
+    document.querySelectorAll('.theme-opt').forEach(el=>el.classList.toggle('active',el.dataset.t===k));
+    if(document.getElementById('browseMode').style.display!=='none')renderCards()
   }
 
-  function addCard(content){
-    cards.push(content||'');
-    renderEditors();
-    setTimeout(()=>{
-      const list=document.getElementById('editorList');
-      const ed=list.lastElementChild;
-      if(ed){const ta=ed.querySelector('textarea');if(ta)ta.focus();list.scrollTop=list.scrollHeight}
-    },50)
-  }
-  function deleteCard(i){
-    if(cards.length<=1){showToast('至少保留一张卡片');return}
-    cards.splice(i,1);renderEditors()
-  }
-  function clearAll(){
-    if(cards.every(c=>!c.trim()))return;
-    if(!confirm('确定要清空所有卡片吗？'))return;
-    cards=[''];renderEditors();showToast('已清空')
-  }
-  function updateCard(i,v){
-    cards[i]=v;localStorage.setItem('tm_cards',JSON.stringify(cards))
-  }
+  function addCard(c){cards.push(c||'');renderEditors();
+    setTimeout(()=>{const l=document.getElementById('editorList'),e=l.lastElementChild;if(e){const t=e.querySelector('textarea');if(t)t.focus();l.scrollTop=l.scrollHeight}},50)}
+  function deleteCard(i){if(cards.length<=1){showToast('至少保留一张');return}cards.splice(i,1);renderEditors()}
+  function clearAll(){if(cards.every(c=>!c.trim()))return;if(!confirm('清空所有卡片？'))return;cards=[''];renderEditors();showToast('已清空')}
+  function updateCard(i,v){cards[i]=v;localStorage.setItem('tm_cards',JSON.stringify(cards))}
 
   function renderEditors(){
-    const list=document.getElementById('editorList');list.innerHTML='';
+    const l=document.getElementById('editorList');l.innerHTML='';
     cards.forEach((c,i)=>{
-      const div=document.createElement('div');div.className='card-editor';
-      div.innerHTML=`<div class="card-label">卡片 ${i+1}</div>
-        <button class="delete-btn" onclick="deleteCard(${i})">✕</button>
-        <textarea placeholder="输入一句话或一段话…" oninput="updateCard(${i},this.value)" rows="${Math.max(2,Math.ceil(c.length/30))}">${esc(c)}</textarea>`;
-      list.appendChild(div)
+      const d=document.createElement('div');d.className='card-editor';
+      d.innerHTML=`<div class="lbl">卡片 ${i+1}</div><button class="del" onclick="deleteCard(${i})">✕</button><textarea placeholder="输入一句话…" oninput="updateCard(${i},this.value)" rows="${Math.max(2,Math.ceil(c.length/30))}">${esc(c)}</textarea>`;
+      l.appendChild(d)
     });
     localStorage.setItem('tm_cards',JSON.stringify(cards))
   }
 
-  function renderCarousel(){
-    const stage=document.getElementById('cardStage');
-    const empty=document.getElementById('emptyState');
+  /* ===== Browse - Pure Fullscreen ===== */
+  function enterBrowse(){
+    document.getElementById('browseMode').style.display='block';
     const valid=cards.filter(c=>c.trim());
+    if(valid.length>0)currentIndex=0;
+    renderCards();
+  }
+
+  function exitBrowse(){
+    document.getElementById('browseMode').style.display='none';
+    renderEditors();
+  }
+
+  function renderCards(){
+    const stage=document.getElementById('browseMode');
+    const valid=cards.filter(c=>c.trim());
+    // Remove old cards but keep arrows
+    document.querySelectorAll('#browseMode>.card-full').forEach(el=>el.remove());
+
     if(valid.length===0){
-      document.querySelectorAll('#cardStage>.card-full').forEach(el=>el.remove());
-      empty.style.display='block';document.getElementById('dotsContainer').innerHTML='';
+      const empty=document.createElement('div');empty.className='card-full active';
+      empty.innerHTML='<div class="txt" style="opacity:.5;font-size:18px">还没有卡片</div>';
+      stage.appendChild(empty);
       document.getElementById('prevBtn').disabled=true;document.getElementById('nextBtn').disabled=true;
       return
     }
-    empty.style.display='none';
     if(currentIndex>=valid.length)currentIndex=0;
     if(currentIndex<0)currentIndex=0;
-    document.querySelectorAll('#cardStage>.card-full').forEach(el=>el.remove());
 
     valid.forEach((content,i)=>{
       const div=document.createElement('div');div.className='card-full';
-      // Assign background variation
-      const bgIdx=i%5+1;
-      div.classList.add('card-bg-'+bgIdx);
+      div.classList.add('card-bg-'+((i%5)+1));
       if(i===currentIndex)div.classList.add('active');
       else if(i<currentIndex)div.classList.add('prev');
       else div.classList.add('next');
-      div.innerHTML=`<div class="card-number">${i+1}/${valid.length}</div>
-        <div class="content-text">${esc(content).replace(/\n/g,'<br>')}</div>`;
+      div.innerHTML=`<div class="num">${i+1}/${valid.length}</div><div class="txt">${esc(content).replace(/\n/g,'<br>')}</div>`;
       stage.appendChild(div)
     });
-    renderDots(valid.length);
     document.getElementById('prevBtn').disabled=currentIndex<=0;
     document.getElementById('nextBtn').disabled=currentIndex>=valid.length-1
   }
 
-  function renderDots(t){
-    const c=document.getElementById('dotsContainer');c.innerHTML='';
-    for(let i=0;i<t;i++){const d=document.createElement('div');
-      d.className='dot'+(i===currentIndex?' active':'');c.appendChild(d)}
-  }
-
   function goToCard(i){
     const valid=cards.filter(c=>c.trim());
-    if(i<0)i=0;if(i>=valid.length)i=valid.length-1;
-    if(i===currentIndex&&valid.length>0)return;
-    currentIndex=i;renderCarousel()
+    if(i<0)i=0;if(i>=valid.length)i=Math.max(0,valid.length-1);
+    if(i===currentIndex)return;
+    currentIndex=i;renderCards()
   }
   function prevCard(){goToCard(currentIndex-1)}
   function nextCard(){goToCard(currentIndex+1)}
 
-  function switchMode(mode){
-    const edit=document.getElementById('editMode'),browse=document.getElementById('browseMode');
-    const tE=document.getElementById('tabEdit'),tB=document.getElementById('tabBrowse');
-    const header=document.getElementById('mainHeader');
-    if(mode==='edit'){
-      edit.style.display='flex';browse.style.display='none';
-      tE.classList.add('active');tB.classList.remove('active');
-      header.classList.remove('hidden');
-      renderEditors()
-    }else{
-      edit.style.display='none';browse.style.display='flex';
-      tE.classList.remove('active');tB.classList.add('active');
-      header.classList.add('hidden');
-      if(cards.filter(c=>c.trim()).length>0)currentIndex=0;
-      renderCarousel()
-    }
-  }
   function startBrowsing(){
     if(cards.filter(c=>c.trim()).length===0){showToast('请先输入内容');return}
-    switchMode('browse')
+    enterBrowse()
   }
 
+  /* ===== Quick Add ===== */
   function openQuickAdd(){
     document.getElementById('quickAddInput').value='';
     document.getElementById('quickAddModal').classList.add('open');
@@ -625,19 +386,20 @@
   }
   function closeQuickAdd(e){if(e&&e.target!==document.getElementById('quickAddModal'))return;document.getElementById('quickAddModal').classList.remove('open')}
   function confirmQuickAdd(){
-    const input=document.getElementById('quickAddInput'),text=input.value.trim();
-    if(!text){showToast('请输入内容');return}
-    cards.push(text);localStorage.setItem('tm_cards',JSON.stringify(cards));
+    const i=document.getElementById('quickAddInput'),t=i.value.trim();
+    if(!t){showToast('请输入内容');return}
+    cards.push(t);localStorage.setItem('tm_cards',JSON.stringify(cards));
     currentIndex=cards.filter(c=>c.trim()).length-1;
     document.getElementById('quickAddModal').classList.remove('open');
-    renderCarousel();showToast('已添加')
+    renderCards();showToast('已添加')
   }
 
+  /* ===== Share ===== */
   function shareCards(){
     const valid=cards.filter(c=>c.trim());
-    if(valid.length===0){showToast('还没有卡片内容');return}
-    const encoded=encodeURIComponent(btoa(JSON.stringify(valid)));
-    const url=window.location.origin+window.location.pathname+'#'+encoded;
+    if(valid.length===0){showToast('还没有内容');return}
+    const enc=encodeURIComponent(btoa(JSON.stringify(valid)));
+    const url=window.location.origin+window.location.pathname+'#'+enc;
     if(navigator.clipboard&&navigator.clipboard.writeText){
       navigator.clipboard.writeText(url).then(()=>showToast('链接已复制 ✓')).catch(()=>fallbackCopy(url))
     }else fallbackCopy(url)
@@ -649,20 +411,31 @@
     document.body.removeChild(ta)
   }
 
-  /* Touch swipe */
+  /* ===== Gestures ===== */
   let touchStartX=0;
+  let lastTap=0;
   document.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
   document.addEventListener('touchend',e=>{
     if(document.getElementById('browseMode').style.display==='none')return;
-    if(document.getElementById('quickAddModal').classList.contains('open'))return;
     const diff=touchStartX-e.changedTouches[0].screenX;
-    if(Math.abs(diff)>50){if(diff>0)nextCard();else prevCard()}
+    if(Math.abs(diff)>40){if(diff>0)nextCard();else prevCard()}
   },{passive:true});
+  // Double-tap on card area to exit browse mode
+  document.addEventListener('click',e=>{
+    if(document.getElementById('browseMode').style.display==='none')return;
+    // Only on the card area itself, not on arrows
+    if(e.target.closest('.nav-arrow'))return;
+    const now=Date.now();
+    if(now-lastTap<350){exitBrowse();lastTap=0;return}
+    lastTap=now;
+  });
   document.addEventListener('keydown',e=>{
     if(document.getElementById('browseMode').style.display==='none')return;
-    if(e.key==='ArrowLeft')prevCard();if(e.key==='ArrowRight')nextCard()
+    if(e.key==='ArrowLeft')prevCard();if(e.key==='ArrowRight')nextCard();
+    if(e.key==='Escape')exitBrowse()
   });
 
+  /* ===== Toast ===== */
   let toastTimer=null;
   function showToast(m){
     const el=document.getElementById('toast');el.textContent=m;
