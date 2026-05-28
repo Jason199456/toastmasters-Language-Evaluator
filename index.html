@@ -15,51 +15,43 @@
     input,textarea{font-family:inherit;outline:none;border:none}
     #app{height:100%;width:100%;display:flex;flex-direction:column;position:relative}
 
-    /* ===== Theme: Dream (渐变梦境) ===== */
+    /* ===== Theme: Dream ===== */
     .t-dream .bg1{background:linear-gradient(145deg,#2d1b69,#6c5ce7)}
     .t-dream .bg2{background:linear-gradient(145deg,#6c5ce7,#a29bfe)}
     .t-dream .bg3{background:linear-gradient(145deg,#2d1b69,#a29bfe)}
     .t-dream .bg4{background:linear-gradient(145deg,#6c5ce7,#fd79a8)}
     .t-dream .bg5{background:linear-gradient(145deg,#2d1b69,#fd79a8)}
     .t-dream .pat{background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.15) 0,transparent 20px),radial-gradient(circle at 80% 15%,rgba(255,255,255,.1) 0,transparent 25px),radial-gradient(circle at 50% 80%,rgba(255,255,255,.08) 0,transparent 30px),radial-gradient(circle at 10% 60%,rgba(255,255,255,.06) 0,transparent 15px),radial-gradient(circle at 70% 50%,rgba(255,255,255,.05) 0,transparent 18px)}
-    .t-dream .nav-ar{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
-    .t-dream .exit-btn{background:rgba(255,255,255,.08)}
+    .t-dream .nav-ar,.t-dream .exit-btn,.t-dream .dl-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
     .t-dream .card-inner{background:transparent}
-
-    /* ===== Theme: Cyber (赛博朋克) ===== */
+    /* ===== Theme: Cyber ===== */
     .t-cyber .bg1{background:linear-gradient(145deg,#0d0221,#1a0033)}
     .t-cyber .bg2{background:linear-gradient(145deg,#1a0033,#2d1b69)}
     .t-cyber .bg3{background:linear-gradient(145deg,#0d0221,#2d1b69)}
     .t-cyber .bg4{background:linear-gradient(145deg,#1a0033,#ff2a6d33)}
     .t-cyber .bg5{background:linear-gradient(145deg,#0d0221,#ff2a6d22)}
     .t-cyber .pat{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),radial-gradient(circle at 30% 40%,rgba(255,42,109,.08) 0,transparent 40px),radial-gradient(circle at 70% 60%,rgba(5,217,224,.06) 0,transparent 35px);background-size:24px 24px,24px 24px,100% 100%,100% 100%}
-    .t-cyber .nav-ar{background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
-    .t-cyber .exit-btn{background:rgba(255,42,109,.15)}
+    .t-cyber .nav-ar,.t-cyber .exit-btn,.t-cyber .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
     .t-cyber .card-inner{background:transparent}
-
-    /* ===== Theme: Nature (青山绿水) ===== */
+    /* ===== Theme: Nature ===== */
     .t-nature .bg1{background:linear-gradient(165deg,#0b2d1b,#1a4a2e)}
     .t-nature .bg2{background:linear-gradient(165deg,#1a4a2e,#2d6b4a)}
     .t-nature .bg3{background:linear-gradient(165deg,#0b2d1b,#2d6b4a)}
     .t-nature .bg4{background:linear-gradient(165deg,#1a4a2e,#4a8c6a)}
     .t-nature .bg5{background:linear-gradient(165deg,#0b2d1b,#4a8c6a)}
     .t-nature .pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cpath d='M0 160 Q60 80 120 120 Q180 60 240 110 Q300 50 360 100 Q380 80 400 90 L400 200 L0 200Z' fill='rgba(255,255,255,.04)'/%3E%3Cpath d='M0 180 Q80 130 160 150 Q240 110 320 140 Q360 120 400 130 L400 200 L0 200Z' fill='rgba(255,255,255,.03)'/%3E%3C/svg%3E");background-position:center bottom;background-size:100% auto;background-repeat:no-repeat}
-    .t-nature .nav-ar{background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
-    .t-nature .exit-btn{background:rgba(143,188,143,.15)}
+    .t-nature .nav-ar,.t-nature .exit-btn,.t-nature .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
     .t-nature .card-inner{background:transparent}
-
-    /* ===== Theme: Sky (蓝天白云) ===== */
+    /* ===== Theme: Sky ===== */
     .t-sky .bg1{background:linear-gradient(160deg,#1a3a5c,#2d6a9f)}
     .t-sky .bg2{background:linear-gradient(160deg,#2d6a9f,#6bb5e0)}
     .t-sky .bg3{background:linear-gradient(160deg,#1a3a5c,#6bb5e0)}
     .t-sky .bg4{background:linear-gradient(160deg,#2d6a9f,#a8d8ea)}
     .t-sky .bg5{background:linear-gradient(160deg,#1a3a5c,#a8d8ea)}
     .t-sky .pat{background-image:radial-gradient(ellipse 60px 30px at 15% 25%,rgba(255,255,255,.08) 0,transparent 50%),radial-gradient(ellipse 80px 35px at 50% 20%,rgba(255,255,255,.06) 0,transparent 50%),radial-gradient(ellipse 50px 25px at 78% 30%,rgba(255,255,255,.05) 0,transparent 50%),radial-gradient(ellipse 40px 20px at 35% 35%,rgba(255,255,255,.04) 0,transparent 50%)}
-    .t-sky .nav-ar{background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
-    .t-sky .exit-btn{background:rgba(240,217,181,.15)}
+    .t-sky .nav-ar,.t-sky .exit-btn,.t-sky .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
     .t-sky .card-inner{background:transparent}
-
-    /* ===== Theme: Chinese (中国风·绛红) ===== */
+    /* ===== Theme: Chinese ===== */
     .t-chinese .bg1{background:linear-gradient(150deg,#3d0a0a,#6b1d1d)}
     .t-chinese .bg2{background:linear-gradient(150deg,#6b1d1d,#8b3a3a)}
     .t-chinese .bg3{background:linear-gradient(150deg,#3d0a0a,#8b3a3a)}
@@ -69,50 +61,32 @@
     .t-chinese .card-inner{border-color:rgba(212,175,55,.2)}
     .t-chinese .card-inner::before,.t-chinese .card-inner::after{border-color:rgba(212,175,55,.25)}
     .t-chinese .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
-    .t-chinese .nav-ar{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2)}
-    .t-chinese .exit-btn{background:rgba(212,175,55,.12)}
+    .t-chinese .nav-ar,.t-chinese .exit-btn,.t-chinese .dl-btn{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2)}
 
-    /* ===== Header - Centered ===== */
+    /* ===== Header ===== */
     header{
       padding:16px 16px 10px;background:#FFF;flex-shrink:0;
       z-index:20;position:relative;color:#2D3436;text-align:center
     }
     .club-name-area{
       display:inline-flex;align-items:center;gap:5px;
-      padding:5px 14px 5px 10px;
-      border-radius:10px;cursor:pointer;
-      border:2px dashed #D5D0CC;
-      background:#FAF8F6;
-      transition:all .25s;
-      max-width:90%
+      padding:5px 14px 5px 10px;border-radius:10px;cursor:pointer;
+      border:2px dashed #D5D0CC;background:#FAF8F6;
+      transition:all .25s;max-width:90%
     }
-    .club-name-area:hover{
-      border-color:#6C5CE7;
-      background:#F5F0FF;
-      box-shadow:0 0 0 3px rgba(108,92,231,.1)
-    }
+    .club-name-area:hover{border-color:#6C5CE7;background:#F5F0FF;box-shadow:0 0 0 3px rgba(108,92,231,.1)}
     .club-name-area .icon-edit{
       display:inline-flex;align-items:center;justify-content:center;
-      width:20px;height:20px;border-radius:50%;
-      background:#6C5CE7;color:#FFF;
-      font-size:11px;line-height:1;flex-shrink:0;
-      transition:transform .2s
+      width:20px;height:20px;border-radius:50%;background:#6C5CE7;color:#FFF;
+      font-size:11px;line-height:1;flex-shrink:0;transition:transform .2s
     }
     .club-name-area:hover .icon-edit{transform:scale(1.15)}
-    #clubNameDisplay{
-      font-size:18px;font-weight:700;color:#2D3436;
-      vertical-align:middle
-    }
+    #clubNameDisplay{font-size:18px;font-weight:700;color:#2D3436;vertical-align:middle}
     #clubNameInput{
-      font-size:17px;font-weight:700;color:#2D3436;
-      background:#FFF;border:2px solid #6C5CE7;border-radius:8px;
-      padding:4px 10px;width:200px;text-align:center;
-      display:none
+      font-size:17px;font-weight:700;color:#2D3436;background:#FFF;
+      border:2px solid #6C5CE7;border-radius:8px;padding:4px 10px;width:200px;text-align:center;display:none
     }
-    .subtitle{
-      font-size:13px;font-weight:600;color:#E17055;
-      letter-spacing:3px;margin-top:4px
-    }
+    .subtitle{font-size:13px;font-weight:600;color:#E17055;letter-spacing:3px;margin-top:4px}
 
     /* ===== Edit Mode ===== */
     #editMode{
@@ -158,8 +132,9 @@
       border:1.5px solid #D8D0F0;color:#6C5CE7;background:transparent;transition:all .2s;cursor:pointer
     }
     .theme-opt.active{background:#6C5CE7;color:#FFF;border-color:#6C5CE7}
+    .theme-opt:hover{background:#F0EBFF}
 
-    /* ===== Browse Mode - Fullscreen ===== */
+    /* ===== Browse Mode ===== */
     #browseMode{
       position:fixed;top:0;left:0;right:0;bottom:0;
       z-index:100;display:none;overflow:hidden
@@ -174,7 +149,6 @@
     .card-full.active{transform:translateX(0);opacity:1}
     .card-full.next{transform:translateX(100%);opacity:0}
 
-    /* Card inner - the visible card */
     .card-inner{
       width:100%;max-width:560px;
       height:calc(100% - 32px);max-height:780px;
@@ -186,62 +160,55 @@
       position:relative;overflow:hidden;
       box-shadow:0 8px 40px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.06)
     }
-    /* Pattern layer inside card */
-    .card-inner .pat{
-      position:absolute;inset:0;z-index:0;
-      pointer-events:none
-    }
+    .card-inner .pat{position:absolute;inset:0;z-index:0;pointer-events:none}
     .card-inner .txt{
       position:relative;z-index:1;
-      font-size:clamp(20px,5.5vw,38px);
-      font-weight:600;line-height:1.7;
-      text-align:center;width:100%;
-      word-break:break-word;
-      text-shadow:0 2px 20px rgba(0,0,0,.3);
-      padding:12px 0
+      font-size:clamp(20px,5.5vw,38px);font-weight:600;line-height:1.7;
+      text-align:center;width:100%;word-break:break-word;
+      text-shadow:0 2px 20px rgba(0,0,0,.3);padding:12px 0
     }
     .card-inner .num{
-      position:absolute;bottom:12px;left:50%;
-      transform:translateX(-50%);
+      position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
       font-size:11px;font-weight:500;opacity:.25;letter-spacing:1px;z-index:1
     }
-    /* Inner decorative lines top/bottom */
     .card-inner .deco-line{
-      position:absolute;left:20px;right:20px;
-      height:1px;z-index:1;
+      position:absolute;left:20px;right:20px;height:1px;z-index:1;
       background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)
     }
     .card-inner .deco-line.t{top:36px}
     .card-inner .deco-line.b{bottom:36px}
-    /* Decorative corners */
     .card-inner::before,.card-inner::after{
       content:'';position:absolute;z-index:1;
       width:18px;height:18px;
-      border-color:rgba(255,255,255,.2);
-      border-style:solid
+      border-color:rgba(255,255,255,.2);border-style:solid
     }
     .card-inner::before{top:12px;left:12px;border-top-width:2px;border-left-width:2px;border-radius:3px 0 0 0}
     .card-inner::after{bottom:12px;right:12px;border-bottom-width:2px;border-right-width:2px;border-radius:0 0 3px 0}
 
-    /* ===== Exit Button (top-right) ===== */
+    /* ===== Browse controls ===== */
     .exit-btn{
       position:fixed;top:12px;right:12px;z-index:120;
       width:32px;height:32px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      font-size:16px;line-height:1;
-      transition:all .2s;
+      font-size:16px;line-height:1;transition:all .2s;
       backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
     }
     .exit-btn:active{transform:scale(.85)}
-
-    /* Nav arrows */
+    .dl-btn{
+      position:fixed;bottom:12px;left:12px;z-index:120;
+      width:32px;height:32px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:15px;line-height:1;transition:all .2s;
+      backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+      opacity:.6
+    }
+    .dl-btn:hover{opacity:1}
+    .dl-btn:active{transform:scale(.85)}
     .nav-ar{
-      position:fixed;top:50%;transform:translateY(-50%);
-      z-index:110;
+      position:fixed;top:50%;transform:translateY(-50%);z-index:110;
       width:36px;height:36px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      font-size:20px;
-      transition:all .2s;
+      font-size:20px;transition:all .2s;
       backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
     }
     .nav-ar:active{transform:translateY(-50%) scale(.88)}
@@ -249,7 +216,7 @@
     .nav-ar.r{right:6px}
     .nav-ar:disabled{opacity:.12;pointer-events:none}
 
-    /* ===== Quick Add Modal ===== */
+    /* ===== Modal ===== */
     .modal-ov{
       position:fixed;top:0;left:0;right:0;bottom:0;
       background:rgba(0,0,0,.45);display:flex;align-items:flex-end;
@@ -259,11 +226,13 @@
     .modal-sh{
       background:#FFF;border-radius:20px 20px 0 0;
       padding:16px 20px 26px;width:100%;color:#2D3436;
-      transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1)
+      transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);
+      max-height:70vh;overflow-y:auto
     }
     .modal-ov.open .modal-sh{transform:translateY(0)}
     .modal-h{width:32px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 12px}
-    .modal-sh .t{font-size:15px;font-weight:600;margin-bottom:10px}
+    .modal-sh .t{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+    .modal-sh .t .badge{font-size:11px;font-weight:400;color:#999;margin-left:auto}
     .modal-sh textarea{
       width:100%;min-height:80px;font-size:14px;line-height:1.6;
       color:#2D3436;background:#FAFAFA;border-radius:10px;
@@ -274,6 +243,24 @@
     .modal-sh .acts .btn{flex:1;justify-content:center}
     .modal-sh .acts .btn-pri{background:#6C5CE7;color:#FFF;box-shadow:0 3px 10px rgba(108,92,231,.25)}
     .modal-sh .acts .btn-sec{background:#EDE9E6;color:#555}
+    .modal-sh .acts .btn-dan{background:#FF6B6B;color:#FFF}
+
+    /* ===== Quotes list ===== */
+    .quote-item{
+      background:#FAF8F6;border-radius:10px;padding:10px 12px;margin-bottom:8px;
+      border-left:3px solid #6C5CE7;position:relative
+    }
+    .quote-item .qi-meta{font-size:10px;color:#999;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+    .quote-item .qi-meta span{display:inline-flex;align-items:center;gap:3px}
+    .quote-item .qi-cards{font-size:13px;line-height:1.5;color:#555}
+    .quote-item .qi-cards .qc{display:inline-block;background:#FFF;padding:2px 8px;border-radius:4px;margin:2px 4px 2px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+    .quote-item .qi-del{
+      position:absolute;top:6px;right:8px;
+      width:18px;height:18px;border-radius:50%;background:#F0EDEA;
+      color:#BBB;font-size:10px;display:flex;align-items:center;justify-content:center;
+      transition:all .2s
+    }
+    .quote-item .qi-del:hover{background:#FFE0D6;color:#FF6B6B}
 
     /* Toast */
     .toast{
@@ -286,8 +273,19 @@
     }
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-    /* Hover effects for theme buttons */
-    .theme-opt:hover{background:#F0EBFF}
+    /* ===== Config form ===== */
+    .cfg-row{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+    .cfg-row label{font-size:12px;font-weight:600;color:#666}
+    .cfg-row input{
+      padding:8px 10px;border-radius:8px;font-size:13px;
+      border:1.5px solid #DDD;background:#FAFAFA;transition:all .2s
+    }
+    .cfg-row input:focus{border-color:#6C5CE7;background:#FFF}
+    .cfg-hint{font-size:10px;color:#AAA;margin-top:2px;line-height:1.4}
+    .cfg-status{font-size:11px;padding:6px 10px;border-radius:6px;margin-top:6px}
+    .cfg-status.ok{background:#E8F5E9;color:#2E7D32}
+    .cfg-status.err{background:#FFF0F0;color:#D32F2F}
+    .cfg-status.pending{background:#FFF8E1;color:#F57F17}
 
     @media(min-width:768px){
       .card-full{padding:24px}
@@ -296,7 +294,9 @@
       .nav-ar{width:44px;height:44px;font-size:24px}
       .nav-ar.l{left:16px}
       .nav-ar.r{right:16px}
-      .exit-btn{width:36px;height:36px;font-size:18px;top:16px;right:16px}
+      .exit-btn,.dl-btn{width:36px;height:36px;font-size:18px}
+      .exit-btn{top:16px;right:16px}
+      .dl-btn{bottom:16px;left:16px}
     }
     @media(min-width:1024px){
       .card-inner{max-width:620px;max-height:840px}
@@ -311,10 +311,8 @@
   </style>
 </head>
 <body>
-
 <div id="app">
-
-  <!-- ===== Header - Centered ===== -->
+  <!-- ===== Header ===== -->
   <header>
     <div class="club-name-area" onclick="editClubName()" title="点击编辑俱乐部名称">
       <span class="icon-edit">✎</span>
@@ -340,6 +338,7 @@
     <div class="edit-acts">
       <button class="btn btn-pri" onclick="startBrowsing()">👁️ 全屏显示</button>
       <button class="btn btn-out" onclick="shareCards()">🔗 分享</button>
+      <button class="btn btn-out" onclick="openQuoteLib()">📖 金句库</button>
       <button class="btn btn-sec" onclick="clearAll()">🗑️</button>
     </div>
   </div>
@@ -347,6 +346,7 @@
   <!-- ===== Browse Mode ===== -->
   <div id="browseMode">
     <button class="exit-btn" onclick="exitBrowse()">✕</button>
+    <button class="dl-btn" onclick="downloadCard()" title="下载卡片">⬇️</button>
     <button class="nav-ar l" id="prevBtn" onclick="prevCard()">‹</button>
     <button class="nav-ar r" id="nextBtn" onclick="nextCard()">›</button>
   </div>
@@ -364,6 +364,54 @@
     </div>
   </div>
 
+  <!-- ===== Quotes Library Modal ===== -->
+  <div class="modal-ov" id="quoteModal" onclick="closeModal(event,'quoteModal')">
+    <div class="modal-sh" onclick="event.stopPropagation()">
+      <div class="modal-h"></div>
+      <div class="t">
+        📖 金句库
+        <span class="badge" id="quoteCount">0 条</span>
+      </div>
+      <div id="quoteList"></div>
+      <div style="border-top:1px solid #EEE;margin:10px 0 8px;padding-top:10px">
+        <div class="edit-acts" style="flex-wrap:wrap">
+          <button class="btn btn-out" onclick="exportQuotes()">📥 导出 JSON</button>
+          <button class="btn btn-out" onclick="syncToGitHub()" id="syncBtn">☁️ 同步到 GitHub</button>
+          <button class="btn btn-sec" onclick="openGitHubConfig()">⚙️ 配置</button>
+          <button class="btn btn-sec" onclick="if(confirm('清空所有金句记录？'))clearQuotes()">🗑️ 清空</button>
+        </div>
+        <div id="syncStatus" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GitHub Config Modal ===== -->
+  <div class="modal-ov" id="ghConfigModal" onclick="closeModal(event,'ghConfigModal')">
+    <div class="modal-sh" onclick="event.stopPropagation()">
+      <div class="modal-h"></div>
+      <div class="t">⚙️ GitHub 同步配置</div>
+      <div class="cfg-row">
+        <label>GitHub Token</label>
+        <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+        <div class="cfg-hint">需要 repo 权限的 Personal Access Token<br>👉 <span style="color:#6C5CE7;cursor:pointer" onclick="openGhTokenGuide()">如何获取 Token？</span></div>
+      </div>
+      <div class="cfg-row">
+        <label>仓库名</label>
+        <input type="text" id="ghRepo" placeholder="owner/repo（如 jason199456/toastmasters-language-officer）">
+      </div>
+      <div class="cfg-row">
+        <label>文件路径</label>
+        <input type="text" id="ghPath" placeholder="quotes/quotes.json">
+        <div class="cfg-hint">存放金句的 JSON 文件路径，自动创建</div>
+      </div>
+      <div id="ghConfigStatus"></div>
+      <div class="acts" style="margin-top:10px">
+        <button class="btn btn-sec" onclick="closeModal(null,'ghConfigModal')">取消</button>
+        <button class="btn btn-pri" onclick="saveGitHubConfig()">保存配置</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast"></div>
 </div>
 
@@ -372,6 +420,7 @@
   const T={dream:'t-dream',cyber:'t-cyber',nature:'t-nature',sky:'t-sky',chinese:'t-chinese'};
   const TK=Object.keys(T);
 
+  // ===== Init =====
   function init(){
     const n=localStorage.getItem('tm_clubName');
     if(n)document.getElementById('clubNameDisplay').textContent=n;
@@ -385,24 +434,25 @@
     if(s){try{cards=JSON.parse(s)}catch(e){cards=[]}}
     if(cards.length===0)cards=['',''];
     renderEditors();
+    // visitor ID
+    if(!localStorage.getItem('tm_visitor'))localStorage.setItem('tm_visitor',genId().slice(0,8));
   }
+
+  function genId(){return crypto.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
 
   function editClubName(){
     const d=document.getElementById('clubNameDisplay'),i=document.getElementById('clubNameInput');
-    i.value=d.textContent;
-    d.style.display='none';i.style.display='inline-block';i.focus();i.select()
+    i.value=d.textContent;d.style.display='none';i.style.display='inline-block';i.focus();i.select()
   }
   function saveClubName(){
     const d=document.getElementById('clubNameDisplay'),i=document.getElementById('clubNameInput');
     const n=i.value.trim()||'头马俱乐部';
     d.textContent=n;d.style.display='inline';i.style.display='none';
-    localStorage.setItem('tm_clubName',n);
-    toast('已保存')
+    localStorage.setItem('tm_clubName',n);toast('已保存')
   }
 
   function setTheme(k){
-    if(!T[k])return;
-    curTheme=k;
+    if(!T[k])return;curTheme=k;
     TK.forEach(x=>document.body.classList.remove(T[x]));
     document.body.classList.add(T[k]);
     localStorage.setItem('tm_theme',k);
@@ -410,8 +460,7 @@
     if(document.getElementById('browseMode').style.display!=='none')renderCards()
   }
 
-  function addCard(c){cards.push(c||'');renderEditors();
-    setTimeout(()=>{const l=document.getElementById('editorList'),e=l.lastElementChild;if(e){const t=e.querySelector('textarea');if(t)t.focus();l.scrollTop=l.scrollHeight}},50)}
+  function addCard(c){cards.push(c||'');renderEditors();setTimeout(()=>{const l=document.getElementById('editorList'),e=l.lastElementChild;if(e){const t=e.querySelector('textarea');if(t)t.focus();l.scrollTop=l.scrollHeight}},50)}
   function deleteCard(i){if(cards.length<=1){toast('至少保留一张');return}cards.splice(i,1);renderEditors()}
   function clearAll(){if(cards.every(c=>!c.trim()))return;if(!confirm('清空所有卡片？'))return;cards=[''];renderEditors();toast('已清空')}
   function updCard(i,v){cards[i]=v;localStorage.setItem('tm_cards',JSON.stringify(cards))}
@@ -466,14 +515,15 @@
   function goTo(i){
     const v=cards.filter(c=>c.trim());
     if(i<0)i=0;if(i>=v.length)i=Math.max(0,v.length-1);
-    if(i===cur)return;
-    cur=i;renderCards()
+    if(i===cur)return;cur=i;renderCards()
   }
   function prevCard(){goTo(cur-1)}
   function nextCard(){goTo(cur+1)}
 
   function startBrowsing(){
-    if(cards.filter(c=>c.trim()).length===0){toast('请先输入内容');return}
+    const v=cards.filter(c=>c.trim());
+    if(v.length===0){toast('请先输入内容');return}
+    recordQuotes();
     goBrowse()
   }
 
@@ -497,6 +547,7 @@
   function shareCards(){
     const v=cards.filter(c=>c.trim());
     if(v.length===0){toast('还没有内容');return}
+    recordQuotes();
     const enc=encodeURIComponent(btoa(JSON.stringify(v)));
     const url=window.location.origin+window.location.pathname+'#'+enc;
     if(navigator.clipboard&&navigator.clipboard.writeText){
@@ -510,6 +561,188 @@
     document.body.removeChild(ta)
   }
 
+  // ===== Quotes =====
+  function getQuotes(){try{return JSON.parse(localStorage.getItem('tm_quotes'))||[]}catch(e){return[]}}
+  function saveQuotes(q){localStorage.setItem('tm_quotes',JSON.stringify(q))}
+
+  async function recordQuotes(){
+    const v=cards.filter(c=>c.trim());
+    if(v.length===0)return;
+    const qs=getQuotes();
+    let ip='';
+    try{
+      const r=await fetch('https://api.ipify.org?format=json');
+      if(r.ok){const d=await r.json();ip=d.ip}
+    }catch(e){}
+    qs.push({
+      id:genId(),
+      timestamp:new Date().toISOString(),
+      club:document.getElementById('clubNameDisplay').textContent,
+      theme:curTheme,
+      cardCount:v.length,
+      cards:v,
+      ip:ip,
+      visitor:localStorage.getItem('tm_visitor')||''
+    });
+    saveQuotes(qs)
+  }
+
+  function openQuoteLib(){
+    renderQuoteList();
+    document.getElementById('quoteModal').classList.add('open')
+  }
+
+  function renderQuoteList(){
+    const qs=getQuotes(),l=document.getElementById('quoteList');
+    document.getElementById('quoteCount').textContent=qs.length+' 条';
+    if(qs.length===0){
+      l.innerHTML='<div style="text-align:center;padding:24px 0;color:#AAA;font-size:13px">还没有记录<br><span style="font-size:11px">编辑卡片后点击「全屏显示」自动记录</span></div>';
+      return
+    }
+    l.innerHTML='';
+    [...qs].reverse().forEach((q,i)=>{
+      const d=document.createElement('div');d.className='quote-item';
+      const t=new Date(q.timestamp);
+      const ts=t.toLocaleDateString('zh-CN')+' '+t.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
+      const ipD=q.ip||'--';
+      d.innerHTML=`<div class="qi-del" onclick="deleteQuote(${qs.length-1-i})">✕</div>
+        <div class="qi-meta">
+          <span>📅 ${ts}</span>
+          <span>🏷️ ${esc(q.club||'')}</span>
+          <span>🌐 ${ipD}</span>
+          <span>📄 ${q.cardCount} 张</span>
+        </div>
+        <div class="qi-cards">${q.cards.map(c=>`<span class="qc">${esc(c)}</span>`).join('')}</div>`;
+      l.appendChild(d)
+    })
+  }
+
+  function deleteQuote(i){
+    const qs=getQuotes();
+    qs.splice(i,1);saveQuotes(qs);renderQuoteList()
+  }
+  function clearQuotes(){
+    saveQuotes([]);renderQuoteList();toast('已清空')
+  }
+
+  function exportQuotes(){
+    const qs=getQuotes();
+    if(qs.length===0){toast('没有记录');return}
+    const blob=new Blob([JSON.stringify(qs,null,2)],{type:'application/json'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='touma-quotes-'+new Date().toISOString().slice(0,10)+'.json';
+    a.click();toast('已导出 ✓')
+  }
+
+  // ===== GitHub Sync =====
+  function getGhConfig(){
+    try{return JSON.parse(localStorage.getItem('tm_gh_config'))||{}}catch(e){return{}}
+  }
+  function saveGhConfig(c){localStorage.setItem('tm_gh_config',JSON.stringify(c))}
+
+  function openGitHubConfig(){
+    const c=getGhConfig();
+    document.getElementById('ghToken').value=c.token||'';
+    document.getElementById('ghRepo').value=c.repo||'';
+    document.getElementById('ghPath').value=c.path||'quotes/quotes.json';
+    document.getElementById('ghConfigStatus').innerHTML='';
+    closeModal(null,'quoteModal');
+    setTimeout(()=>document.getElementById('ghConfigModal').classList.add('open'),100)
+  }
+
+  function saveGitHubConfig(){
+    const token=document.getElementById('ghToken').value.trim();
+    const repo=document.getElementById('ghRepo').value.trim();
+    const path=document.getElementById('ghPath').value.trim()||'quotes/quotes.json';
+    if(!token||!repo){document.getElementById('ghConfigStatus').innerHTML='<div class="cfg-status err">请填写 Token 和仓库名</div>';return}
+    saveGhConfig({token,repo,path});
+    document.getElementById('ghConfigStatus').innerHTML='<div class="cfg-status ok">✅ 配置已保存</div>';
+    toast('配置已保存');
+    setTimeout(()=>{closeModal(null,'ghConfigModal');openQuoteLib()},500)
+  }
+
+  function openGhTokenGuide(){
+    toast('GitHub → Settings → Developer settings → Personal access tokens → 生成新 token，勾选 repo')
+  }
+
+  async function syncToGitHub(){
+    const cfg=getGhConfig();
+    if(!cfg.token||!cfg.repo){toast('请先配置 GitHub ⚙️');return}
+    const qs=getQuotes();
+    if(qs.length===0){toast('没有金句可同步');return}
+    const btn=document.getElementById('syncBtn');
+    const st=document.getElementById('syncStatus');st.style.display='block';
+    st.innerHTML='<div class="cfg-status pending">⏳ 同步中…</div>';
+    btn.disabled=true;
+    try{
+      // 1. Try to read existing file
+      let sha=null,existing=[];
+      const getR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path}`,{
+        headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json'}
+      });
+      if(getR.ok){
+        const d=await getR.json();
+        sha=d.sha;
+        try{existing=JSON.parse(atob(d.content))}catch(e){existing=[]}
+      }else if(getR.status!==404){
+        throw new Error('读取失败: '+getR.status)
+      }
+      // 2. Merge & deduplicate by id
+      const existingIds=new Set(existing.map(e=>e.id));
+      const merged=[...existing,...qs.filter(q=>!existingIds.has(q.id))];
+      // 3. Write back
+      const putR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path}`,{
+        method:'PUT',
+        headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
+        body:JSON.stringify({
+          message:`sync ${qs.length} quotes from Touma Language Officer`,
+          content:btoa(unescape(encodeURIComponent(JSON.stringify(merged,null,2)))),
+          sha:sha||undefined
+        })
+      });
+      if(!putR.ok){
+        const e=await putR.json();
+        throw new Error(e.message||'同步失败')
+      }
+      st.innerHTML='<div class="cfg-status ok">✅ 同步成功！共 '+(merged.length-existing.length)+' 条新记录，总计 '+merged.length+' 条</div>';
+      toast('同步成功 ✓')
+    }catch(e){
+      st.innerHTML='<div class="cfg-status err">❌ '+esc(e.message)+'</div>';
+      toast('同步失败')
+    }
+    btn.disabled=false
+  }
+
+  // ===== Download Card =====
+  function loadHtml2Canvas(cb){
+    if(window.html2canvas){cb();return}
+    const s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+    s.onload=cb;s.onerror=()=>toast('加载 html2canvas 失败');
+    document.head.appendChild(s)
+  }
+
+  function downloadCard(){
+    const active=document.querySelector('#browseMode .card-full.active');
+    if(!active){toast('没有卡片可下载');return}
+    const cardInner=active.querySelector('.card-inner');
+    if(!cardInner){toast('未找到卡片');return}
+    loadHtml2Canvas(()=>{
+      html2canvas(cardInner,{
+        scale:2,
+        useCORS:true,
+        backgroundColor:null,
+        allowTaint:true
+      }).then(canvas=>{
+        const a=document.createElement('a');
+        a.download='touma-card-'+(cur+1)+'.png';
+        a.href=canvas.toDataURL('image/png');
+        a.click();toast('已下载 ✓')
+      }).catch(e=>{toast('下载失败');console.error(e)})
+    })
+  }
+
   // ===== Gestures =====
   let tx=0,lastTap=0;
   document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
@@ -521,7 +754,7 @@
   },{passive:true});
   document.addEventListener('click',e=>{
     if(document.getElementById('browseMode').style.display==='none')return;
-    if(e.target.closest('.nav-ar')||e.target.closest('.exit-btn')||e.target.closest('.card-inner'))return;
+    if(e.target.closest('.nav-ar')||e.target.closest('.exit-btn')||e.target.closest('.dl-btn')||e.target.closest('.card-inner'))return;
     const n=Date.now();
     if(n-lastTap<350){exitBrowse();lastTap=0;return}
     lastTap=n;
@@ -532,6 +765,8 @@
     if(e.key==='Escape')exitBrowse()
   });
 
+  // ===== Utils =====
+  function closeModal(e,id){if(e&&e.target!==document.getElementById(id))return;document.getElementById(id).classList.remove('open')}
   let tt=null;
   function toast(m){
     const el=document.getElementById('toast');el.textContent=m;
