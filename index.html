@@ -15,6 +15,9 @@
     input,textarea{font-family:inherit;outline:none;border:none}
     #app{height:100%;width:100%;display:flex;flex-direction:column;position:relative}
 
+    /* ========== Card Default BG (black) ========== */
+    .card-inner{background:#000}
+
     /* ========== THEMES ========== */
 
     /* --- Dream: starry night --- */
@@ -47,7 +50,6 @@
     .t-dream .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,215,0,.1);top:88%;left:30%}
     .t-dream .d7{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.08);top:45%;left:85%}
     .t-dream .nav-ar,.t-dream .exit-btn,.t-dream .dl-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12)}
-    .t-dream .card-inner{background:transparent}
 
     /* --- Cyber: neon circuit --- */
     .t-cyber .bg1{background:linear-gradient(145deg,#0d0221,#1a0033)}
@@ -75,7 +77,6 @@
     .t-cyber .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,215,0,.08);top:85%;left:70%}
     .t-cyber .d7{width:6px;height:6px;border:1px solid rgba(5,217,224,.15);background:transparent;top:72%;left:50%}
     .t-cyber .nav-ar,.t-cyber .exit-btn,.t-cyber .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
-    .t-cyber .card-inner{background:transparent}
 
     /* --- Nature: landscape --- */
     .t-nature .bg1{background:linear-gradient(165deg,#0b2d1b,#1a4a2e)}
@@ -93,9 +94,8 @@
     .t-nature .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.06);top:88%;left:55%}
     .t-nature .d7{width:6px;height:6px;border-radius:50% 0 50% 0;background:rgba(143,188,143,.08);top:45%;left:15%}
     .t-nature .nav-ar,.t-nature .exit-btn,.t-nature .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
-    .t-nature .card-inner{background:transparent}
 
-    /* --- Sky: clouds --- (removed grid/rays) --- */
+    /* --- Sky: clouds --- */
     .t-sky .bg1{background:linear-gradient(160deg,#1a3a5c,#2d6a9f)}
     .t-sky .bg2{background:linear-gradient(160deg,#2d6a9f,#6bb5e0)}
     .t-sky .bg3{background:linear-gradient(160deg,#1a3a5c,#6bb5e0)}
@@ -120,7 +120,6 @@
     .t-sky .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.05);top:85%;left:50%}
     .t-sky .d7{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.05);top:48%;left:45%}
     .t-sky .nav-ar,.t-sky .exit-btn,.t-sky .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
-    .t-sky .card-inner{background:transparent}
 
     /* --- Chinese: classical --- */
     .t-chinese .bg1{background:linear-gradient(150deg,#3d0a0a,#6b1d1d)}
@@ -181,12 +180,12 @@
     .btn-add{color:#6C5CE7;font-size:12px;font-weight:500;padding:4px 0;display:flex;align-items:center;gap:4px}
 
     /* ========== Browse Mode ========== */
-    #browseMode{position:fixed;top:0;left:0;right:0;bottom:0;z-index:100;display:none;overflow:hidden}
+    #browseMode{position:fixed;top:0;left:0;right:0;bottom:0;z-index:100;display:none;overflow:hidden;background:#000}
     .card-full{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:14px;transition:opacity .4s ease,transform .4s cubic-bezier(.25,.46,.45,.94)}
     .card-full.prev{transform:translateX(-100%);opacity:0}
     .card-full.active{transform:translateX(0);opacity:1}
     .card-full.next{transform:translateX(100%);opacity:0}
-    .card-inner{width:100%;max-width:560px;height:calc(100% - 48px);max-height:780px;border:1.5px solid rgba(255,255,255,.15);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 28px;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.06)}
+    .card-inner{width:100%;max-width:560px;height:calc(100% - 48px);max-height:780px;border:1.5px solid rgba(255,255,255,.15);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 28px;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06)}
     .card-inner .pat{position:absolute;inset:0;z-index:0;pointer-events:none;background-position:center bottom;background-size:100% 100%;background-repeat:no-repeat}
     .card-inner .deco-html{position:absolute;inset:0;z-index:1;pointer-events:none}
     .card-inner .deco-html i{position:absolute}
@@ -199,25 +198,20 @@
     .card-inner::before{top:14px;left:14px;border-top-width:2px;border-left-width:2px;border-radius:3px 0 0 0}
     .card-inner::after{bottom:14px;right:14px;border-bottom-width:2px;border-right-width:2px;border-radius:0 0 3px 0}
 
-    /* Arrows at bottom */
-    .exit-btn{position:fixed;top:10px;right:10px;z-index:120;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;backdrop-filter:blur(4px)}.exit-btn:active{transform:scale(.85)}
-    .dl-btn{position:fixed;bottom:14px;left:14px;z-index:120;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;opacity:.6;backdrop-filter:blur(4px)}.dl-btn:hover{opacity:1}.dl-btn:active{transform:scale(.85)}
-    .nav-ar{position:fixed;bottom:14px;transform:none;z-index:110;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .2s;backdrop-filter:blur(4px)}.nav-ar:active{transform:scale(.88)}.nav-ar:disabled{opacity:.15;pointer-events:none}
+    .exit-btn{position:fixed;top:10px;right:10px;z-index:120;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;backdrop-filter:blur(4px);color:rgba(255,255,255,.5)}.exit-btn:active{transform:scale(.85)}
+    .dl-btn{position:fixed;bottom:14px;left:14px;z-index:120;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;opacity:.4;backdrop-filter:blur(4px);color:rgba(255,255,255,.5)}.dl-btn:hover{opacity:.8}.dl-btn:active{transform:scale(.85)}
+    .nav-ar{position:fixed;bottom:14px;transform:none;z-index:110;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .2s;backdrop-filter:blur(4px);color:rgba(255,255,255,.5)}.nav-ar:active{transform:scale(.88)}.nav-ar:disabled{opacity:.1;pointer-events:none}
     .nav-ar.l{left:calc(50% - 60px)}
     .nav-ar.r{right:calc(50% - 60px)}
 
-    /* ========== Modal ========== */
+    /* ========== Modal & Toast ========== */
     .modal-ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
     .modal-ov.open{opacity:1;pointer-events:auto}
     .modal-sh{background:#FFF;border-radius:20px 20px 0 0;padding:16px 20px 26px;width:100%;color:#2D3436;transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);max-height:70vh;overflow-y:auto}
     .modal-ov.open .modal-sh{transform:translateY(0)}
     .modal-h{width:32px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 12px}
     .modal-sh .t{font-size:15px;font-weight:600;margin-bottom:10px}
-    .modal-sh .acts{display:flex;gap:10px;margin-top:12px}
-    .modal-sh .acts .btn{flex:1;justify-content:center;padding:7px 14px;border-radius:9px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:4px;transition:all .2s}
-    .modal-sh .acts .btn-pri{background:#6C5CE7;color:#FFF}
-
-    /* Toast */
+    .modal-sh .acts .btn{flex:1;justify-content:center;padding:7px 14px;border-radius:9px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:4px;background:#6C5CE7;color:#FFF}
     .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);background:rgba(45,52,54,.92);color:#FFF;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:500;opacity:0;transition:all .35s;z-index:300;pointer-events:none;white-space:nowrap;backdrop-filter:blur(8px)}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
@@ -259,7 +253,7 @@
       <span id="clubNameDisplay">申花头马俱乐部</span>
       <input type="text" id="clubNameInput" placeholder="输入名称" onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
     </div>
-    <div class="subtitle">头马语言官</div>
+    <div class="subtitle">语言官</div>
     <div class="header-actions">
       <div class="theme-wrap">
         <button class="theme-btn" onclick="toggleTheme()">风格 <span class="arr" id="themeArr">▼</span></button>
@@ -314,7 +308,7 @@ function updCard(i,v){cards[i]=v;localStorage.setItem('tm_cards',JSON.stringify(
 function renderEditors(){const l=document.getElementById('editorList');l.innerHTML='';cards.forEach((c,i)=>{const d=document.createElement('div');d.className='card-edit';d.innerHTML='<div class="lbl">卡片 '+(i+1)+'</div><button class="del" onclick="deleteCard('+i+')">✕</button><textarea placeholder="输入一句话…" oninput="updCard('+i+',this.value)" rows="'+Math.max(2,Math.ceil(c.length/30))+'">'+esc(c)+'</textarea>';l.appendChild(d)});localStorage.setItem('tm_cards',JSON.stringify(cards))}
 function goBrowse(){document.getElementById('browseMode').style.display='block';const v=cards.filter(c=>c.trim());if(v.length>0)cur=0;renderCards()}
 function exitBrowse(){document.getElementById('browseMode').style.display='none';renderEditors()}
-function renderCards(){const stage=document.getElementById('browseMode');document.querySelectorAll('#browseMode>.card-full').forEach(el=>el.remove());const valid=cards.filter(c=>c.trim());if(valid.length===0){const e=document.createElement('div');e.className='card-full active';e.innerHTML='<div class="card-inner"><div class="pat"></div><div class="txt" style="opacity:.5;font-size:18px">还没有卡片</div></div>';stage.appendChild(e);document.getElementById('prevBtn').disabled=true;document.getElementById('nextBtn').disabled=true;return}if(cur>=valid.length)cur=0;if(cur<0)cur=0;valid.forEach((c,i)=>{const d=document.createElement('div');d.className='card-full';d.classList.add('bg'+((i%5)+1));if(i===cur)d.classList.add('active');else if(i<cur)d.classList.add('prev');else d.classList.add('next');d.innerHTML='<div class="card-inner"><div class="pat"></div><div class="deco-html">'+DEC[curTheme]+'</div><div class="deco-line t"></div><div class="txt">'+esc(c).replace(/\n/g,'<br>')+'</div><div class="deco-line b"></div><div class="num">'+(i+1)+'/'+valid.length+'</div></div>';stage.appendChild(d)});document.getElementById('prevBtn').disabled=cur<=0;document.getElementById('nextBtn').disabled=cur>=valid.length-1}
+function renderCards(){const stage=document.getElementById('browseMode');document.querySelectorAll('#browseMode>.card-full').forEach(el=>el.remove());const valid=cards.filter(c=>c.trim());if(valid.length===0){const e=document.createElement('div');e.className='card-full active';e.innerHTML='<div class="card-inner"><div class="pat"></div><div class="txt" style="opacity:.5;font-size:18px">还没有卡片</div></div>';stage.appendChild(e);document.getElementById('prevBtn').disabled=true;document.getElementById('nextBtn').disabled=true;return}if(cur>=valid.length)cur=0;if(cur<0)cur=0;valid.forEach((c,i)=>{const d=document.createElement('div');d.className='card-full';if(i===cur)d.classList.add('active');else if(i<cur)d.classList.add('prev');else d.classList.add('next');d.innerHTML='<div class="card-inner bg'+(i%5+1)+'"><div class="pat"></div><div class="deco-html">'+DEC[curTheme]+'</div><div class="deco-line t"></div><div class="txt">'+esc(c).replace(/\n/g,'<br>')+'</div><div class="deco-line b"></div><div class="num">'+(i+1)+'/'+valid.length+'</div></div>';stage.appendChild(d)});document.getElementById('prevBtn').disabled=cur<=0;document.getElementById('nextBtn').disabled=cur>=valid.length-1}
 function goTo(i){const v=cards.filter(c=>c.trim());if(i<0)i=0;if(i>=v.length)i=Math.max(0,v.length-1);if(i===cur)return;cur=i;renderCards()}
 function prevCard(){goTo(cur-1)}function nextCard(){goTo(cur+1)}
 function startBrowsing(){const v=cards.filter(c=>c.trim());if(v.length===0){toast('请先输入内容');return}recordQuotes();goBrowse()}
@@ -329,7 +323,7 @@ let hc=0;document.addEventListener('dblclick',e=>{if(e.target.closest('.club-nam
 async function syncQuotesToGh(){const cfg=getGhConfig();if(!cfg.token||!cfg.repo){toast('未配置 GitHub');return}const qs=getQuotes();if(qs.length===0){toast('没有金句');return}try{let sha=null,existing=[];const getR=await fetch('https://api.github.com/repos/'+cfg.repo+'/contents/'+(cfg.path||'quotes/quotes.json'),{headers:{Authorization:'Bearer '+cfg.token,Accept:'application/vnd.github.v3+json'}});if(getR.ok){const d=await getR.json();sha=d.sha;try{existing=JSON.parse(atob(d.content))}catch(e){existing=[]}}const existingIds=new Set(existing.map(e=>e.id));const merged=[...existing,...qs.filter(q=>!existingIds.has(q.id))];const putR=await fetch('https://api.github.com/repos/'+cfg.repo+'/contents/'+(cfg.path||'quotes/quotes.json'),{method:'PUT',headers:{Authorization:'Bearer '+cfg.token,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:'sync '+qs.length+' quotes',content:btoa(unescape(encodeURIComponent(JSON.stringify(merged,null,2)))),sha:sha||undefined})});if(!putR.ok)throw new Error('同步失败');toast('同步成功 ✓')}catch(e){toast('同步失败')}}
 let hc2=0;document.addEventListener('click',e=>{if(e.target.closest('.club-name-area')){hc2++;if(hc2>=5){hc2=0;const c=getGhConfig();const t=prompt('GitHub Token:',c.token||'');if(t===null)return;const r=prompt('仓库 (owner/repo):',c.repo||'');if(r===null)return;const p=prompt('文件路径:',c.path||'quotes/quotes.json')||'quotes/quotes.json';if(p===null)return;saveGhConfig({token:t,repo:r,path:p});toast('GitHub 已配置')}}});
 function loadHtml2Canvas(cb){if(window.html2canvas){cb();return}const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=cb;s.onerror=()=>toast('加载失败');document.head.appendChild(s)}
-function downloadCard(){const active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}loadHtml2Canvas(()=>{html2canvas(active,{scale:2,useCORS:true,allowTaint:true}).then(c=>{const a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=c.toDataURL('image/png');a.click();toast('已下载 ✓')}).catch(e=>{toast('下载失败')})})}
+function downloadCard(){const active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}const ci=active.querySelector('.card-inner');if(!ci){toast('未找到卡片');return}loadHtml2Canvas(()=>{html2canvas(ci,{scale:2,useCORS:true,allowTaint:true}).then(c=>{const a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=c.toDataURL('image/png');a.click();toast('已下载 ✓')}).catch(e=>{toast('下载失败')})})}
 document.addEventListener('click',e=>{if(!e.target.closest('.theme-wrap'))closeTheme()});
 let tx=0,lastTap=0;
 document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
