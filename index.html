@@ -12,127 +12,205 @@
       color:#fff;user-select:none;background:#1a1a2e
     }
     button{font-family:inherit;border:none;cursor:pointer;background:none;color:inherit}
-    input,textarea{font-family:inherit;outline:none;border:none}
+    input,textarea,select{font-family:inherit;outline:none;border:none}
     #app{height:100%;width:100%;display:flex;flex-direction:column;position:relative}
 
-    /* ===== Theme: Dream ===== */
+    /* ===== THEMES ===== */
+
+    /* -- Dream: stars + aurora -- */
     .t-dream .bg1{background:linear-gradient(145deg,#2d1b69,#6c5ce7)}
     .t-dream .bg2{background:linear-gradient(145deg,#6c5ce7,#a29bfe)}
     .t-dream .bg3{background:linear-gradient(145deg,#2d1b69,#a29bfe)}
     .t-dream .bg4{background:linear-gradient(145deg,#6c5ce7,#fd79a8)}
     .t-dream .bg5{background:linear-gradient(145deg,#2d1b69,#fd79a8)}
-    .t-dream .pat{background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.15) 0,transparent 20px),radial-gradient(circle at 80% 15%,rgba(255,255,255,.1) 0,transparent 25px),radial-gradient(circle at 50% 80%,rgba(255,255,255,.08) 0,transparent 30px),radial-gradient(circle at 10% 60%,rgba(255,255,255,.06) 0,transparent 15px),radial-gradient(circle at 70% 50%,rgba(255,255,255,.05) 0,transparent 18px)}
+    .t-dream .pat{
+      background-image:
+        /* Stars */
+        radial-gradient(2px 2px at 15% 10%,rgba(255,255,255,.3) 0,transparent 100%),
+        radial-gradient(1.5px 1.5px at 30% 25%,rgba(255,255,255,.25) 0,transparent 100%),
+        radial-gradient(2.5px 2.5px at 55% 8%,rgba(255,255,255,.25) 0,transparent 100%),
+        radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.2) 0,transparent 100%),
+        radial-gradient(2px 2px at 85% 12%,rgba(255,255,255,.25) 0,transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 40%,rgba(255,255,255,.15) 0,transparent 100%),
+        radial-gradient(1px 1px at 60% 50%,rgba(255,255,255,.12) 0,transparent 100%),
+        radial-gradient(2px 2px at 25% 60%,rgba(255,255,255,.1) 0,transparent 100%),
+        radial-gradient(1.5px 1.5px at 75% 30%,rgba(255,255,255,.15) 0,transparent 100%),
+        radial-gradient(1px 1px at 45% 75%,rgba(255,255,255,.08) 0,transparent 100%),
+        /* Aurora orbs */
+        radial-gradient(100px 100px at 20% 25%,rgba(162,155,254,.08) 0,transparent 100%),
+        radial-gradient(80px 80px at 75% 65%,rgba(253,121,168,.06) 0,transparent 100%),
+        radial-gradient(120px 120px at 50% 40%,rgba(108,92,231,.05) 0,transparent 100%)
+    }
     .t-dream .nav-ar,.t-dream .exit-btn,.t-dream .dl-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
     .t-dream .card-inner{background:transparent}
-    /* ===== Theme: Cyber ===== */
+
+    /* -- Cyber: grid + circuit + neon -- */
     .t-cyber .bg1{background:linear-gradient(145deg,#0d0221,#1a0033)}
     .t-cyber .bg2{background:linear-gradient(145deg,#1a0033,#2d1b69)}
     .t-cyber .bg3{background:linear-gradient(145deg,#0d0221,#2d1b69)}
     .t-cyber .bg4{background:linear-gradient(145deg,#1a0033,#ff2a6d33)}
     .t-cyber .bg5{background:linear-gradient(145deg,#0d0221,#ff2a6d22)}
-    .t-cyber .pat{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),radial-gradient(circle at 30% 40%,rgba(255,42,109,.08) 0,transparent 40px),radial-gradient(circle at 70% 60%,rgba(5,217,224,.06) 0,transparent 35px);background-size:24px 24px,24px 24px,100% 100%,100% 100%}
+    .t-cyber .pat{
+      background-image:
+        /* Main grid */
+        repeating-linear-gradient(rgba(255,255,255,.035) 0 1px,transparent 1px 24px),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 24px),
+        /* Diagonal circuit traces */
+        repeating-linear-gradient(45deg,transparent 0 38px,rgba(255,42,109,.04) 38px 40px),
+        repeating-linear-gradient(-45deg,transparent 0 38px,rgba(5,217,224,.04) 38px 40px),
+        /* Neon glow nodes */
+        radial-gradient(4px 4px at 25% 20%,rgba(255,42,109,.25) 0,transparent 100%),
+        radial-gradient(3px 3px at 75% 40%,rgba(5,217,224,.2) 0,transparent 100%),
+        radial-gradient(3px 3px at 50% 75%,rgba(255,42,109,.15) 0,transparent 100%),
+        radial-gradient(2.5px 2.5px at 15% 55%,rgba(5,217,224,.12) 0,transparent 100%),
+        radial-gradient(2px 2px at 65% 15%,rgba(255,42,109,.1) 0,transparent 100%),
+        /* Large glow orbs */
+        radial-gradient(90px 90px at 30% 35%,rgba(255,42,109,.07) 0,transparent 100%),
+        radial-gradient(70px 70px at 70% 60%,rgba(5,217,224,.06) 0,transparent 100%),
+        radial-gradient(60px 60px at 50% 20%,rgba(162,155,254,.04) 0,transparent 100%)
+    }
     .t-cyber .nav-ar,.t-cyber .exit-btn,.t-cyber .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
     .t-cyber .card-inner{background:transparent}
-    /* ===== Theme: Nature ===== */
+
+    /* -- Nature: mountains + trees + birds + water -- */
     .t-nature .bg1{background:linear-gradient(165deg,#0b2d1b,#1a4a2e)}
     .t-nature .bg2{background:linear-gradient(165deg,#1a4a2e,#2d6b4a)}
     .t-nature .bg3{background:linear-gradient(165deg,#0b2d1b,#2d6b4a)}
     .t-nature .bg4{background:linear-gradient(165deg,#1a4a2e,#4a8c6a)}
     .t-nature .bg5{background:linear-gradient(165deg,#0b2d1b,#4a8c6a)}
-    .t-nature .pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cpath d='M0 160 Q60 80 120 120 Q180 60 240 110 Q300 50 360 100 Q380 80 400 90 L400 200 L0 200Z' fill='rgba(255,255,255,.04)'/%3E%3Cpath d='M0 180 Q80 130 160 150 Q240 110 320 140 Q360 120 400 130 L400 200 L0 200Z' fill='rgba(255,255,255,.03)'/%3E%3C/svg%3E");background-position:center bottom;background-size:100% auto;background-repeat:no-repeat}
+    .t-nature .pat{
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3C!-- Mountains back --%3E%3Cpath d='M0 240 L45 165 L90 200 L140 155 L190 195 L240 130 L290 175 L340 120 L400 160 L400 400 L0 400Z' fill='rgba(255,255,255,.025)'/%3E%3C!-- Mountains mid --%3E%3Cpath d='M0 280 L55 210 L110 250 L170 200 L235 250 L300 180 L360 235 L400 210 L400 400 L0 400Z' fill='rgba(255,255,255,.035)'/%3E%3C!-- Mountains front --%3E%3Cpath d='M0 330 L40 270 L90 300 L155 260 L220 290 L290 245 L345 275 L400 260 L400 400 L0 400Z' fill='rgba(255,255,255,.045)'/%3E%3C!-- Water ripples bottom --%3E%3Cpath d='M0 370 Q30 362 60 370 Q90 378 120 370 Q150 362 180 370 Q210 378 240 370 Q270 362 300 370 Q330 378 360 370 Q380 365 400 370 L400 400 L0 400Z' fill='rgba(255,255,255,.025)'/%3E%3Cpath d='M0 385 Q35 378 70 385 Q105 392 140 385 Q175 378 210 385 Q245 392 280 385 Q315 378 350 385 L400 388 L400 400 L0 400Z' fill='rgba(255,255,255,.015)'/%3E%3C!-- Birds --%3E%3Cpath d='M80 130 Q85 125 90 130 Q95 125 100 130' fill='none' stroke='rgba(255,255,255,.08)' stroke-width='1.5'/%3E%3Cpath d='M110 115 Q114 111 118 115 Q122 111 126 115' fill='none' stroke='rgba(255,255,255,.07)' stroke-width='1.2'/%3E%3Cpath d='M280 140 Q283 136 286 140 Q289 136 292 140' fill='none' stroke='rgba(255,255,255,.06)' stroke-width='1.2'/%3E%3C!-- Pine clusters left --%3E%3Cpath d='M10 340 L20 310 L30 340Z M5 355 L20 320 L35 355Z' fill='rgba(255,255,255,.035)'/%3E%3Cpath d='M30 335 L38 310 L46 335Z M27 348 L38 318 L49 348Z' fill='rgba(255,255,255,.03)'/%3E%3C!-- Pine clusters right --%3E%3Cpath d='M355 345 L365 315 L375 345Z M350 358 L365 322 L380 358Z' fill='rgba(255,255,255,.03)'/%3E%3C/svg%3E");
+      background-position:center bottom;background-size:100% 100%;background-repeat:no-repeat
+    }
     .t-nature .nav-ar,.t-nature .exit-btn,.t-nature .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
     .t-nature .card-inner{background:transparent}
-    /* ===== Theme: Sky ===== */
+
+    /* -- Sky: clouds + birds + sun rays -- */
     .t-sky .bg1{background:linear-gradient(160deg,#1a3a5c,#2d6a9f)}
     .t-sky .bg2{background:linear-gradient(160deg,#2d6a9f,#6bb5e0)}
     .t-sky .bg3{background:linear-gradient(160deg,#1a3a5c,#6bb5e0)}
     .t-sky .bg4{background:linear-gradient(160deg,#2d6a9f,#a8d8ea)}
     .t-sky .bg5{background:linear-gradient(160deg,#1a3a5c,#a8d8ea)}
-    .t-sky .pat{background-image:radial-gradient(ellipse 60px 30px at 15% 25%,rgba(255,255,255,.08) 0,transparent 50%),radial-gradient(ellipse 80px 35px at 50% 20%,rgba(255,255,255,.06) 0,transparent 50%),radial-gradient(ellipse 50px 25px at 78% 30%,rgba(255,255,255,.05) 0,transparent 50%),radial-gradient(ellipse 40px 20px at 35% 35%,rgba(255,255,255,.04) 0,transparent 50%)}
+    .t-sky .pat{
+      background-image:
+        /* Large clouds */
+        radial-gradient(ellipse 65px 28px at 15% 20%,rgba(255,255,255,.1) 0,transparent 100%),
+        radial-gradient(ellipse 45px 22px at 22% 18%,rgba(255,255,255,.08) 0,transparent 100%),
+        radial-gradient(ellipse 85px 32px at 50% 18%,rgba(255,255,255,.07) 0,transparent 100%),
+        radial-gradient(ellipse 55px 25px at 42% 14%,rgba(255,255,255,.06) 0,transparent 100%),
+        radial-gradient(ellipse 70px 30px at 78% 22%,rgba(255,255,255,.08) 0,transparent 100%),
+        radial-gradient(ellipse 40px 20px at 70% 18%,rgba(255,255,255,.06) 0,transparent 100%),
+        /* Small clouds */
+        radial-gradient(ellipse 40px 18px at 35% 35%,rgba(255,255,255,.05) 0,transparent 100%),
+        radial-gradient(ellipse 50px 22px at 62% 38%,rgba(255,255,255,.04) 0,transparent 100%),
+        radial-gradient(ellipse 35px 16px at 88% 32%,rgba(255,255,255,.04) 0,transparent 100%),
+        /* Sun glow in corner */
+        radial-gradient(80px 80px at 88% 12%,rgba(240,217,181,.08) 0,transparent 100%),
+        /* Sun ray lines */
+        repeating-linear-gradient(30deg,transparent 0 15px,rgba(240,217,181,.025) 15px 16px),
+        repeating-linear-gradient(-30deg,transparent 0 15px,rgba(240,217,181,.025) 15px 16px),
+        /* Birds */
+        radial-gradient(1.5px 1.5px at 30% 40%,rgba(255,255,255,.06) 0,transparent 100%),
+        radial-gradient(1.5px 1.5px at 32% 38%,rgba(255,255,255,.06) 0,transparent 100%),
+        radial-gradient(1.2px 1.2px at 55% 42%,rgba(255,255,255,.05) 0,transparent 100%),
+        radial-gradient(1.2px 1.2px at 57% 40%,rgba(255,255,255,.05) 0,transparent 100%)
+    }
     .t-sky .nav-ar,.t-sky .exit-btn,.t-sky .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
     .t-sky .card-inner{background:transparent}
-    /* ===== Theme: Chinese ===== */
+
+    /* -- Chinese: cloud scrolls + plum blossoms + border deco -- */
     .t-chinese .bg1{background:linear-gradient(150deg,#3d0a0a,#6b1d1d)}
     .t-chinese .bg2{background:linear-gradient(150deg,#6b1d1d,#8b3a3a)}
     .t-chinese .bg3{background:linear-gradient(150deg,#3d0a0a,#8b3a3a)}
     .t-chinese .bg4{background:linear-gradient(150deg,#5a1515,#7a2a2a)}
     .t-chinese .bg5{background:linear-gradient(150deg,#3d0a0a,#5a1515)}
-    .t-chinese .pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='rgba(212,175,55,.08)' stroke-width='1.2'%3E%3Cpath d='M60 80 Q80 55 105 65 Q125 55 145 65 Q165 55 185 65 Q200 75 200 80 Q200 75 185 65 Q165 55 145 65 Q125 55 105 65 Q80 55 60 80Z' /%3E%3Cpath d='M230 100 Q250 75 275 85 Q295 75 315 85 Q335 75 355 85 Q370 95 370 100 Q370 95 355 85 Q335 75 315 85 Q295 75 275 85 Q250 75 230 100Z' /%3E%3Cpath d='M120 240 Q140 215 165 225 Q185 215 205 225 Q225 215 245 225 Q260 235 260 240 Q260 235 245 225 Q225 215 205 225 Q185 215 165 225 Q140 215 120 240Z' /%3E%3Cpath d='M280 300 Q300 275 325 285 Q345 275 365 285 Q380 295 380 300' /%3E%3C/g%3E%3C/svg%3E");background-size:70% auto;background-position:center;background-repeat:no-repeat}
+    .t-chinese .pat{
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3C!-- Large cloud scroll top-left --%3E%3Cg fill='none' stroke='rgba(212,175,55,.08)' stroke-width='1.2'%3E%3Cpath d='M40 95 Q60 65 85 75 Q105 60 125 75 Q148 62 168 75 Q188 60 208 75 Q225 85 225 90 Q225 85 208 75 Q188 60 168 75 Q148 62 125 75 Q105 60 85 75 Q60 65 40 95Z'/%3E%3C!-- Medium cloud scroll right --%3E%3Cpath d='M260 115 Q280 90 305 100 Q325 88 340 98 Q357 97 370 105 L370 108 Q357 100 340 102 Q325 92 305 104 Q280 94 260 115Z'/%3E%3C!-- Small cloud scroll bottom-right --%3E%3Cpath d='M310 195 Q320 180 335 188 Q348 178 360 186 L360 189 Q348 181 335 192 Q320 184 310 195Z'/%3E%3C!-- Cloud scroll bottom center --%3E%3Cpath d='M90 320 Q110 295 135 305 Q155 290 175 300 Q195 288 215 298 Q232 306 232 310 Q232 306 215 298 Q195 288 175 300 Q155 290 135 305 Q110 295 90 320Z'/%3E%3C!-- Small cloud bottom left --%3E%3Cpath d='M280 340 Q292 325 305 332 Q318 322 330 330 L330 333 Q318 325 305 336 Q292 329 280 340Z'/%3E%3C/g%3E%3C!-- Border corner deco top-right --%3E%3Cpath d='M370 15 L385 15 L385 30' fill='none' stroke='rgba(212,175,55,.06)' stroke-width='1.5'/%3E%3C!-- Border corner deco bottom-left --%3E%3Cpath d='M15 485 L15 470 L30 470' fill='none' stroke='rgba(212,175,55,.06)' stroke-width='1.5'/%3E%3C!-- Plum blossom branch --%3E%3Cpath d='M330 150 Q340 140 355 145 Q365 148 370 155' fill='none' stroke='rgba(212,175,55,.045)' stroke-width='1'/%3E%3Ccircle cx='370' cy='155' r='4.5' fill='rgba(212,175,55,.045)'/%3E%3Ccircle cx='355' cy='145' r='3.5' fill='rgba(212,175,55,.035)'/%3E%3Ccircle cx='340' cy='140' r='3' fill='rgba(212,175,55,.03)'/%3E%3Ccircle cx='365' cy='148' r='3' fill='rgba(212,175,55,.03)'/%3E%3C!-- Bamboo leaves left --%3E%3Cpath d='M30 200 Q25 192 30 184 Q35 176 40 190 Q38 195 30 200Z' fill='rgba(212,175,55,.035)'/%3E%3Cpath d='M25 230 Q18 222 22 214 Q26 206 32 220 Q30 226 25 230Z' fill='rgba(212,175,55,.03)'/%3E%3Cpath d='M35 265 Q28 257 32 248 Q36 240 42 254 Q40 260 35 265Z' fill='rgba(212,175,55,.025)'/%3E%3C/svg%3E");
+      background-position:center center;background-size:100% 100%;background-repeat:no-repeat
+    }
     .t-chinese .card-inner{border-color:rgba(212,175,55,.2)}
     .t-chinese .card-inner::before,.t-chinese .card-inner::after{border-color:rgba(212,175,55,.25)}
     .t-chinese .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
     .t-chinese .nav-ar,.t-chinese .exit-btn,.t-chinese .dl-btn{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2)}
 
-    /* ===== Header ===== */
+    /* ===== Fixed Header ===== */
     header{
-      padding:16px 16px 10px;background:#FFF;flex-shrink:0;
-      z-index:20;position:relative;color:#2D3436;text-align:center
+      position:sticky;top:0;z-index:30;flex-shrink:0;
+      background:#FFF;color:#2D3436;
+      padding:10px 12px 6px;
+      box-shadow:0 1px 6px rgba(0,0,0,.06)
+    }
+    .header-row1{
+      display:flex;align-items:center;justify-content:space-between;gap:8px
+    }
+    .header-row2{
+      display:flex;align-items:center;justify-content:space-between;margin-top:2px
     }
     .club-name-area{
-      display:inline-flex;align-items:center;gap:5px;
-      padding:5px 14px 5px 10px;border-radius:10px;cursor:pointer;
-      border:2px dashed #D5D0CC;background:#FAF8F6;
-      transition:all .25s;max-width:90%
+      display:inline-flex;align-items:center;gap:4px;
+      padding:3px 10px 3px 6px;border-radius:8px;cursor:pointer;
+      border:1.5px dashed #D5D0CC;background:#FAF8F6;
+      transition:all .25s;flex-shrink:0;max-width:55%
     }
     .club-name-area:hover{border-color:#6C5CE7;background:#F5F0FF;box-shadow:0 0 0 3px rgba(108,92,231,.1)}
     .club-name-area .icon-edit{
       display:inline-flex;align-items:center;justify-content:center;
-      width:20px;height:20px;border-radius:50%;background:#6C5CE7;color:#FFF;
-      font-size:11px;line-height:1;flex-shrink:0;transition:transform .2s
+      width:18px;height:18px;border-radius:50%;background:#6C5CE7;color:#FFF;
+      font-size:10px;line-height:1;flex-shrink:0
     }
-    .club-name-area:hover .icon-edit{transform:scale(1.15)}
-    #clubNameDisplay{font-size:18px;font-weight:700;color:#2D3436;vertical-align:middle}
+    .club-name-area:hover .icon-edit{transform:scale(1.1)}
+    #clubNameDisplay{font-size:15px;font-weight:700;color:#2D3436;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     #clubNameInput{
-      font-size:17px;font-weight:700;color:#2D3436;background:#FFF;
-      border:2px solid #6C5CE7;border-radius:8px;padding:4px 10px;width:200px;text-align:center;display:none
+      font-size:14px;font-weight:700;color:#2D3436;background:#FFF;
+      border:2px solid #6C5CE7;border-radius:6px;padding:2px 8px;width:140px;text-align:center;display:none
     }
-    .subtitle{font-size:13px;font-weight:600;color:#E17055;letter-spacing:3px;margin-top:4px}
+    .subtitle{font-size:11px;font-weight:600;color:#E17055;letter-spacing:2px}
+
+    /* Header right controls */
+    .hdr-right{display:flex;align-items:center;gap:4px;flex-shrink:0}
+    .theme-select{
+      padding:4px 6px;border-radius:6px;font-size:11px;font-weight:500;
+      border:1.5px solid #D8D0F0;color:#6C5CE7;background:#F8F6FF;
+      cursor:pointer;appearance:auto;-webkit-appearance:auto;max-width:70px
+    }
+    .hdr-btn{
+      width:28px;height:28px;border-radius:7px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:13px;transition:all .2s;background:#F0EDEA;color:#555;flex-shrink:0
+    }
+    .hdr-btn:active{transform:scale(.9)}
+    .hdr-btn.pri{background:#6C5CE7;color:#FFF}
+    .hdr-btn.dan{color:#E17055}
 
     /* ===== Edit Mode ===== */
     #editMode{
-      height:100%;padding:10px 14px 14px;overflow-y:auto;
+      flex:1;padding:8px 12px 14px;overflow-y:auto;
       display:flex;flex-direction:column;gap:8px;
-      background:#F3F1EE;color:#2D3436
+      background:#F3F1EE;color:#2D3436;
+      -webkit-overflow-scrolling:touch
     }
     #editMode::-webkit-scrollbar{width:4px}
     #editMode::-webkit-scrollbar-thumb{background:#DDD;border-radius:2px}
     .card-edit{
-      background:#FFF;border-radius:10px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.04);
+      background:#FFF;border-radius:10px;padding:10px;box-shadow:0 2px 8px rgba(0,0,0,.04);
       border-left:4px solid #DDD;position:relative
     }
-    .card-edit .lbl{font-size:11px;font-weight:600;color:#999;margin-bottom:5px;letter-spacing:1px}
+    .card-edit .lbl{font-size:10px;font-weight:600;color:#999;margin-bottom:4px;letter-spacing:1px}
     .card-edit textarea{
-      width:100%;min-height:48px;max-height:120px;
-      font-size:14px;line-height:1.6;color:#2D3436;
-      background:#FAFAFA;border-radius:8px;padding:7px 10px;resize:vertical
+      width:100%;min-height:44px;max-height:110px;
+      font-size:13px;line-height:1.6;color:#2D3436;
+      background:#FAFAFA;border-radius:8px;padding:6px 10px;resize:vertical
     }
     .card-edit textarea:focus{background:#FFF;box-shadow:inset 0 0 0 1.5px #6C5CE7}
     .card-edit .del{
-      position:absolute;top:7px;right:7px;
-      width:20px;height:20px;border-radius:50%;background:#F0EDEA;
-      color:#999;font-size:12px;display:flex;align-items:center;justify-content:center
+      position:absolute;top:6px;right:6px;
+      width:18px;height:18px;border-radius:50%;background:#F0EDEA;
+      color:#999;font-size:11px;display:flex;align-items:center;justify-content:center
     }
     .card-edit .del:hover{background:#FFE0D6;color:#E17055}
-    .edit-acts{display:flex;gap:6px;padding-top:2px;flex-wrap:wrap}
-    .btn{
-      padding:7px 14px;border-radius:9px;font-size:12px;font-weight:600;
-      display:flex;align-items:center;gap:4px;transition:all .2s
-    }
-    .btn:active{transform:scale(.97)}
-    .btn-pri{background:linear-gradient(135deg,#6C5CE7,#A29BFE);color:#FFF;box-shadow:0 3px 10px rgba(108,92,231,.25)}
-    .btn-sec{background:#EDE9E6;color:#555}
-    .btn-out{background:transparent;color:#6C5CE7;border:1.5px solid #D8D0F0}
-    .btn-add{color:#6C5CE7;font-size:12px;font-weight:500;padding:5px 0;display:flex;align-items:center;gap:4px}
-
-    /* Theme picker */
-    .theme-row{display:flex;align-items:center;gap:6px;padding:2px 0;flex-wrap:wrap}
-    .theme-row .l{font-size:11px;font-weight:500;color:#999;flex-shrink:0}
-    .theme-opt{
-      padding:4px 10px;border-radius:7px;font-size:11px;font-weight:500;
-      border:1.5px solid #D8D0F0;color:#6C5CE7;background:transparent;transition:all .2s;cursor:pointer
-    }
-    .theme-opt.active{background:#6C5CE7;color:#FFF;border-color:#6C5CE7}
-    .theme-opt:hover{background:#F0EBFF}
+    .btn-add{color:#6C5CE7;font-size:12px;font-weight:500;padding:4px 0;display:flex;align-items:center;gap:4px}
 
     /* ===== Browse Mode ===== */
     #browseMode{
@@ -185,7 +263,7 @@
     .card-inner::before{top:12px;left:12px;border-top-width:2px;border-left-width:2px;border-radius:3px 0 0 0}
     .card-inner::after{bottom:12px;right:12px;border-bottom-width:2px;border-right-width:2px;border-radius:0 0 3px 0}
 
-    /* ===== Browse controls ===== */
+    /* Browse controls */
     .exit-btn{
       position:fixed;top:12px;right:12px;z-index:120;
       width:32px;height:32px;border-radius:50%;
@@ -198,9 +276,8 @@
       position:fixed;bottom:12px;left:12px;z-index:120;
       width:32px;height:32px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      font-size:15px;line-height:1;transition:all .2s;
-      backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-      opacity:.6
+      font-size:15px;line-height:1;transition:all .2s;opacity:.6;
+      backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
     }
     .dl-btn:hover{opacity:1}
     .dl-btn:active{transform:scale(.85)}
@@ -233,47 +310,11 @@
     .modal-h{width:32px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 12px}
     .modal-sh .t{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
     .modal-sh .t .badge{font-size:11px;font-weight:400;color:#999;margin-left:auto}
-    .modal-sh textarea{
-      width:100%;min-height:80px;font-size:14px;line-height:1.6;
-      color:#2D3436;background:#FAFAFA;border-radius:10px;
-      padding:10px 12px;resize:vertical;border:1.5px solid #EDE9E6
-    }
-    .modal-sh textarea:focus{border-color:#6C5CE7;background:#FFF}
     .modal-sh .acts{display:flex;gap:10px;margin-top:12px}
     .modal-sh .acts .btn{flex:1;justify-content:center}
     .modal-sh .acts .btn-pri{background:#6C5CE7;color:#FFF;box-shadow:0 3px 10px rgba(108,92,231,.25)}
     .modal-sh .acts .btn-sec{background:#EDE9E6;color:#555}
-    .modal-sh .acts .btn-dan{background:#FF6B6B;color:#FFF}
-
-    /* ===== Quotes list ===== */
-    .quote-item{
-      background:#FAF8F6;border-radius:10px;padding:10px 12px;margin-bottom:8px;
-      border-left:3px solid #6C5CE7;position:relative
-    }
-    .quote-item .qi-meta{font-size:10px;color:#999;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-    .quote-item .qi-meta span{display:inline-flex;align-items:center;gap:3px}
-    .quote-item .qi-cards{font-size:13px;line-height:1.5;color:#555}
-    .quote-item .qi-cards .qc{display:inline-block;background:#FFF;padding:2px 8px;border-radius:4px;margin:2px 4px 2px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-    .quote-item .qi-del{
-      position:absolute;top:6px;right:8px;
-      width:18px;height:18px;border-radius:50%;background:#F0EDEA;
-      color:#BBB;font-size:10px;display:flex;align-items:center;justify-content:center;
-      transition:all .2s
-    }
-    .quote-item .qi-del:hover{background:#FFE0D6;color:#FF6B6B}
-
-    /* Toast */
-    .toast{
-      position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);
-      background:rgba(45,52,54,.92);color:#FFF;padding:10px 20px;border-radius:10px;
-      font-size:13px;font-weight:500;opacity:0;
-      transition:all .35s cubic-bezier(.32,.72,0,1);
-      z-index:300;pointer-events:none;white-space:nowrap;
-      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
-    }
-    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-    /* ===== Config form ===== */
+    /* Config form */
     .cfg-row{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
     .cfg-row label{font-size:12px;font-weight:600;color:#666}
     .cfg-row input{
@@ -287,7 +328,21 @@
     .cfg-status.err{background:#FFF0F0;color:#D32F2F}
     .cfg-status.pending{background:#FFF8E1;color:#F57F17}
 
+    /* Toast */
+    .toast{
+      position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);
+      background:rgba(45,52,54,.92);color:#FFF;padding:10px 20px;border-radius:10px;
+      font-size:13px;font-weight:500;opacity:0;
+      transition:all .35s cubic-bezier(.32,.72,0,1);
+      z-index:300;pointer-events:none;white-space:nowrap;
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
+    }
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
     @media(min-width:768px){
+      header{padding:14px 18px 8px}
+      .club-name-area{max-width:50%}
+      .hdr-btn{width:32px;height:32px;font-size:14px}
       .card-full{padding:24px}
       .card-inner{padding:52px 44px}
       .card-inner .txt{font-size:clamp(26px,3.8vw,42px)}
@@ -303,6 +358,12 @@
       .card-inner .txt{font-size:clamp(30px,3.2vw,48px)}
     }
     @media(max-width:420px){
+      header{padding:8px 10px 5px}
+      .club-name-area{padding:2px 8px 2px 4px;max-width:50%}
+      #clubNameDisplay{font-size:13px}
+      .subtitle{font-size:10px}
+      .theme-select{font-size:10px;padding:3px 4px;max-width:60px}
+      .hdr-btn{width:26px;height:26px;font-size:12px}
       .card-inner{padding:28px 18px;border-radius:14px}
       .card-inner .txt{font-size:clamp(18px,5vw,28px)}
       .card-full{padding:10px}
@@ -312,35 +373,37 @@
 </head>
 <body>
 <div id="app">
-  <!-- ===== Header ===== -->
+  <!-- ===== Fixed Header ===== -->
   <header>
-    <div class="club-name-area" onclick="editClubName()" title="点击编辑俱乐部名称">
-      <span class="icon-edit">✎</span>
-      <span id="clubNameDisplay">申花头马俱乐部</span>
-      <input type="text" id="clubNameInput" placeholder="输入俱乐部名称"
-             onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
+    <div class="header-row1">
+      <div class="club-name-area" onclick="editClubName()" title="点击编辑俱乐部名称">
+        <span class="icon-edit">✎</span>
+        <span id="clubNameDisplay">申花头马俱乐部</span>
+        <input type="text" id="clubNameInput" placeholder="输入俱乐部名称"
+               onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
+      </div>
+      <div class="hdr-right">
+        <select class="theme-select" id="themeSelect" onchange="setTheme(this.value)">
+          <option value="dream">🌈 梦境</option>
+          <option value="cyber">🤖 赛博</option>
+          <option value="nature">🌿 山水</option>
+          <option value="sky">☁️ 蓝天</option>
+          <option value="chinese">🏮 中国风</option>
+        </select>
+        <button class="hdr-btn pri" onclick="startBrowsing()" title="全屏显示">👁️</button>
+        <button class="hdr-btn" onclick="shareCards()" title="分享">🔗</button>
+        <button class="hdr-btn dan" onclick="clearAll()" title="清空">🗑️</button>
+      </div>
     </div>
-    <div class="subtitle">头马语言官</div>
+    <div class="header-row2">
+      <span class="subtitle">头马语言官</span>
+    </div>
   </header>
 
   <!-- ===== Edit Mode ===== -->
   <div id="editMode">
-    <div class="theme-row">
-      <span class="l">风格</span>
-      <button class="theme-opt active" data-t="dream" onclick="setTheme('dream')">🌈 梦境</button>
-      <button class="theme-opt" data-t="cyber" onclick="setTheme('cyber')">🤖 赛博</button>
-      <button class="theme-opt" data-t="nature" onclick="setTheme('nature')">🌿 山水</button>
-      <button class="theme-opt" data-t="sky" onclick="setTheme('sky')">☁️ 蓝天</button>
-      <button class="theme-opt" data-t="chinese" onclick="setTheme('chinese')">🏮 中国风</button>
-    </div>
     <div id="editorList"></div>
     <button class="btn-add" onclick="addCard()">＋ 添加一张卡片</button>
-    <div class="edit-acts">
-      <button class="btn btn-pri" onclick="startBrowsing()">👁️ 全屏显示</button>
-      <button class="btn btn-out" onclick="shareCards()">🔗 分享</button>
-      <button class="btn btn-out" onclick="openQuoteLib()">📖 金句库</button>
-      <button class="btn btn-sec" onclick="clearAll()">🗑️</button>
-    </div>
   </div>
 
   <!-- ===== Browse Mode ===== -->
@@ -364,54 +427,6 @@
     </div>
   </div>
 
-  <!-- ===== Quotes Library Modal ===== -->
-  <div class="modal-ov" id="quoteModal" onclick="closeModal(event,'quoteModal')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
-      <div class="modal-h"></div>
-      <div class="t">
-        📖 金句库
-        <span class="badge" id="quoteCount">0 条</span>
-      </div>
-      <div id="quoteList"></div>
-      <div style="border-top:1px solid #EEE;margin:10px 0 8px;padding-top:10px">
-        <div class="edit-acts" style="flex-wrap:wrap">
-          <button class="btn btn-out" onclick="exportQuotes()">📥 导出 JSON</button>
-          <button class="btn btn-out" onclick="syncToGitHub()" id="syncBtn">☁️ 同步到 GitHub</button>
-          <button class="btn btn-sec" onclick="openGitHubConfig()">⚙️ 配置</button>
-          <button class="btn btn-sec" onclick="if(confirm('清空所有金句记录？'))clearQuotes()">🗑️ 清空</button>
-        </div>
-        <div id="syncStatus" style="display:none"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== GitHub Config Modal ===== -->
-  <div class="modal-ov" id="ghConfigModal" onclick="closeModal(event,'ghConfigModal')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
-      <div class="modal-h"></div>
-      <div class="t">⚙️ GitHub 同步配置</div>
-      <div class="cfg-row">
-        <label>GitHub Token</label>
-        <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-        <div class="cfg-hint">需要 repo 权限的 Personal Access Token<br>👉 <span style="color:#6C5CE7;cursor:pointer" onclick="openGhTokenGuide()">如何获取 Token？</span></div>
-      </div>
-      <div class="cfg-row">
-        <label>仓库名</label>
-        <input type="text" id="ghRepo" placeholder="owner/repo（如 jason199456/toastmasters-language-officer）">
-      </div>
-      <div class="cfg-row">
-        <label>文件路径</label>
-        <input type="text" id="ghPath" placeholder="quotes/quotes.json">
-        <div class="cfg-hint">存放金句的 JSON 文件路径，自动创建</div>
-      </div>
-      <div id="ghConfigStatus"></div>
-      <div class="acts" style="margin-top:10px">
-        <button class="btn btn-sec" onclick="closeModal(null,'ghConfigModal')">取消</button>
-        <button class="btn btn-pri" onclick="saveGitHubConfig()">保存配置</button>
-      </div>
-    </div>
-  </div>
-
   <div class="toast" id="toast"></div>
 </div>
 
@@ -420,12 +435,16 @@
   const T={dream:'t-dream',cyber:'t-cyber',nature:'t-nature',sky:'t-sky',chinese:'t-chinese'};
   const TK=Object.keys(T);
 
-  // ===== Init =====
   function init(){
     const n=localStorage.getItem('tm_clubName');
     if(n)document.getElementById('clubNameDisplay').textContent=n;
     const t=localStorage.getItem('tm_theme');
-    if(t&&T[t])setTheme(t);
+    if(t&&T[t]){
+      curTheme=t;
+      document.getElementById('themeSelect').value=t;
+      TK.forEach(x=>document.body.classList.remove(T[x]));
+      document.body.classList.add(T[t])
+    }else setTheme('dream');
     const h=window.location.hash;
     if(h&&h.length>1){
       try{const p=JSON.parse(atob(decodeURIComponent(h.slice(1))));if(Array.isArray(p)&&p.length>0){cards=p;renderEditors();goBrowse();renderCards();return}}catch(e){}
@@ -434,7 +453,6 @@
     if(s){try{cards=JSON.parse(s)}catch(e){cards=[]}}
     if(cards.length===0)cards=['',''];
     renderEditors();
-    // visitor ID
     if(!localStorage.getItem('tm_visitor'))localStorage.setItem('tm_visitor',genId().slice(0,8));
   }
 
@@ -453,10 +471,10 @@
 
   function setTheme(k){
     if(!T[k])return;curTheme=k;
+    document.getElementById('themeSelect').value=k;
     TK.forEach(x=>document.body.classList.remove(T[x]));
     document.body.classList.add(T[k]);
     localStorage.setItem('tm_theme',k);
-    document.querySelectorAll('.theme-opt').forEach(el=>el.classList.toggle('active',el.dataset.t===k));
     if(document.getElementById('browseMode').style.display!=='none')renderCards()
   }
 
@@ -561,7 +579,7 @@
     document.body.removeChild(ta)
   }
 
-  // ===== Quotes =====
+  // ===== Quotes (silent background recording) =====
   function getQuotes(){try{return JSON.parse(localStorage.getItem('tm_quotes'))||[]}catch(e){return[]}}
   function saveQuotes(q){localStorage.setItem('tm_quotes',JSON.stringify(q))}
 
@@ -570,129 +588,36 @@
     if(v.length===0)return;
     const qs=getQuotes();
     let ip='';
-    try{
-      const r=await fetch('https://api.ipify.org?format=json');
-      if(r.ok){const d=await r.json();ip=d.ip}
-    }catch(e){}
+    try{const r=await fetch('https://api.ipify.org?format=json');if(r.ok){const d=await r.json();ip=d.ip}}catch(e){}
     qs.push({
-      id:genId(),
-      timestamp:new Date().toISOString(),
+      id:genId(),timestamp:new Date().toISOString(),
       club:document.getElementById('clubNameDisplay').textContent,
-      theme:curTheme,
-      cardCount:v.length,
-      cards:v,
-      ip:ip,
-      visitor:localStorage.getItem('tm_visitor')||''
+      theme:curTheme,cardCount:v.length,cards:v,
+      ip:ip,visitor:localStorage.getItem('tm_visitor')||''
     });
     saveQuotes(qs)
   }
 
-  function openQuoteLib(){
-    renderQuoteList();
-    document.getElementById('quoteModal').classList.add('open')
-  }
+  // Hidden sync: double-tap club name to trigger
+  let hc=0;
+  document.addEventListener('dblclick',e=>{
+    if(e.target.closest('.club-name-area')){hc++;if(hc>=3){hc=0;syncQuotesToGh()}}
+  });
 
-  function renderQuoteList(){
-    const qs=getQuotes(),l=document.getElementById('quoteList');
-    document.getElementById('quoteCount').textContent=qs.length+' 条';
-    if(qs.length===0){
-      l.innerHTML='<div style="text-align:center;padding:24px 0;color:#AAA;font-size:13px">还没有记录<br><span style="font-size:11px">编辑卡片后点击「全屏显示」自动记录</span></div>';
-      return
-    }
-    l.innerHTML='';
-    [...qs].reverse().forEach((q,i)=>{
-      const d=document.createElement('div');d.className='quote-item';
-      const t=new Date(q.timestamp);
-      const ts=t.toLocaleDateString('zh-CN')+' '+t.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
-      const ipD=q.ip||'--';
-      d.innerHTML=`<div class="qi-del" onclick="deleteQuote(${qs.length-1-i})">✕</div>
-        <div class="qi-meta">
-          <span>📅 ${ts}</span>
-          <span>🏷️ ${esc(q.club||'')}</span>
-          <span>🌐 ${ipD}</span>
-          <span>📄 ${q.cardCount} 张</span>
-        </div>
-        <div class="qi-cards">${q.cards.map(c=>`<span class="qc">${esc(c)}</span>`).join('')}</div>`;
-      l.appendChild(d)
-    })
-  }
-
-  function deleteQuote(i){
-    const qs=getQuotes();
-    qs.splice(i,1);saveQuotes(qs);renderQuoteList()
-  }
-  function clearQuotes(){
-    saveQuotes([]);renderQuoteList();toast('已清空')
-  }
-
-  function exportQuotes(){
-    const qs=getQuotes();
-    if(qs.length===0){toast('没有记录');return}
-    const blob=new Blob([JSON.stringify(qs,null,2)],{type:'application/json'});
-    const a=document.createElement('a');
-    a.href=URL.createObjectURL(blob);
-    a.download='touma-quotes-'+new Date().toISOString().slice(0,10)+'.json';
-    a.click();toast('已导出 ✓')
-  }
-
-  // ===== GitHub Sync =====
-  function getGhConfig(){
-    try{return JSON.parse(localStorage.getItem('tm_gh_config'))||{}}catch(e){return{}}
-  }
-  function saveGhConfig(c){localStorage.setItem('tm_gh_config',JSON.stringify(c))}
-
-  function openGitHubConfig(){
-    const c=getGhConfig();
-    document.getElementById('ghToken').value=c.token||'';
-    document.getElementById('ghRepo').value=c.repo||'';
-    document.getElementById('ghPath').value=c.path||'quotes/quotes.json';
-    document.getElementById('ghConfigStatus').innerHTML='';
-    closeModal(null,'quoteModal');
-    setTimeout(()=>document.getElementById('ghConfigModal').classList.add('open'),100)
-  }
-
-  function saveGitHubConfig(){
-    const token=document.getElementById('ghToken').value.trim();
-    const repo=document.getElementById('ghRepo').value.trim();
-    const path=document.getElementById('ghPath').value.trim()||'quotes/quotes.json';
-    if(!token||!repo){document.getElementById('ghConfigStatus').innerHTML='<div class="cfg-status err">请填写 Token 和仓库名</div>';return}
-    saveGhConfig({token,repo,path});
-    document.getElementById('ghConfigStatus').innerHTML='<div class="cfg-status ok">✅ 配置已保存</div>';
-    toast('配置已保存');
-    setTimeout(()=>{closeModal(null,'ghConfigModal');openQuoteLib()},500)
-  }
-
-  function openGhTokenGuide(){
-    toast('GitHub → Settings → Developer settings → Personal access tokens → 生成新 token，勾选 repo')
-  }
-
-  async function syncToGitHub(){
+  async function syncQuotesToGh(){
     const cfg=getGhConfig();
-    if(!cfg.token||!cfg.repo){toast('请先配置 GitHub ⚙️');return}
+    if(!cfg.token||!cfg.repo){toast('未配置 GitHub');return}
     const qs=getQuotes();
-    if(qs.length===0){toast('没有金句可同步');return}
-    const btn=document.getElementById('syncBtn');
-    const st=document.getElementById('syncStatus');st.style.display='block';
-    st.innerHTML='<div class="cfg-status pending">⏳ 同步中…</div>';
-    btn.disabled=true;
+    if(qs.length===0){toast('没有金句');return}
     try{
-      // 1. Try to read existing file
       let sha=null,existing=[];
-      const getR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path}`,{
+      const getR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path||'quotes/quotes.json'}`,{
         headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json'}
       });
-      if(getR.ok){
-        const d=await getR.json();
-        sha=d.sha;
-        try{existing=JSON.parse(atob(d.content))}catch(e){existing=[]}
-      }else if(getR.status!==404){
-        throw new Error('读取失败: '+getR.status)
-      }
-      // 2. Merge & deduplicate by id
+      if(getR.ok){const d=await getR.json();sha=d.sha;try{existing=JSON.parse(atob(d.content))}catch(e){existing=[]}}
       const existingIds=new Set(existing.map(e=>e.id));
       const merged=[...existing,...qs.filter(q=>!existingIds.has(q.id))];
-      // 3. Write back
-      const putR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path}`,{
+      const putR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path||'quotes/quotes.json'}`,{
         method:'PUT',
         headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
         body:JSON.stringify({
@@ -701,17 +626,30 @@
           sha:sha||undefined
         })
       });
-      if(!putR.ok){
-        const e=await putR.json();
-        throw new Error(e.message||'同步失败')
-      }
-      st.innerHTML='<div class="cfg-status ok">✅ 同步成功！共 '+(merged.length-existing.length)+' 条新记录，总计 '+merged.length+' 条</div>';
-      toast('同步成功 ✓')
-    }catch(e){
-      st.innerHTML='<div class="cfg-status err">❌ '+esc(e.message)+'</div>';
-      toast('同步失败')
-    }
-    btn.disabled=false
+      if(!putR.ok)throw new Error('同步失败');
+      toast('同步成功 ✓ '+(merged.length-existing.length)+' 条新记录')
+    }catch(e){toast('同步失败')}
+  }
+
+  function getGhConfig(){try{return JSON.parse(localStorage.getItem('tm_gh_config'))||{}}catch(e){return{}}}
+  function saveGhConfig(c){localStorage.setItem('tm_gh_config',JSON.stringify(c))}
+
+  // Config modal (hidden trigger: tap club name 5 times)
+  let hc2=0;
+  document.addEventListener('click',e=>{
+    if(e.target.closest('.club-name-area')){hc2++;if(hc2>=5){hc2=0;showGhConfig()}}
+  });
+
+  function showGhConfig(){
+    const c=getGhConfig();
+    const t=prompt('GitHub Token (repo 权限):',c.token||'');
+    if(t===null)return;
+    const r=prompt('仓库名 (owner/repo):',c.repo||'');
+    if(r===null)return;
+    const p=prompt('文件路径:',c.path||'quotes/quotes.json')||'quotes/quotes.json';
+    if(p===null)return;
+    saveGhConfig({token:t,repo:r,path:p});
+    toast('GitHub 配置已保存')
   }
 
   // ===== Download Card =====
@@ -719,27 +657,19 @@
     if(window.html2canvas){cb();return}
     const s=document.createElement('script');
     s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
-    s.onload=cb;s.onerror=()=>toast('加载 html2canvas 失败');
+    s.onload=cb;s.onerror=()=>toast('加载失败');
     document.head.appendChild(s)
   }
 
   function downloadCard(){
     const active=document.querySelector('#browseMode .card-full.active');
-    if(!active){toast('没有卡片可下载');return}
+    if(!active){toast('没有卡片');return}
     const cardInner=active.querySelector('.card-inner');
     if(!cardInner){toast('未找到卡片');return}
     loadHtml2Canvas(()=>{
-      html2canvas(cardInner,{
-        scale:2,
-        useCORS:true,
-        backgroundColor:null,
-        allowTaint:true
-      }).then(canvas=>{
-        const a=document.createElement('a');
-        a.download='touma-card-'+(cur+1)+'.png';
-        a.href=canvas.toDataURL('image/png');
-        a.click();toast('已下载 ✓')
-      }).catch(e=>{toast('下载失败');console.error(e)})
+      html2canvas(cardInner,{scale:2,useCORS:true,backgroundColor:null,allowTaint:true})
+        .then(canvas=>{const a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=canvas.toDataURL('image/png');a.click();toast('已下载 ✓')})
+        .catch(e=>{toast('下载失败');console.error(e)})
     })
   }
 
@@ -765,8 +695,6 @@
     if(e.key==='Escape')exitBrowse()
   });
 
-  // ===== Utils =====
-  function closeModal(e,id){if(e&&e.target!==document.getElementById(id))return;document.getElementById(id).classList.remove('open')}
   let tt=null;
   function toast(m){
     const el=document.getElementById('toast');el.textContent=m;
