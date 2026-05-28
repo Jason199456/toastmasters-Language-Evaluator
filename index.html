@@ -15,9 +15,9 @@
     input,textarea,select{font-family:inherit;outline:none;border:none}
     #app{height:100%;width:100%;display:flex;flex-direction:column;position:relative}
 
-    /* ===== THEMES ===== */
+    /* ========== THEMES ========== */
 
-    /* -- Dream: stars + aurora -- */
+    /* -- Dream: starry night + aurora + crescent moon -- */
     .t-dream .bg1{background:linear-gradient(145deg,#2d1b69,#6c5ce7)}
     .t-dream .bg2{background:linear-gradient(145deg,#6c5ce7,#a29bfe)}
     .t-dream .bg3{background:linear-gradient(145deg,#2d1b69,#a29bfe)}
@@ -25,26 +25,34 @@
     .t-dream .bg5{background:linear-gradient(145deg,#2d1b69,#fd79a8)}
     .t-dream .pat{
       background-image:
-        /* Stars */
-        radial-gradient(2px 2px at 15% 10%,rgba(255,255,255,.3) 0,transparent 100%),
-        radial-gradient(1.5px 1.5px at 30% 25%,rgba(255,255,255,.25) 0,transparent 100%),
-        radial-gradient(2.5px 2.5px at 55% 8%,rgba(255,255,255,.25) 0,transparent 100%),
-        radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.2) 0,transparent 100%),
-        radial-gradient(2px 2px at 85% 12%,rgba(255,255,255,.25) 0,transparent 100%),
-        radial-gradient(1.5px 1.5px at 40% 40%,rgba(255,255,255,.15) 0,transparent 100%),
-        radial-gradient(1px 1px at 60% 50%,rgba(255,255,255,.12) 0,transparent 100%),
-        radial-gradient(2px 2px at 25% 60%,rgba(255,255,255,.1) 0,transparent 100%),
-        radial-gradient(1.5px 1.5px at 75% 30%,rgba(255,255,255,.15) 0,transparent 100%),
-        radial-gradient(1px 1px at 45% 75%,rgba(255,255,255,.08) 0,transparent 100%),
+        /* Stars - large */
+        radial-gradient(3px 3px at 12% 8%,rgba(255,255,255,.35) 0,transparent 100%),
+        radial-gradient(2.5px 2.5px at 48% 5%,rgba(255,255,255,.3) 0,transparent 100%),
+        radial-gradient(3.5px 3.5px at 78% 12%,rgba(255,255,255,.3) 0,transparent 100%),
+        /* Stars - medium */
+        radial-gradient(2px 2px at 22% 18%,rgba(255,255,255,.25) 0,transparent 100%),
+        radial-gradient(2px 2px at 35% 10%,rgba(255,255,255,.22) 0,transparent 100%),
+        radial-gradient(2px 2px at 62% 15%,rgba(255,255,255,.2) 0,transparent 100%),
+        radial-gradient(2px 2px at 88% 20%,rgba(255,255,255,.18) 0,transparent 100%),
+        /* Stars - small */
+        radial-gradient(1.5px 1.5px at 28% 30%,rgba(255,255,255,.18) 0,transparent 100%),
+        radial-gradient(1.5px 1.5px at 55% 25%,rgba(255,255,255,.16) 0,transparent 100%),
+        radial-gradient(1px 1px at 42% 45%,rgba(255,255,255,.14) 0,transparent 100%),
+        radial-gradient(1px 1px at 68% 40%,rgba(255,255,255,.12) 0,transparent 100%),
+        radial-gradient(1.5px 1.5px at 18% 55%,rgba(255,255,255,.1) 0,transparent 100%),
+        radial-gradient(1px 1px at 80% 55%,rgba(255,255,255,.1) 0,transparent 100%),
+        radial-gradient(1px 1px at 35% 65%,rgba(255,255,255,.08) 0,transparent 100%),
+        radial-gradient(1px 1px at 60% 75%,rgba(255,255,255,.08) 0,transparent 100%),
         /* Aurora orbs */
-        radial-gradient(100px 100px at 20% 25%,rgba(162,155,254,.08) 0,transparent 100%),
-        radial-gradient(80px 80px at 75% 65%,rgba(253,121,168,.06) 0,transparent 100%),
-        radial-gradient(120px 120px at 50% 40%,rgba(108,92,231,.05) 0,transparent 100%)
+        radial-gradient(120px 120px at 18% 30%,rgba(162,155,254,.07) 0,transparent 100%),
+        radial-gradient(100px 100px at 75% 60%,rgba(253,121,168,.06) 0,transparent 100%),
+        radial-gradient(140px 140px at 45% 50%,rgba(108,92,231,.04) 0,transparent 100%),
+        radial-gradient(80px 80px at 60% 25%,rgba(255,215,0,.04) 0,transparent 100%)
     }
     .t-dream .nav-ar,.t-dream .exit-btn,.t-dream .dl-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
     .t-dream .card-inner{background:transparent}
 
-    /* -- Cyber: grid + circuit + neon -- */
+    /* -- Cyber: grid + circuit + hex + neon -- */
     .t-cyber .bg1{background:linear-gradient(145deg,#0d0221,#1a0033)}
     .t-cyber .bg2{background:linear-gradient(145deg,#1a0033,#2d1b69)}
     .t-cyber .bg3{background:linear-gradient(145deg,#0d0221,#2d1b69)}
@@ -53,26 +61,37 @@
     .t-cyber .pat{
       background-image:
         /* Main grid */
-        repeating-linear-gradient(rgba(255,255,255,.035) 0 1px,transparent 1px 24px),
-        repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 24px),
-        /* Diagonal circuit traces */
-        repeating-linear-gradient(45deg,transparent 0 38px,rgba(255,42,109,.04) 38px 40px),
-        repeating-linear-gradient(-45deg,transparent 0 38px,rgba(5,217,224,.04) 38px 40px),
+        repeating-linear-gradient(rgba(255,255,255,.03) 0 1px,transparent 1px 22px),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 22px),
+        /* Diagonal circuits */
+        repeating-linear-gradient(30deg,transparent 0 35px,rgba(255,42,109,.04) 35px 37px),
+        repeating-linear-gradient(-30deg,transparent 0 35px,rgba(5,217,224,.04) 35px 37px),
+        repeating-linear-gradient(60deg,transparent 0 50px,rgba(162,155,254,.025) 50px 51px),
+        repeating-linear-gradient(-60deg,transparent 0 50px,rgba(255,215,0,.02) 50px 51px),
+        /* Digital rain lines */
+        repeating-linear-gradient(rgba(5,217,224,.02) 0 1px,transparent 1px 8px),
         /* Neon glow nodes */
-        radial-gradient(4px 4px at 25% 20%,rgba(255,42,109,.25) 0,transparent 100%),
-        radial-gradient(3px 3px at 75% 40%,rgba(5,217,224,.2) 0,transparent 100%),
-        radial-gradient(3px 3px at 50% 75%,rgba(255,42,109,.15) 0,transparent 100%),
-        radial-gradient(2.5px 2.5px at 15% 55%,rgba(5,217,224,.12) 0,transparent 100%),
-        radial-gradient(2px 2px at 65% 15%,rgba(255,42,109,.1) 0,transparent 100%),
-        /* Large glow orbs */
-        radial-gradient(90px 90px at 30% 35%,rgba(255,42,109,.07) 0,transparent 100%),
-        radial-gradient(70px 70px at 70% 60%,rgba(5,217,224,.06) 0,transparent 100%),
-        radial-gradient(60px 60px at 50% 20%,rgba(162,155,254,.04) 0,transparent 100%)
+        radial-gradient(4px 4px at 20% 15%,rgba(255,42,109,.25) 0,transparent 100%),
+        radial-gradient(3px 3px at 75% 25%,rgba(5,217,224,.2) 0,transparent 100%),
+        radial-gradient(3.5px 3.5px at 45% 70%,rgba(255,42,109,.18) 0,transparent 100%),
+        radial-gradient(2.5px 2.5px at 15% 50%,rgba(5,217,224,.15) 0,transparent 100%),
+        radial-gradient(2px 2px at 65% 10%,rgba(255,42,109,.12) 0,transparent 100%),
+        radial-gradient(2px 2px at 85% 55%,rgba(5,217,224,.1) 0,transparent 100%),
+        radial-gradient(2.5px 2.5px at 30% 80%,rgba(162,155,254,.1) 0,transparent 100%),
+        radial-gradient(2px 2px at 55% 45%,rgba(255,215,0,.08) 0,transparent 100%),
+        /* Large glow spheres */
+        radial-gradient(100px 100px at 25% 35%,rgba(255,42,109,.06) 0,transparent 100%),
+        radial-gradient(80px 80px at 70% 55%,rgba(5,217,224,.05) 0,transparent 100%),
+        radial-gradient(60px 60px at 50% 15%,rgba(162,155,254,.04) 0,transparent 100%),
+        radial-gradient(50px 55px at 40% 75%,rgba(255,215,0,.03) 0,transparent 100%);
+      background-size:22px 22px,22px 22px,100% 100%,100% 100%,100% 100%,100% 100%,8px 8px,
+        100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,
+        100% 100%,100% 100%,100% 100%,100% 100%
     }
     .t-cyber .nav-ar,.t-cyber .exit-btn,.t-cyber .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
     .t-cyber .card-inner{background:transparent}
 
-    /* -- Nature: mountains + trees + birds + water -- */
+    /* -- Nature: mountains + pines + birds + clouds + water -- */
     .t-nature .bg1{background:linear-gradient(165deg,#0b2d1b,#1a4a2e)}
     .t-nature .bg2{background:linear-gradient(165deg,#1a4a2e,#2d6b4a)}
     .t-nature .bg3{background:linear-gradient(165deg,#0b2d1b,#2d6b4a)}
@@ -80,13 +99,13 @@
     .t-nature .bg5{background:linear-gradient(165deg,#0b2d1b,#4a8c6a)}
     .t-nature .pat{
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3C!-- Mountains back --%3E%3Cpath d='M0 240 L45 165 L90 200 L140 155 L190 195 L240 130 L290 175 L340 120 L400 160 L400 400 L0 400Z' fill='rgba(255,255,255,.025)'/%3E%3C!-- Mountains mid --%3E%3Cpath d='M0 280 L55 210 L110 250 L170 200 L235 250 L300 180 L360 235 L400 210 L400 400 L0 400Z' fill='rgba(255,255,255,.035)'/%3E%3C!-- Mountains front --%3E%3Cpath d='M0 330 L40 270 L90 300 L155 260 L220 290 L290 245 L345 275 L400 260 L400 400 L0 400Z' fill='rgba(255,255,255,.045)'/%3E%3C!-- Water ripples bottom --%3E%3Cpath d='M0 370 Q30 362 60 370 Q90 378 120 370 Q150 362 180 370 Q210 378 240 370 Q270 362 300 370 Q330 378 360 370 Q380 365 400 370 L400 400 L0 400Z' fill='rgba(255,255,255,.025)'/%3E%3Cpath d='M0 385 Q35 378 70 385 Q105 392 140 385 Q175 378 210 385 Q245 392 280 385 Q315 378 350 385 L400 388 L400 400 L0 400Z' fill='rgba(255,255,255,.015)'/%3E%3C!-- Birds --%3E%3Cpath d='M80 130 Q85 125 90 130 Q95 125 100 130' fill='none' stroke='rgba(255,255,255,.08)' stroke-width='1.5'/%3E%3Cpath d='M110 115 Q114 111 118 115 Q122 111 126 115' fill='none' stroke='rgba(255,255,255,.07)' stroke-width='1.2'/%3E%3Cpath d='M280 140 Q283 136 286 140 Q289 136 292 140' fill='none' stroke='rgba(255,255,255,.06)' stroke-width='1.2'/%3E%3C!-- Pine clusters left --%3E%3Cpath d='M10 340 L20 310 L30 340Z M5 355 L20 320 L35 355Z' fill='rgba(255,255,255,.035)'/%3E%3Cpath d='M30 335 L38 310 L46 335Z M27 348 L38 318 L49 348Z' fill='rgba(255,255,255,.03)'/%3E%3C!-- Pine clusters right --%3E%3Cpath d='M355 345 L365 315 L375 345Z M350 358 L365 322 L380 358Z' fill='rgba(255,255,255,.03)'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3C!-- Clouds --%3E%3Cellipse cx='70' cy='80' rx='45' ry='14' fill='rgba(255,255,255,.02)'/%3E%3Cellipse cx='290' cy='100' rx='40' ry='12' fill='rgba(255,255,255,.015)'/%3E%3Cellipse cx='160' cy='90' rx='35' ry='10' fill='rgba(255,255,255,.018)'/%3E%3C!-- Mountains layer 1 (back) --%3E%3Cpath d='M0 195 Q30 170 60 185 Q90 160 130 175 Q160 145 200 165 Q230 130 275 155 Q310 120 350 150 Q380 130 400 145 L400 500 L0 500Z' fill='rgba(255,255,255,.02)'/%3E%3C!-- Mountains layer 2 --%3E%3Cpath d='M0 245 Q40 215 85 230 Q120 195 165 215 Q200 180 245 200 Q285 170 330 195 Q365 175 400 190 L400 500 L0 500Z' fill='rgba(255,255,255,.03)'/%3E%3C!-- Mountains layer 3 --%3E%3Cpath d='M0 295 Q50 260 100 280 Q140 240 190 260 Q230 225 280 250 Q320 220 370 245 Q390 235 400 240 L400 500 L0 500Z' fill='rgba(255,255,255,.04)'/%3E%3C!-- Foreground hill --%3E%3Cpath d='M0 355 Q45 320 95 345 Q150 305 210 335 Q265 300 325 330 Q365 310 400 320 L400 500 L0 500Z' fill='rgba(255,255,255,.045)'/%3E%3C!-- Water surface --%3E%3Cpath d='M0 425 Q25 418 50 425 Q75 432 100 425 Q125 418 150 425 Q175 432 200 425 Q225 418 250 425 Q275 432 300 425 Q325 418 350 425 Q375 432 400 425 L400 500 L0 500Z' fill='rgba(255,255,255,.025)'/%3E%3Cpath d='M0 450 Q35 443 70 450 Q105 457 140 450 Q175 443 210 450 Q245 457 280 450 Q315 443 350 450 L400 453 L400 500 L0 500Z' fill='rgba(255,255,255,.02)'/%3E%3C!-- Birds --%3E%3Cpath d='M90 140 Q93 136 96 140 Q99 136 102 140' fill='none' stroke='rgba(255,255,255,.07)' stroke-width='1.3'/%3E%3Cpath d='M105 130 Q107 127 109 130 Q111 127 113 130' fill='none' stroke='rgba(255,255,255,.05)' stroke-width='1'/%3E%3Cpath d='M310 120 Q313 116 316 120 Q319 116 322 120' fill='none' stroke='rgba(255,255,255,.06)' stroke-width='1.2'/%3E%3C!-- Pines left --%3E%3Cpolygon points='10,380 20,340 30,380' fill='rgba(255,255,255,.035)'/%3E%3Cpolygon points='5,395 20,355 35,395' fill='rgba(255,255,255,.03)'/%3E%3C!-- Pines right --%3E%3Cpolygon points='355,390 365,350 375,390' fill='rgba(255,255,255,.03)'/%3E%3Cpolygon points='378,385 385,355 392,385' fill='rgba(255,255,255,.025)'/%3E%3C/svg%3E");
       background-position:center bottom;background-size:100% 100%;background-repeat:no-repeat
     }
     .t-nature .nav-ar,.t-nature .exit-btn,.t-nature .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
     .t-nature .card-inner{background:transparent}
 
-    /* -- Sky: clouds + birds + sun rays -- */
+    /* -- Sky: clouds + birds + sun rays + rainbow -- */
     .t-sky .bg1{background:linear-gradient(160deg,#1a3a5c,#2d6a9f)}
     .t-sky .bg2{background:linear-gradient(160deg,#2d6a9f,#6bb5e0)}
     .t-sky .bg3{background:linear-gradient(160deg,#1a3a5c,#6bb5e0)}
@@ -95,31 +114,38 @@
     .t-sky .pat{
       background-image:
         /* Large clouds */
-        radial-gradient(ellipse 65px 28px at 15% 20%,rgba(255,255,255,.1) 0,transparent 100%),
-        radial-gradient(ellipse 45px 22px at 22% 18%,rgba(255,255,255,.08) 0,transparent 100%),
-        radial-gradient(ellipse 85px 32px at 50% 18%,rgba(255,255,255,.07) 0,transparent 100%),
-        radial-gradient(ellipse 55px 25px at 42% 14%,rgba(255,255,255,.06) 0,transparent 100%),
-        radial-gradient(ellipse 70px 30px at 78% 22%,rgba(255,255,255,.08) 0,transparent 100%),
-        radial-gradient(ellipse 40px 20px at 70% 18%,rgba(255,255,255,.06) 0,transparent 100%),
-        /* Small clouds */
-        radial-gradient(ellipse 40px 18px at 35% 35%,rgba(255,255,255,.05) 0,transparent 100%),
-        radial-gradient(ellipse 50px 22px at 62% 38%,rgba(255,255,255,.04) 0,transparent 100%),
-        radial-gradient(ellipse 35px 16px at 88% 32%,rgba(255,255,255,.04) 0,transparent 100%),
-        /* Sun glow in corner */
-        radial-gradient(80px 80px at 88% 12%,rgba(240,217,181,.08) 0,transparent 100%),
-        /* Sun ray lines */
-        repeating-linear-gradient(30deg,transparent 0 15px,rgba(240,217,181,.025) 15px 16px),
-        repeating-linear-gradient(-30deg,transparent 0 15px,rgba(240,217,181,.025) 15px 16px),
-        /* Birds */
-        radial-gradient(1.5px 1.5px at 30% 40%,rgba(255,255,255,.06) 0,transparent 100%),
-        radial-gradient(1.5px 1.5px at 32% 38%,rgba(255,255,255,.06) 0,transparent 100%),
-        radial-gradient(1.2px 1.2px at 55% 42%,rgba(255,255,255,.05) 0,transparent 100%),
-        radial-gradient(1.2px 1.2px at 57% 40%,rgba(255,255,255,.05) 0,transparent 100%)
+        radial-gradient(ellipse 70px 28px at 12% 18%,rgba(255,255,255,.12) 0,transparent 100%),
+        radial-gradient(ellipse 50px 22px at 20% 15%,rgba(255,255,255,.1) 0,transparent 100%),
+        radial-gradient(ellipse 90px 32px at 48% 16%,rgba(255,255,255,.08) 0,transparent 100%),
+        radial-gradient(ellipse 60px 25px at 38% 12%,rgba(255,255,255,.07) 0,transparent 100%),
+        radial-gradient(ellipse 75px 30px at 80% 20%,rgba(255,255,255,.1) 0,transparent 100%),
+        radial-gradient(ellipse 45px 20px at 72% 16%,rgba(255,255,255,.08) 0,transparent 100%),
+        /* Medium clouds */
+        radial-gradient(ellipse 50px 22px at 30% 32%,rgba(255,255,255,.06) 0,transparent 100%),
+        radial-gradient(ellipse 55px 24px at 62% 35%,rgba(255,255,255,.05) 0,transparent 100%),
+        radial-gradient(ellipse 40px 18px at 90% 28%,rgba(255,255,255,.05) 0,transparent 100%),
+        radial-gradient(ellipse 45px 20px at 55% 45%,rgba(255,255,255,.04) 0,transparent 100%),
+        /* Sun glow */
+        radial-gradient(90px 90px at 85% 10%,rgba(240,217,181,.1) 0,transparent 100%),
+        radial-gradient(50px 50px at 85% 10%,rgba(255,255,200,.06) 0,transparent 100%),
+        /* Sun rays */
+        repeating-linear-gradient(25deg,transparent 0 12px,rgba(240,217,181,.03) 12px 13px),
+        repeating-linear-gradient(-25deg,transparent 0 12px,rgba(240,217,181,.03) 12px 13px),
+        repeating-linear-gradient(40deg,transparent 0 18px,rgba(240,217,181,.02) 18px 19px),
+        /* Rainbow arc hint */
+        radial-gradient(ellipse 180px 90px at 50% 110%,transparent 0,rgba(255,107,107,.015) 40%,rgba(255,215,0,.01) 55%,rgba(0,200,83,.01) 70%,transparent 80%),
+        /* Birds (V shapes using dot pairs) */
+        radial-gradient(1.5px 1.5px at 25% 38%,rgba(255,255,255,.08) 0,transparent 100%),
+        radial-gradient(1.5px 1.5px at 27% 36%,rgba(255,255,255,.08) 0,transparent 100%),
+        radial-gradient(1.2px 1.2px at 50% 40%,rgba(255,255,255,.06) 0,transparent 100%),
+        radial-gradient(1.2px 1.2px at 52% 38%,rgba(255,255,255,.06) 0,transparent 100%),
+        radial-gradient(1px 1px at 68% 42%,rgba(255,255,255,.05) 0,transparent 100%),
+        radial-gradient(1px 1px at 70% 40%,rgba(255,255,255,.05) 0,transparent 100%)
     }
     .t-sky .nav-ar,.t-sky .exit-btn,.t-sky .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
     .t-sky .card-inner{background:transparent}
 
-    /* -- Chinese: cloud scrolls + plum blossoms + border deco -- */
+    /* -- Chinese: cloud scrolls + plum + bamboo + deco borders -- */
     .t-chinese .bg1{background:linear-gradient(150deg,#3d0a0a,#6b1d1d)}
     .t-chinese .bg2{background:linear-gradient(150deg,#6b1d1d,#8b3a3a)}
     .t-chinese .bg3{background:linear-gradient(150deg,#3d0a0a,#8b3a3a)}
@@ -127,7 +153,7 @@
     .t-chinese .bg5{background:linear-gradient(150deg,#3d0a0a,#5a1515)}
     .t-chinese .pat{
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3C!-- Large cloud scroll top-left --%3E%3Cg fill='none' stroke='rgba(212,175,55,.08)' stroke-width='1.2'%3E%3Cpath d='M40 95 Q60 65 85 75 Q105 60 125 75 Q148 62 168 75 Q188 60 208 75 Q225 85 225 90 Q225 85 208 75 Q188 60 168 75 Q148 62 125 75 Q105 60 85 75 Q60 65 40 95Z'/%3E%3C!-- Medium cloud scroll right --%3E%3Cpath d='M260 115 Q280 90 305 100 Q325 88 340 98 Q357 97 370 105 L370 108 Q357 100 340 102 Q325 92 305 104 Q280 94 260 115Z'/%3E%3C!-- Small cloud scroll bottom-right --%3E%3Cpath d='M310 195 Q320 180 335 188 Q348 178 360 186 L360 189 Q348 181 335 192 Q320 184 310 195Z'/%3E%3C!-- Cloud scroll bottom center --%3E%3Cpath d='M90 320 Q110 295 135 305 Q155 290 175 300 Q195 288 215 298 Q232 306 232 310 Q232 306 215 298 Q195 288 175 300 Q155 290 135 305 Q110 295 90 320Z'/%3E%3C!-- Small cloud bottom left --%3E%3Cpath d='M280 340 Q292 325 305 332 Q318 322 330 330 L330 333 Q318 325 305 336 Q292 329 280 340Z'/%3E%3C/g%3E%3C!-- Border corner deco top-right --%3E%3Cpath d='M370 15 L385 15 L385 30' fill='none' stroke='rgba(212,175,55,.06)' stroke-width='1.5'/%3E%3C!-- Border corner deco bottom-left --%3E%3Cpath d='M15 485 L15 470 L30 470' fill='none' stroke='rgba(212,175,55,.06)' stroke-width='1.5'/%3E%3C!-- Plum blossom branch --%3E%3Cpath d='M330 150 Q340 140 355 145 Q365 148 370 155' fill='none' stroke='rgba(212,175,55,.045)' stroke-width='1'/%3E%3Ccircle cx='370' cy='155' r='4.5' fill='rgba(212,175,55,.045)'/%3E%3Ccircle cx='355' cy='145' r='3.5' fill='rgba(212,175,55,.035)'/%3E%3Ccircle cx='340' cy='140' r='3' fill='rgba(212,175,55,.03)'/%3E%3Ccircle cx='365' cy='148' r='3' fill='rgba(212,175,55,.03)'/%3E%3C!-- Bamboo leaves left --%3E%3Cpath d='M30 200 Q25 192 30 184 Q35 176 40 190 Q38 195 30 200Z' fill='rgba(212,175,55,.035)'/%3E%3Cpath d='M25 230 Q18 222 22 214 Q26 206 32 220 Q30 226 25 230Z' fill='rgba(212,175,55,.03)'/%3E%3Cpath d='M35 265 Q28 257 32 248 Q36 240 42 254 Q40 260 35 265Z' fill='rgba(212,175,55,.025)'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3C!-- Outer border decorative line --%3E%3Crect x='12' y='12' width='376' height='476' fill='none' stroke='rgba(212,175,55,.04)' stroke-width='1' rx='4'/%3E%3Cg fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.1'%3E%3C!-- Large cloud scroll top-left --%3E%3Cpath d='M35 100 Q55 70 80 80 Q100 65 120 75 Q145 62 165 75 Q185 60 205 75 Q225 85 225 90 Q225 85 205 75 Q185 60 165 75 Q145 62 120 75 Q100 65 80 80 Q55 70 35 100Z'/%3E%3C!-- Cloud scroll top-right --%3E%3Cpath d='M260 115 Q280 90 305 100 Q325 88 340 98 Q355 88 370 98 Q385 90 395 95 Q395 100 385 102 Q370 95 355 100 Q340 92 325 102 Q305 94 280 102 Q260 92 260 115Z'/%3E%3C!-- Cloud scroll mid-left --%3E%3Cpath d='M40 220 Q60 195 85 205 Q105 190 125 200 Q145 188 165 198 L165 202 Q145 192 125 204 Q105 194 85 209 Q60 199 40 220Z'/%3E%3C!-- Cloud scroll mid-right --%3E%3Cpath d='M290 240 Q310 215 335 225 Q355 212 370 222 Q385 212 400 220 L400 224 Q385 216 370 226 Q355 216 335 229 Q310 219 290 240Z'/%3E%3C!-- Cloud scroll bottom-center --%3E%3Cpath d='M100 350 Q120 325 145 335 Q165 320 185 330 Q205 318 225 328 Q242 336 242 340 Q242 336 225 328 Q205 318 185 330 Q165 320 145 335 Q120 325 100 350Z'/%3E%3C!-- Small cloud bottom-left --%3E%3Cpath d='M60 420 Q75 400 90 410 Q110 400 125 410 Q140 418 140 420 Q140 418 125 410 Q110 400 90 410 Q75 400 60 420Z'/%3E%3C/g%3E%3C!-- Corner deco top-left --%3E%3Cpath d='M20 35 L20 20 L35 20' fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.5'/%3E%3C!-- Corner deco top-right --%3E%3Cpath d='M380 35 L380 20 L365 20' fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.5'/%3E%3C!-- Corner deco bottom-left --%3E%3Cpath d='M20 465 L20 480 L35 480' fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.5'/%3E%3C!-- Corner deco bottom-right --%3E%3Cpath d='M380 465 L380 480 L365 480' fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.5'/%3E%3C!-- Plum branch top-right --%3E%3Cpath d='M345 130 Q352 120 362 125 Q370 128 375 135' fill='none' stroke='rgba(212,175,55,.05)' stroke-width='1'/%3E%3Ccircle cx='375' cy='135' r='4' fill='rgba(212,175,55,.04)'/%3E%3Ccircle cx='362' cy='125' r='3' fill='rgba(212,175,55,.03)'/%3E%3Ccircle cx='352' cy='120' r='2.5' fill='rgba(212,175,55,.025)'/%3E%3C!-- Plum blossoms bottom --%3E%3Cpath d='M60 290 Q55 282 60 274' fill='none' stroke='rgba(212,175,55,.04)' stroke-width='1'/%3E%3Ccircle cx='60' cy='274' r='3' fill='rgba(212,175,55,.03)'/%3E%3Ccircle cx='70' cy='280' r='2.5' fill='rgba(212,175,55,.025)'/%3E%3C/svg%3E");
       background-position:center center;background-size:100% 100%;background-repeat:no-repeat
     }
     .t-chinese .card-inner{border-color:rgba(212,175,55,.2)}
@@ -135,24 +161,19 @@
     .t-chinese .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
     .t-chinese .nav-ar,.t-chinese .exit-btn,.t-chinese .dl-btn{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2)}
 
-    /* ===== Fixed Header ===== */
+    /* ========== HEADER: 3 centered rows ========== */
     header{
       position:sticky;top:0;z-index:30;flex-shrink:0;
       background:#FFF;color:#2D3436;
-      padding:10px 12px 6px;
+      padding:10px 10px 6px;text-align:center;
       box-shadow:0 1px 6px rgba(0,0,0,.06)
     }
-    .header-row1{
-      display:flex;align-items:center;justify-content:space-between;gap:8px
-    }
-    .header-row2{
-      display:flex;align-items:center;justify-content:space-between;margin-top:2px
-    }
+    /* Row 1: club name */
     .club-name-area{
       display:inline-flex;align-items:center;gap:4px;
       padding:3px 10px 3px 6px;border-radius:8px;cursor:pointer;
       border:1.5px dashed #D5D0CC;background:#FAF8F6;
-      transition:all .25s;flex-shrink:0;max-width:55%
+      transition:all .25s;max-width:70%
     }
     .club-name-area:hover{border-color:#6C5CE7;background:#F5F0FF;box-shadow:0 0 0 3px rgba(108,92,231,.1)}
     .club-name-area .icon-edit{
@@ -166,25 +187,31 @@
       font-size:14px;font-weight:700;color:#2D3436;background:#FFF;
       border:2px solid #6C5CE7;border-radius:6px;padding:2px 8px;width:140px;text-align:center;display:none
     }
-    .subtitle{font-size:11px;font-weight:600;color:#E17055;letter-spacing:2px}
-
-    /* Header right controls */
-    .hdr-right{display:flex;align-items:center;gap:4px;flex-shrink:0}
+    /* Row 2: subtitle */
+    .subtitle{font-size:12px;font-weight:600;color:#E17055;letter-spacing:3px;margin-top:1px}
+    /* Row 3: actions */
+    .header-actions{
+      display:flex;align-items:center;justify-content:center;gap:6px;
+      margin-top:4px;flex-wrap:wrap
+    }
     .theme-select{
-      padding:4px 6px;border-radius:6px;font-size:11px;font-weight:500;
-      border:1.5px solid #D8D0F0;color:#6C5CE7;background:#F8F6FF;
-      cursor:pointer;appearance:auto;-webkit-appearance:auto;max-width:70px
+      padding:3px 5px;border-radius:5px;font-size:11px;font-weight:500;
+      border:1.5px solid #D8D0F0;color:#6C5CE7;background:#F8F6FF;cursor:pointer;
+      appearance:auto;-webkit-appearance:auto;max-width:72px
     }
     .hdr-btn{
-      width:28px;height:28px;border-radius:7px;
-      display:flex;align-items:center;justify-content:center;
-      font-size:13px;transition:all .2s;background:#F0EDEA;color:#555;flex-shrink:0
+      display:inline-flex;align-items:center;gap:3px;
+      padding:4px 9px;border-radius:7px;
+      font-size:12px;font-weight:500;
+      transition:all .2s;background:#F0EDEA;color:#555
     }
-    .hdr-btn:active{transform:scale(.9)}
+    .hdr-btn:active{transform:scale(.93)}
+    .hdr-btn .hdr-icon{font-size:13px;line-height:1}
+    .hdr-btn .hdr-label{font-size:11px}
     .hdr-btn.pri{background:#6C5CE7;color:#FFF}
     .hdr-btn.dan{color:#E17055}
 
-    /* ===== Edit Mode ===== */
+    /* ========== Edit Mode ========== */
     #editMode{
       flex:1;padding:8px 12px 14px;overflow-y:auto;
       display:flex;flex-direction:column;gap:8px;
@@ -212,7 +239,7 @@
     .card-edit .del:hover{background:#FFE0D6;color:#E17055}
     .btn-add{color:#6C5CE7;font-size:12px;font-weight:500;padding:4px 0;display:flex;align-items:center;gap:4px}
 
-    /* ===== Browse Mode ===== */
+    /* ========== Browse Mode ========== */
     #browseMode{
       position:fixed;top:0;left:0;right:0;bottom:0;
       z-index:100;display:none;overflow:hidden
@@ -226,16 +253,13 @@
     .card-full.prev{transform:translateX(-100%);opacity:0}
     .card-full.active{transform:translateX(0);opacity:1}
     .card-full.next{transform:translateX(100%);opacity:0}
-
     .card-inner{
       width:100%;max-width:560px;
       height:calc(100% - 32px);max-height:780px;
-      border:1.5px solid rgba(255,255,255,.15);
-      border-radius:18px;
+      border:1.5px solid rgba(255,255,255,.15);border-radius:18px;
       display:flex;flex-direction:column;
       align-items:center;justify-content:center;
-      padding:40px 28px;
-      position:relative;overflow:hidden;
+      padding:40px 28px;position:relative;overflow:hidden;
       box-shadow:0 8px 40px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.06)
     }
     .card-inner .pat{position:absolute;inset:0;z-index:0;pointer-events:none}
@@ -262,7 +286,6 @@
     }
     .card-inner::before{top:12px;left:12px;border-top-width:2px;border-left-width:2px;border-radius:3px 0 0 0}
     .card-inner::after{bottom:12px;right:12px;border-bottom-width:2px;border-right-width:2px;border-radius:0 0 3px 0}
-
     /* Browse controls */
     .exit-btn{
       position:fixed;top:12px;right:12px;z-index:120;
@@ -279,8 +302,7 @@
       font-size:15px;line-height:1;transition:all .2s;opacity:.6;
       backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
     }
-    .dl-btn:hover{opacity:1}
-    .dl-btn:active{transform:scale(.85)}
+    .dl-btn:hover{opacity:1}.dl-btn:active{transform:scale(.85)}
     .nav-ar{
       position:fixed;top:50%;transform:translateY(-50%);z-index:110;
       width:36px;height:36px;border-radius:50%;
@@ -289,11 +311,10 @@
       backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
     }
     .nav-ar:active{transform:translateY(-50%) scale(.88)}
-    .nav-ar.l{left:6px}
-    .nav-ar.r{right:6px}
+    .nav-ar.l{left:6px}.nav-ar.r{right:6px}
     .nav-ar:disabled{opacity:.12;pointer-events:none}
 
-    /* ===== Modal ===== */
+    /* ========== Modal ========== */
     .modal-ov{
       position:fixed;top:0;left:0;right:0;bottom:0;
       background:rgba(0,0,0,.45);display:flex;align-items:flex-end;
@@ -309,20 +330,15 @@
     .modal-ov.open .modal-sh{transform:translateY(0)}
     .modal-h{width:32px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 12px}
     .modal-sh .t{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-    .modal-sh .t .badge{font-size:11px;font-weight:400;color:#999;margin-left:auto}
     .modal-sh .acts{display:flex;gap:10px;margin-top:12px}
     .modal-sh .acts .btn{flex:1;justify-content:center}
-    .modal-sh .acts .btn-pri{background:#6C5CE7;color:#FFF;box-shadow:0 3px 10px rgba(108,92,231,.25)}
+    .modal-sh .acts .btn-pri{background:#6C5CE7;color:#FFF}
     .modal-sh .acts .btn-sec{background:#EDE9E6;color:#555}
-    /* Config form */
     .cfg-row{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
     .cfg-row label{font-size:12px;font-weight:600;color:#666}
-    .cfg-row input{
-      padding:8px 10px;border-radius:8px;font-size:13px;
-      border:1.5px solid #DDD;background:#FAFAFA;transition:all .2s
-    }
+    .cfg-row input{padding:8px 10px;border-radius:8px;font-size:13px;border:1.5px solid #DDD;background:#FAFAFA}
     .cfg-row input:focus{border-color:#6C5CE7;background:#FFF}
-    .cfg-hint{font-size:10px;color:#AAA;margin-top:2px;line-height:1.4}
+    .cfg-hint{font-size:10px;color:#AAA;margin-top:2px}
     .cfg-status{font-size:11px;padding:6px 10px;border-radius:6px;margin-top:6px}
     .cfg-status.ok{background:#E8F5E9;color:#2E7D32}
     .cfg-status.err{background:#FFF0F0;color:#D32F2F}
@@ -340,30 +356,29 @@
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
     @media(min-width:768px){
-      header{padding:14px 18px 8px}
-      .club-name-area{max-width:50%}
-      .hdr-btn{width:32px;height:32px;font-size:14px}
+      header{padding:14px 18px 10px}
+      .club-name-area{max-width:60%}
+      #clubNameDisplay{font-size:17px}
+      .subtitle{font-size:13px}
+      .header-actions{gap:10px}
       .card-full{padding:24px}
       .card-inner{padding:52px 44px}
       .card-inner .txt{font-size:clamp(26px,3.8vw,42px)}
       .nav-ar{width:44px;height:44px;font-size:24px}
-      .nav-ar.l{left:16px}
-      .nav-ar.r{right:16px}
+      .nav-ar.l{left:16px}.nav-ar.r{right:16px}
       .exit-btn,.dl-btn{width:36px;height:36px;font-size:18px}
-      .exit-btn{top:16px;right:16px}
-      .dl-btn{bottom:16px;left:16px}
+      .exit-btn{top:16px;right:16px}.dl-btn{bottom:16px;left:16px}
     }
     @media(min-width:1024px){
       .card-inner{max-width:620px;max-height:840px}
       .card-inner .txt{font-size:clamp(30px,3.2vw,48px)}
     }
     @media(max-width:420px){
-      header{padding:8px 10px 5px}
-      .club-name-area{padding:2px 8px 2px 4px;max-width:50%}
+      header{padding:7px 8px 5px}
+      .club-name-area{padding:2px 6px 2px 4px}
       #clubNameDisplay{font-size:13px}
       .subtitle{font-size:10px}
-      .theme-select{font-size:10px;padding:3px 4px;max-width:60px}
-      .hdr-btn{width:26px;height:26px;font-size:12px}
+      .header-actions{gap:4px}
       .card-inner{padding:28px 18px;border-radius:14px}
       .card-inner .txt{font-size:clamp(18px,5vw,28px)}
       .card-full{padding:10px}
@@ -373,30 +388,35 @@
 </head>
 <body>
 <div id="app">
-  <!-- ===== Fixed Header ===== -->
+  <!-- ===== Fixed Header: 3 centered rows ===== -->
   <header>
-    <div class="header-row1">
-      <div class="club-name-area" onclick="editClubName()" title="点击编辑俱乐部名称">
-        <span class="icon-edit">✎</span>
-        <span id="clubNameDisplay">申花头马俱乐部</span>
-        <input type="text" id="clubNameInput" placeholder="输入俱乐部名称"
-               onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
-      </div>
-      <div class="hdr-right">
-        <select class="theme-select" id="themeSelect" onchange="setTheme(this.value)">
-          <option value="dream">🌈 梦境</option>
-          <option value="cyber">🤖 赛博</option>
-          <option value="nature">🌿 山水</option>
-          <option value="sky">☁️ 蓝天</option>
-          <option value="chinese">🏮 中国风</option>
-        </select>
-        <button class="hdr-btn pri" onclick="startBrowsing()" title="全屏显示">👁️</button>
-        <button class="hdr-btn" onclick="shareCards()" title="分享">🔗</button>
-        <button class="hdr-btn dan" onclick="clearAll()" title="清空">🗑️</button>
-      </div>
+    <!-- Row 1: Club name -->
+    <div class="club-name-area" onclick="editClubName()" title="点击编辑俱乐部名称">
+      <span class="icon-edit">✎</span>
+      <span id="clubNameDisplay">申花头马俱乐部</span>
+      <input type="text" id="clubNameInput" placeholder="输入名称"
+             onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
     </div>
-    <div class="header-row2">
-      <span class="subtitle">头马语言官</span>
+    <!-- Row 2: Subtitle -->
+    <div class="subtitle">头马语言官</div>
+    <!-- Row 3: Actions -->
+    <div class="header-actions">
+      <select class="theme-select" id="themeSelect" onchange="setTheme(this.value)">
+        <option value="dream">🌈 梦境</option>
+        <option value="cyber">🤖 赛博</option>
+        <option value="nature">🌿 山水</option>
+        <option value="sky">☁️ 蓝天</option>
+        <option value="chinese">🏮 中国风</option>
+      </select>
+      <button class="hdr-btn pri" onclick="startBrowsing()">
+        <span class="hdr-icon">👁️</span><span class="hdr-label">预览</span>
+      </button>
+      <button class="hdr-btn" onclick="shareCards()">
+        <span class="hdr-icon">🔗</span><span class="hdr-label">分享</span>
+      </button>
+      <button class="hdr-btn dan" onclick="clearAll()">
+        <span class="hdr-icon">🗑️</span><span class="hdr-label">清空</span>
+      </button>
     </div>
   </header>
 
@@ -439,11 +459,8 @@
     const n=localStorage.getItem('tm_clubName');
     if(n)document.getElementById('clubNameDisplay').textContent=n;
     const t=localStorage.getItem('tm_theme');
-    if(t&&T[t]){
-      curTheme=t;
-      document.getElementById('themeSelect').value=t;
-      TK.forEach(x=>document.body.classList.remove(T[x]));
-      document.body.classList.add(T[t])
+    if(t&&T[t]){curTheme=t;document.getElementById('themeSelect').value=t;
+      TK.forEach(x=>document.body.classList.remove(T[x]));document.body.classList.add(T[t])
     }else setTheme('dream');
     const h=window.location.hash;
     if(h&&h.length>1){
@@ -457,7 +474,6 @@
   }
 
   function genId(){return crypto.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
-
   function editClubName(){
     const d=document.getElementById('clubNameDisplay'),i=document.getElementById('clubNameInput');
     i.value=d.textContent;d.style.display='none';i.style.display='inline-block';i.focus();i.select()
@@ -468,241 +484,74 @@
     d.textContent=n;d.style.display='inline';i.style.display='none';
     localStorage.setItem('tm_clubName',n);toast('已保存')
   }
-
   function setTheme(k){
     if(!T[k])return;curTheme=k;
     document.getElementById('themeSelect').value=k;
-    TK.forEach(x=>document.body.classList.remove(T[x]));
-    document.body.classList.add(T[k]);
+    TK.forEach(x=>document.body.classList.remove(T[x]));document.body.classList.add(T[k]);
     localStorage.setItem('tm_theme',k);
     if(document.getElementById('browseMode').style.display!=='none')renderCards()
   }
-
   function addCard(c){cards.push(c||'');renderEditors();setTimeout(()=>{const l=document.getElementById('editorList'),e=l.lastElementChild;if(e){const t=e.querySelector('textarea');if(t)t.focus();l.scrollTop=l.scrollHeight}},50)}
   function deleteCard(i){if(cards.length<=1){toast('至少保留一张');return}cards.splice(i,1);renderEditors()}
   function clearAll(){if(cards.every(c=>!c.trim()))return;if(!confirm('清空所有卡片？'))return;cards=[''];renderEditors();toast('已清空')}
   function updCard(i,v){cards[i]=v;localStorage.setItem('tm_cards',JSON.stringify(cards))}
-
   function renderEditors(){
     const l=document.getElementById('editorList');l.innerHTML='';
     cards.forEach((c,i)=>{
       const d=document.createElement('div');d.className='card-edit';
       d.innerHTML=`<div class="lbl">卡片 ${i+1}</div><button class="del" onclick="deleteCard(${i})">✕</button><textarea placeholder="输入一句话…" oninput="updCard(${i},this.value)" rows="${Math.max(2,Math.ceil(c.length/30))}">${esc(c)}</textarea>`;
       l.appendChild(d)
-    });
-    localStorage.setItem('tm_cards',JSON.stringify(cards))
+    });localStorage.setItem('tm_cards',JSON.stringify(cards))
   }
 
-  // ===== Browse =====
-  function goBrowse(){
-    document.getElementById('browseMode').style.display='block';
-    const v=cards.filter(c=>c.trim());
-    if(v.length>0)cur=0;
-    renderCards()
-  }
-  function exitBrowse(){
-    document.getElementById('browseMode').style.display='none';
-    renderEditors()
-  }
-
+  function goBrowse(){document.getElementById('browseMode').style.display='block';const v=cards.filter(c=>c.trim());if(v.length>0)cur=0;renderCards()}
+  function exitBrowse(){document.getElementById('browseMode').style.display='none';renderEditors()}
   function renderCards(){
     const stage=document.getElementById('browseMode');
     document.querySelectorAll('#browseMode>.card-full').forEach(el=>el.remove());
     const valid=cards.filter(c=>c.trim());
-    if(valid.length===0){
-      const e=document.createElement('div');e.className='card-full active';
-      e.innerHTML=`<div class="card-inner"><div class="pat"></div><div class="txt" style="opacity:.5;font-size:18px">还没有卡片</div></div>`;
-      stage.appendChild(e);
-      document.getElementById('prevBtn').disabled=true;document.getElementById('nextBtn').disabled=true;
-      return
-    }
+    if(valid.length===0){const e=document.createElement('div');e.className='card-full active';e.innerHTML='<div class="card-inner"><div class="pat"></div><div class="txt" style="opacity:.5;font-size:18px">还没有卡片</div></div>';stage.appendChild(e);document.getElementById('prevBtn').disabled=true;document.getElementById('nextBtn').disabled=true;return}
     if(cur>=valid.length)cur=0;if(cur<0)cur=0;
-    valid.forEach((c,i)=>{
-      const d=document.createElement('div');d.className='card-full';
-      d.classList.add('bg'+((i%5)+1));
-      if(i===cur)d.classList.add('active');
-      else if(i<cur)d.classList.add('prev');
-      else d.classList.add('next');
-      d.innerHTML=`<div class="card-inner"><div class="pat"></div><div class="deco-line t"></div><div class="txt">${esc(c).replace(/\n/g,'<br>')}</div><div class="deco-line b"></div><div class="num">${i+1}/${valid.length}</div></div>`;
-      stage.appendChild(d)
-    });
-    document.getElementById('prevBtn').disabled=cur<=0;
-    document.getElementById('nextBtn').disabled=cur>=valid.length-1
+    valid.forEach((c,i)=>{const d=document.createElement('div');d.className='card-full';d.classList.add('bg'+((i%5)+1));if(i===cur)d.classList.add('active');else if(i<cur)d.classList.add('prev');else d.classList.add('next');d.innerHTML=`<div class="card-inner"><div class="pat"></div><div class="deco-line t"></div><div class="txt">${esc(c).replace(/\n/g,'<br>')}</div><div class="deco-line b"></div><div class="num">${i+1}/${valid.length}</div></div>`;stage.appendChild(d)});
+    document.getElementById('prevBtn').disabled=cur<=0;document.getElementById('nextBtn').disabled=cur>=valid.length-1
   }
+  function goTo(i){const v=cards.filter(c=>c.trim());if(i<0)i=0;if(i>=v.length)i=Math.max(0,v.length-1);if(i===cur)return;cur=i;renderCards()}
+  function prevCard(){goTo(cur-1)}function nextCard(){goTo(cur+1)}
+  function startBrowsing(){const v=cards.filter(c=>c.trim());if(v.length===0){toast('请先输入内容');return}recordQuotes();goBrowse()}
 
-  function goTo(i){
-    const v=cards.filter(c=>c.trim());
-    if(i<0)i=0;if(i>=v.length)i=Math.max(0,v.length-1);
-    if(i===cur)return;cur=i;renderCards()
-  }
-  function prevCard(){goTo(cur-1)}
-  function nextCard(){goTo(cur+1)}
-
-  function startBrowsing(){
-    const v=cards.filter(c=>c.trim());
-    if(v.length===0){toast('请先输入内容');return}
-    recordQuotes();
-    goBrowse()
-  }
-
-  // ===== Quick Add =====
-  function openQAdd(){
-    document.getElementById('qAddInp').value='';
-    document.getElementById('quickAddModal').classList.add('open');
-    setTimeout(()=>document.getElementById('qAddInp').focus(),350)
-  }
+  // Quick Add
+  function openQAdd(){document.getElementById('qAddInp').value='';document.getElementById('quickAddModal').classList.add('open');setTimeout(()=>document.getElementById('qAddInp').focus(),350)}
   function closeQAdd(e){if(e&&e.target!==document.getElementById('quickAddModal'))return;document.getElementById('quickAddModal').classList.remove('open')}
-  function confirmQAdd(){
-    const i=document.getElementById('qAddInp'),t=i.value.trim();
-    if(!t){toast('请输入内容');return}
-    cards.push(t);localStorage.setItem('tm_cards',JSON.stringify(cards));
-    cur=cards.filter(c=>c.trim()).length-1;
-    document.getElementById('quickAddModal').classList.remove('open');
-    renderCards();toast('已添加')
-  }
+  function confirmQAdd(){const i=document.getElementById('qAddInp'),t=i.value.trim();if(!t){toast('请输入内容');return}cards.push(t);localStorage.setItem('tm_cards',JSON.stringify(cards));cur=cards.filter(c=>c.trim()).length-1;document.getElementById('quickAddModal').classList.remove('open');renderCards();toast('已添加')}
 
-  // ===== Share =====
-  function shareCards(){
-    const v=cards.filter(c=>c.trim());
-    if(v.length===0){toast('还没有内容');return}
-    recordQuotes();
-    const enc=encodeURIComponent(btoa(JSON.stringify(v)));
-    const url=window.location.origin+window.location.pathname+'#'+enc;
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(()=>toast('链接已复制 ✓')).catch(()=>fallbackCopy(url))
-    }else fallbackCopy(url)
-  }
-  function fallbackCopy(t){
-    const ta=document.createElement('textarea');ta.value=t;
-    ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
-    try{document.execCommand('copy');toast('链接已复制 ✓')}catch(e){toast('复制失败')}
-    document.body.removeChild(ta)
-  }
+  // Share
+  function shareCards(){const v=cards.filter(c=>c.trim());if(v.length===0){toast('还没有内容');return}recordQuotes();const enc=encodeURIComponent(btoa(JSON.stringify(v)));const url=window.location.origin+window.location.pathname+'#'+enc;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(()=>toast('链接已复制 ✓')).catch(()=>fallbackCopy(url))}else fallbackCopy(url)}
+  function fallbackCopy(t){const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('链接已复制 ✓')}catch(e){toast('复制失败')};document.body.removeChild(ta)}
 
-  // ===== Quotes (silent background recording) =====
+  // Quotes (silent background)
   function getQuotes(){try{return JSON.parse(localStorage.getItem('tm_quotes'))||[]}catch(e){return[]}}
   function saveQuotes(q){localStorage.setItem('tm_quotes',JSON.stringify(q))}
-
-  async function recordQuotes(){
-    const v=cards.filter(c=>c.trim());
-    if(v.length===0)return;
-    const qs=getQuotes();
-    let ip='';
-    try{const r=await fetch('https://api.ipify.org?format=json');if(r.ok){const d=await r.json();ip=d.ip}}catch(e){}
-    qs.push({
-      id:genId(),timestamp:new Date().toISOString(),
-      club:document.getElementById('clubNameDisplay').textContent,
-      theme:curTheme,cardCount:v.length,cards:v,
-      ip:ip,visitor:localStorage.getItem('tm_visitor')||''
-    });
-    saveQuotes(qs)
-  }
-
-  // Hidden sync: double-tap club name to trigger
-  let hc=0;
-  document.addEventListener('dblclick',e=>{
-    if(e.target.closest('.club-name-area')){hc++;if(hc>=3){hc=0;syncQuotesToGh()}}
-  });
-
-  async function syncQuotesToGh(){
-    const cfg=getGhConfig();
-    if(!cfg.token||!cfg.repo){toast('未配置 GitHub');return}
-    const qs=getQuotes();
-    if(qs.length===0){toast('没有金句');return}
-    try{
-      let sha=null,existing=[];
-      const getR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path||'quotes/quotes.json'}`,{
-        headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json'}
-      });
-      if(getR.ok){const d=await getR.json();sha=d.sha;try{existing=JSON.parse(atob(d.content))}catch(e){existing=[]}}
-      const existingIds=new Set(existing.map(e=>e.id));
-      const merged=[...existing,...qs.filter(q=>!existingIds.has(q.id))];
-      const putR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path||'quotes/quotes.json'}`,{
-        method:'PUT',
-        headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
-        body:JSON.stringify({
-          message:`sync ${qs.length} quotes from Touma Language Officer`,
-          content:btoa(unescape(encodeURIComponent(JSON.stringify(merged,null,2)))),
-          sha:sha||undefined
-        })
-      });
-      if(!putR.ok)throw new Error('同步失败');
-      toast('同步成功 ✓ '+(merged.length-existing.length)+' 条新记录')
-    }catch(e){toast('同步失败')}
-  }
-
+  async function recordQuotes(){const v=cards.filter(c=>c.trim());if(v.length===0)return;const qs=getQuotes();let ip='';try{const r=await fetch('https://api.ipify.org?format=json');if(r.ok){const d=await r.json();ip=d.ip}}catch(e){}qs.push({id:genId(),timestamp:new Date().toISOString(),club:document.getElementById('clubNameDisplay').textContent,theme:curTheme,cardCount:v.length,cards:v,ip:ip,visitor:localStorage.getItem('tm_visitor')||''});saveQuotes(qs)}
   function getGhConfig(){try{return JSON.parse(localStorage.getItem('tm_gh_config'))||{}}catch(e){return{}}}
   function saveGhConfig(c){localStorage.setItem('tm_gh_config',JSON.stringify(c))}
+  let hc=0;document.addEventListener('dblclick',e=>{if(e.target.closest('.club-name-area')){hc++;if(hc>=3){hc=0;syncQuotesToGh()}}});
+  async function syncQuotesToGh(){const cfg=getGhConfig();if(!cfg.token||!cfg.repo){toast('未配置 GitHub');return}const qs=getQuotes();if(qs.length===0){toast('没有金句');return}try{let sha=null,existing=[];const getR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path||'quotes/quotes.json'}`,{headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json'}});if(getR.ok){const d=await getR.json();sha=d.sha;try{existing=JSON.parse(atob(d.content))}catch(e){existing=[]}}const existingIds=new Set(existing.map(e=>e.id));const merged=[...existing,...qs.filter(q=>!existingIds.has(q.id))];const putR=await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${cfg.path||'quotes/quotes.json'}`,{method:'PUT',headers:{Authorization:`Bearer ${cfg.token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:`sync ${qs.length} quotes`,content:btoa(unescape(encodeURIComponent(JSON.stringify(merged,null,2)))),sha:sha||undefined})});if(!putR.ok)throw new Error('同步失败');toast('同步成功 ✓')}catch(e){toast('同步失败')}}
+  let hc2=0;document.addEventListener('click',e=>{if(e.target.closest('.club-name-area')){hc2++;if(hc2>=5){hc2=0;const c=getGhConfig();const t=prompt('GitHub Token:',c.token||'');if(t===null)return;const r=prompt('仓库 (owner/repo):',c.repo||'');if(r===null)return;const p=prompt('文件路径:',c.path||'quotes/quotes.json')||'quotes/quotes.json';if(p===null)return;saveGhConfig({token:t,repo:r,path:p});toast('GitHub 已配置')}}});
 
-  // Config modal (hidden trigger: tap club name 5 times)
-  let hc2=0;
-  document.addEventListener('click',e=>{
-    if(e.target.closest('.club-name-area')){hc2++;if(hc2>=5){hc2=0;showGhConfig()}}
-  });
+  // Download card
+  function loadHtml2Canvas(cb){if(window.html2canvas){cb();return}const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=cb;s.onerror=()=>toast('加载失败');document.head.appendChild(s)}
+  function downloadCard(){const active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}const cardInner=active.querySelector('.card-inner');if(!cardInner){toast('未找到卡片');return}loadHtml2Canvas(()=>{html2canvas(cardInner,{scale:2,useCORS:true,backgroundColor:null,allowTaint:true}).then(canvas=>{const a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=canvas.toDataURL('image/png');a.click();toast('已下载 ✓')}).catch(e=>{toast('下载失败')})})}
 
-  function showGhConfig(){
-    const c=getGhConfig();
-    const t=prompt('GitHub Token (repo 权限):',c.token||'');
-    if(t===null)return;
-    const r=prompt('仓库名 (owner/repo):',c.repo||'');
-    if(r===null)return;
-    const p=prompt('文件路径:',c.path||'quotes/quotes.json')||'quotes/quotes.json';
-    if(p===null)return;
-    saveGhConfig({token:t,repo:r,path:p});
-    toast('GitHub 配置已保存')
-  }
-
-  // ===== Download Card =====
-  function loadHtml2Canvas(cb){
-    if(window.html2canvas){cb();return}
-    const s=document.createElement('script');
-    s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
-    s.onload=cb;s.onerror=()=>toast('加载失败');
-    document.head.appendChild(s)
-  }
-
-  function downloadCard(){
-    const active=document.querySelector('#browseMode .card-full.active');
-    if(!active){toast('没有卡片');return}
-    const cardInner=active.querySelector('.card-inner');
-    if(!cardInner){toast('未找到卡片');return}
-    loadHtml2Canvas(()=>{
-      html2canvas(cardInner,{scale:2,useCORS:true,backgroundColor:null,allowTaint:true})
-        .then(canvas=>{const a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=canvas.toDataURL('image/png');a.click();toast('已下载 ✓')})
-        .catch(e=>{toast('下载失败');console.error(e)})
-    })
-  }
-
-  // ===== Gestures =====
+  // Gestures
   let tx=0,lastTap=0;
   document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
-  document.addEventListener('touchend',e=>{
-    if(document.getElementById('browseMode').style.display==='none')return;
-    if(document.getElementById('quickAddModal').classList.contains('open'))return;
-    const d=tx-e.changedTouches[0].screenX;
-    if(Math.abs(d)>40){if(d>0)nextCard();else prevCard()}
-  },{passive:true});
-  document.addEventListener('click',e=>{
-    if(document.getElementById('browseMode').style.display==='none')return;
-    if(e.target.closest('.nav-ar')||e.target.closest('.exit-btn')||e.target.closest('.dl-btn')||e.target.closest('.card-inner'))return;
-    const n=Date.now();
-    if(n-lastTap<350){exitBrowse();lastTap=0;return}
-    lastTap=n;
-  });
-  document.addEventListener('keydown',e=>{
-    if(document.getElementById('browseMode').style.display==='none')return;
-    if(e.key==='ArrowLeft')prevCard();if(e.key==='ArrowRight')nextCard();
-    if(e.key==='Escape')exitBrowse()
-  });
+  document.addEventListener('touchend',e=>{if(document.getElementById('browseMode').style.display==='none')return;if(document.getElementById('quickAddModal').classList.contains('open'))return;const d=tx-e.changedTouches[0].screenX;if(Math.abs(d)>40){if(d>0)nextCard();else prevCard()}},{passive:true});
+  document.addEventListener('click',e=>{if(document.getElementById('browseMode').style.display==='none')return;if(e.target.closest('.nav-ar')||e.target.closest('.exit-btn')||e.target.closest('.dl-btn')||e.target.closest('.card-inner'))return;const n=Date.now();if(n-lastTap<350){exitBrowse();lastTap=0;return}lastTap=n});
+  document.addEventListener('keydown',e=>{if(document.getElementById('browseMode').style.display==='none')return;if(e.key==='ArrowLeft')prevCard();if(e.key==='ArrowRight')nextCard();if(e.key==='Escape')exitBrowse()});
 
   let tt=null;
-  function toast(m){
-    const el=document.getElementById('toast');el.textContent=m;
-    el.classList.add('show');clearTimeout(tt);
-    tt=setTimeout(()=>el.classList.remove('show'),2200)
-  }
+  function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2200)}
   function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
-
   init();
 </script>
 </body>
