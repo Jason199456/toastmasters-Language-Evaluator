@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>头马语言官</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      background: #F3F1EE;
+      color: #2D3436;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    button { font-family: inherit; border: none; cursor: pointer; background: none; }
+    input, textarea { font-family: inherit; outline: none; border: none; }
+
+    /* ===== App Container ===== */
+    #app {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* ===== Header ===== */
+    header {
+      padding: 16px 20px 12px;
+      background: #FFF;
+      border-bottom: 1px solid #EDE9E6;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 10;
+    }
+    .club-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #clubNameInput {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2D3436;
+      background: #F8F6F4;
+      border: 1.5px solid #E8E4E0;
+      border-radius: 8px;
+      padding: 4px 10px;
+      width: 100%;
+      max-width: 280px;
+      transition: border-color 0.2s;
+    }
+    #clubNameInput:focus { border-color: #6C5CE7; background: #FFF; }
+    #clubNameDisplay {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2D3436;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 8px;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    #clubNameDisplay:hover { background: #F0EDEA; }
+    .edit-icon {
+      font-size: 14px;
+      color: #999;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .club-name-row:hover .edit-icon { opacity: 1; }
+    .subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: #E17055;
+      letter-spacing: 2px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .subtitle::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: linear-gradient(90deg, #E17055, #6C5CE7);
+      border-radius: 1px;
+    }
+
+    /* ===== Mode Tabs ===== */
+    .mode-tabs {
+      display: flex;
+      background: #EDE9E6;
+      border-radius: 10px;
+      padding: 3px;
+      margin: 12px 0 0;
+      gap: 3px;
+    }
+    .mode-tab {
+      flex: 1;
+      padding: 7px 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: #888;
+      border-radius: 8px;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .mode-tab.active {
+      background: #FFF;
+      color: #2D3436;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    /* ===== Main Content ===== */
+    .main-content {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ===== Edit Mode ===== */
+    #editMode {
+      height: 100%;
+      padding: 16px 20px 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    #editMode::-webkit-scrollbar { width: 4px; }
+    #editMode::-webkit-scrollbar-thumb { background: #DDD; border-radius: 2px; }
+
+    .card-editor {
+      background: #FFF;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border-left: 4px solid #DDD;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .card-editor .card-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #999;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .card-editor textarea {
+      width: 100%;
+      min-height: 60px;
+      max-height: 150px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #2D3436;
+      background: #FAFAFA;
+      border-radius: 8px;
+      padding: 10px 12px;
+      resize: vertical;
+      transition: background 0.2s;
+    }
+    .card-editor textarea:focus { background: #FFF; box-shadow: inset 0 0 0 1.5px #6C5CE7; }
+    .card-editor textarea::placeholder { color: #C5C0BB; }
+    .card-editor .delete-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #F0EDEA;
+      color: #999;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .card-editor .delete-btn:hover { background: #FFE0D6; color: #E17055; }
+
+    .edit-actions {
+      display: flex;
+      gap: 10px;
+      padding-top: 4px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary {
+      background: linear-gradient(135deg, #6C5CE7, #A29BFE);
+      color: #FFF;
+      box-shadow: 0 3px 10px rgba(108,92,231,0.25);
+    }
+    .btn-primary:hover { box-shadow: 0 5px 15px rgba(108,92,231,0.35); }
+    .btn-secondary {
+      background: #EDE9E6;
+      color: #555;
+    }
+    .btn-secondary:hover { background: #E3DFDB; }
+    .btn-outline {
+      background: transparent;
+      color: #6C5CE7;
+      border: 1.5px solid #D8D0F0;
+    }
+    .btn-outline:hover { background: #F5F0FF; }
+    .btn-danger {
+      background: #FFE0D6;
+      color: #E17055;
+    }
+    .btn-danger:hover { background: #FFC8B8; }
+    .btn-add {
+      color: #6C5CE7;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-add:hover { color: #5A4BD1; }
+
+    /* ===== Browse Mode ===== */
+    #browseMode {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      position: relative;
+    }
+
+    .card-carousel {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 10px;
+    }
+
+    .card-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .card-slide {
+      position: absolute;
+      width: calc(100% - 48px);
+      max-width: 480px;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+      will-change: transform, opacity;
+    }
+    .card-slide.prev {
+      transform: translateX(-110%) scale(0.92);
+      opacity: 0;
+    }
+    .card-slide.active {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      position: relative;
+    }
+    .card-slide.next {
+      transform: translateX(110%) scale(0.92);
+      opacity: 0;
+    }
+
+    .card-view {
+      background: #FFF;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-left: 5px solid #DDD;
+      transition: border-color 0.5s;
+    }
+    .card-view .card-number {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #CCC;
+      letter-spacing: 1px;
+    }
+    .card-view .card-content {
+      font-size: 20px;
+      line-height: 1.7;
+      color: #2D3436;
+      text-align: center;
+      width: 100%;
+      padding: 20px 0;
+      word-break: break-word;
+    }
+    .card-view .card-content:empty::before {
+      content: '（空卡片）';
+      color: #CCC;
+      font-style: italic;
+    }
+    .card-view .card-author {
+      font-size: 13px;
+      color: #AAA;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      color: #BBB;
+      padding: 40px 20px;
+    }
+    .empty-state .empty-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+    .empty-state p { font-size: 15px; line-height: 1.6; }
+    .empty-state .btn { margin-top: 16px; }
+
+    /* Navigation */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      color: #666;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: all 0.2s;
+    }
+    .nav-arrow:active { transform: translateY(-50%) scale(0.92); }
+    .nav-arrow:hover { background: #FFF; box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+    .nav-arrow.left { left: 4px; }
+    .nav-arrow.right { right: 4px; }
+    .nav-arrow:disabled { opacity: 0.2; pointer-events: none; }
+
+    .browse-footer {
+      padding: 12px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #D5D0CC;
+      transition: all 0.3s;
+    }
+    .dot.active {
+      width: 22px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #6C5CE7, #A29BFE);
+    }
+
+    .browse-actions {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      max-width: 480px;
+    }
+    .browse-actions .btn {
+      flex: 1;
+      justify-content: center;
+      font-size: 13px;
+      padding: 9px 0;
+    }
+
+    /* ===== Quick Add Modal ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      align-items: flex-end;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-sheet {
+      background: #FFF;
+      border-radius: 20px 20px 0 0;
+      padding: 20px 24px 32px;
+      width: 100%;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    .modal-overlay.open .modal-sheet {
+      transform: translateY(0);
+    }
+    .modal-handle {
+      width: 36px;
+      height: 4px;
+      background: #DDD;
+      border-radius: 2px;
+      margin: 0 auto 16px;
+    }
+    .modal-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2D3436;
+      margin-bottom: 14px;
+    }
+    .modal-sheet textarea {
+      width: 100%;
+      min-height: 100px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #2D3436;
+      background: #FAFAFA;
+      border-radius: 10px;
+      padding: 12px;
+      resize: vertical;
+      border: 1.5px solid #EDE9E6;
+      transition: border-color 0.2s;
+    }
+    .modal-sheet textarea:focus { border-color: #6C5CE7; background: #FFF; }
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .modal-actions .btn { flex: 1; justify-content: center; }
+
+    /* ===== Toast ===== */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #2D3436;
+      color: #FFF;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+      z-index: 200;
+      pointer-events: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===== Responsive: Desktop ===== */
+    @media (min-width: 768px) {
+      header { padding: 20px 40px 14px; }
+      #clubNameInput { font-size: 22px; max-width: 320px; }
+      #clubNameDisplay { font-size: 22px; }
+      .subtitle { font-size: 15px; }
+      #editMode { padding: 20px 40px; }
+      .card-slide { max-width: 520px; }
+      .card-view { padding: 40px 32px; min-height: 360px; }
+      .card-view .card-content { font-size: 22px; }
+      .nav-arrow {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+      }
+      .nav-arrow.left { left: 20px; }
+      .nav-arrow.right { right: 20px; }
+      .browse-actions { max-width: 520px; }
+    }
+
+    @media (min-width: 1024px) {
+      .card-slide { max-width: 580px; }
+      .card-view { min-height: 400px; }
+      .card-view .card-content { font-size: 24px; }
+    }
+
+    /* ===== Scrollbar ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #D5D0CC; border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="club-name-row">
+      <span id="clubNameDisplay" onclick="editClubName()">申花头马俱乐部</span>
+      <span class="edit-icon" onclick="editClubName()" title="点击编辑">✏️</span>
+      <input type="text" id="clubNameInput" style="display:none"
+             placeholder="输入俱乐部名称"
+             onblur="saveClubName()" onkeydown="if(event.key==='Enter')this.blur()">
+    </div>
+    <div class="subtitle">头马语言官</div>
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="tabEdit" onclick="switchMode('edit')">✍️ 编辑</button>
+      <button class="mode-tab" id="tabBrowse" onclick="switchMode('browse')">👁️ 浏览</button>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <div class="main-content">
+
+    <!-- Edit Mode -->
+    <div id="editMode">
+      <div id="editorList"></div>
+      <button class="btn-add" onclick="addCard()">＋ 添加一张卡片</button>
+      <div class="edit-actions">
+        <button class="btn btn-primary" onclick="startBrowsing()">👁️ 预览卡片</button>
+        <button class="btn btn-outline" onclick="shareCards()">🔗 分享链接</button>
+        <button class="btn btn-secondary" onclick="clearAll()" style="margin-left:auto;">🗑️ 清空</button>
+      </div>
+    </div>
+
+    <!-- Browse Mode -->
+    <div id="browseMode" style="display:none;">
+      <div class="card-carousel">
+        <button class="nav-arrow left" id="prevBtn" onclick="prevCard()">‹</button>
+        <button class="nav-arrow right" id="nextBtn" onclick="nextCard()">›</button>
+        <div class="card-wrapper" id="carouselWrapper">
+          <!-- Cards rendered by JS -->
+          <div id="emptyState" class="empty-state">
+            <div class="empty-icon">📋</div>
+            <p>还没有卡片<br>先切换到编辑模式写几句话吧</p>
+            <button class="btn btn-primary" onclick="switchMode('edit')">✍️ 去编辑</button>
+          </div>
+        </div>
+      </div>
+      <div class="browse-footer">
+        <div class="dots" id="dotsContainer"></div>
+        <div class="browse-actions">
+          <button class="btn btn-secondary" onclick="switchMode('edit')">✍️ 编辑</button>
+          <button class="btn btn-primary" onclick="openQuickAdd()">＋ 添加</button>
+          <button class="btn btn-outline" onclick="shareCards()">🔗 分享</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Quick Add Modal ===== -->
+  <div class="modal-overlay" id="quickAddModal" onclick="closeQuickAdd(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div class="modal-handle"></div>
+      <div class="modal-title">添加卡片</div>
+      <textarea id="quickAddInput" placeholder="输入一句话或一段话…" rows="3"></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeQuickAdd()">取消</button>
+        <button class="btn btn-primary" onclick="confirmQuickAdd()">确认添加</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Toast ===== -->
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+  // ============================================================
+  //  State
+  // ============================================================
+  let cards = [];
+  let currentIndex = 0;
+  const COLORS = [
+    '#E17055', // 珊瑚
+    '#0984E3', // 海洋蓝
+    '#00B894', // 薄荷
+    '#6C5CE7', // 薰衣草
+    '#E1B12C', // 金色
+    '#00CEC9', // 青绿
+    '#FD79A8', // 粉红
+    '#A29BFE'  // 淡紫
+  ];
+
+  // ============================================================
+  //  Init
+  // ============================================================
+  function init() {
+    // Load club name
+    const saved = localStorage.getItem('tm_clubName');
+    if (saved) {
+      document.getElementById('clubNameDisplay').textContent = saved;
+    }
+
+    // Check URL hash for shared cards
+    const hash = window.location.hash;
+    if (hash && hash.length > 1) {
+      try {
+        const decoded = atob(decodeURIComponent(hash.slice(1)));
+        const parsed = JSON.parse(decoded);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          cards = parsed;
+          renderEditors();
+          switchMode('browse');
+          renderCarousel();
+          return;
+        }
+      } catch(e) {
+        // hash is invalid, ignore
+      }
+    }
+
+    // Default: load from localStorage
+    const stored = localStorage.getItem('tm_cards');
+    if (stored) {
+      try { cards = JSON.parse(stored); } catch(e) { cards = []; }
+    }
+    if (cards.length === 0) {
+      cards = ['', ''];
+    }
+    renderEditors();
+  }
+
+  // ============================================================
+  //  Club Name
+  // ============================================================
+  function editClubName() {
+    const display = document.getElementById('clubNameDisplay');
+    const input = document.getElementById('clubNameInput');
+    input.value = display.textContent;
+    display.style.display = 'none';
+    input.style.display = 'inline-block';
+    input.focus();
+    input.select();
+  }
+
+  function saveClubName() {
+    const display = document.getElementById('clubNameDisplay');
+    const input = document.getElementById('clubNameInput');
+    const name = input.value.trim() || '头马俱乐部';
+    display.textContent = name;
+    display.style.display = 'inline-block';
+    input.style.display = 'none';
+    localStorage.setItem('tm_clubName', name);
+  }
+
+  // ============================================================
+  //  Cards CRUD
+  // ============================================================
+  function addCard(content) {
+    cards.push(content || '');
+    renderEditors();
+    setTimeout(() => {
+      const list = document.getElementById('editorList');
+      const editor = list.lastElementChild;
+      if (editor) {
+        const ta = editor.querySelector('textarea');
+        if (ta) ta.focus();
+        list.scrollTop = list.scrollHeight;
+      }
+    }, 50);
+  }
+
+  function deleteCard(index) {
+    if (cards.length <= 1) {
+      showToast('至少保留一张卡片');
+      return;
+    }
+    cards.splice(index, 1);
+    renderEditors();
+  }
+
+  function clearAll() {
+    if (cards.every(c => !c.trim())) return;
+    if (!confirm('确定要清空所有卡片吗？')) return;
+    cards = [''];
+    renderEditors();
+    showToast('已清空');
+  }
+
+  function updateCard(index, value) {
+    cards[index] = value;
+    // Auto-save to localStorage
+    localStorage.setItem('tm_cards', JSON.stringify(cards));
+  }
+
+  function renderEditors() {
+    const list = document.getElementById('editorList');
+    list.innerHTML = '';
+    cards.forEach((content, i) => {
+      const div = document.createElement('div');
+      div.className = 'card-editor';
+      div.style.borderLeftColor = COLORS[i % COLORS.length];
+      div.innerHTML = `
+        <div class="card-label">卡片 ${i + 1}</div>
+        <button class="delete-btn" onclick="deleteCard(${i})">✕</button>
+        <textarea placeholder="输入一句话或一段话…" oninput="updateCard(${i}, this.value)" rows="${Math.max(2, Math.ceil(content.length / 30))}">${escapeHtml(content)}</textarea>
+      `;
+      list.appendChild(div);
+    });
+    localStorage.setItem('tm_cards', JSON.stringify(cards));
+  }
+
+  // ============================================================
+  //  Browse Mode
+  // ============================================================
+  function renderCarousel() {
+    const wrapper = document.getElementById('carouselWrapper');
+    const empty = document.getElementById('emptyState');
+    const validCards = cards.filter(c => c.trim());
+
+    if (validCards.length === 0) {
+      wrapper.innerHTML = '';
+      wrapper.appendChild(empty);
+      document.getElementById('dotsContainer').innerHTML = '';
+      document.getElementById('prevBtn').disabled = true;
+      document.getElementById('nextBtn').disabled = true;
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+
+    if (currentIndex >= validCards.length) currentIndex = 0;
+    if (currentIndex < 0) currentIndex = 0;
+
+    wrapper.innerHTML = '';
+    validCards.forEach((content, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'card-slide';
+      if (i === currentIndex) slide.classList.add('active');
+      else if (i === currentIndex - 1) slide.classList.add('prev');
+      else if (i === currentIndex + 1) slide.classList.add('next');
+      else if (i < currentIndex) slide.classList.add('prev');
+      else slide.classList.add('next');
+
+      const color = COLORS[i % COLORS.length];
+      slide.innerHTML = `
+        <div class="card-view" style="border-left-color:${color}">
+          <div class="card-number">${i + 1} / ${validCards.length}</div>
+          <div class="card-content">${escapeHtml(content).replace(/\n/g, '<br>')}</div>
+        </div>
+      `;
+      wrapper.appendChild(slide);
+    });
+
+    // Dots
+    renderDots(validCards.length);
+
+    // Buttons
+    document.getElementById('prevBtn').disabled = currentIndex <= 0;
+    document.getElementById('nextBtn').disabled = currentIndex >= validCards.length - 1;
+  }
+
+  function renderDots(total) {
+    const container = document.getElementById('dotsContainer');
+    container.innerHTML = '';
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === currentIndex ? ' active' : '');
+      container.appendChild(dot);
+    }
+  }
+
+  function goToCard(index) {
+    const validCards = cards.filter(c => c.trim());
+    if (index < 0) index = 0;
+    if (index >= validCards.length) index = validCards.length - 1;
+    if (index === currentIndex && validCards.length > 0) return;
+    currentIndex = index;
+    renderCarousel();
+  }
+
+  function prevCard() { goToCard(currentIndex - 1); }
+  function nextCard() { goToCard(currentIndex + 1); }
+
+  // ============================================================
+  //  Mode Switching
+  // ============================================================
+  function switchMode(mode) {
+    const editSection = document.getElementById('editMode');
+    const browseSection = document.getElementById('browseMode');
+    const tabEdit = document.getElementById('tabEdit');
+    const tabBrowse = document.getElementById('tabBrowse');
+
+    if (mode === 'edit') {
+      editSection.style.display = 'flex';
+      browseSection.style.display = 'none';
+      tabEdit.classList.add('active');
+      tabBrowse.classList.remove('active');
+      renderEditors();
+    } else {
+      editSection.style.display = 'none';
+      browseSection.style.display = 'flex';
+      tabEdit.classList.remove('active');
+      tabBrowse.classList.add('active');
+      if (cards.filter(c => c.trim()).length > 0) {
+        currentIndex = 0;
+      }
+      renderCarousel();
+    }
+  }
+
+  function startBrowsing() {
+    const validCount = cards.filter(c => c.trim()).length;
+    if (validCount === 0) {
+      showToast('请先输入内容');
+      return;
+    }
+    switchMode('browse');
+  }
+
+  // ============================================================
+  //  Quick Add (from Browse Mode)
+  // ============================================================
+  function openQuickAdd() {
+    document.getElementById('quickAddInput').value = '';
+    document.getElementById('quickAddModal').classList.add('open');
+    setTimeout(() => document.getElementById('quickAddInput').focus(), 350);
+  }
+
+  function closeQuickAdd(e) {
+    if (e && e.target !== document.getElementById('quickAddModal')) return;
+    document.getElementById('quickAddModal').classList.remove('open');
+  }
+
+  function confirmQuickAdd() {
+    const input = document.getElementById('quickAddInput');
+    const text = input.value.trim();
+    if (!text) {
+      showToast('请输入内容');
+      return;
+    }
+    cards.push(text);
+    localStorage.setItem('tm_cards', JSON.stringify(cards));
+    currentIndex = cards.filter(c => c.trim()).length - 1;
+    document.getElementById('quickAddModal').classList.remove('open');
+    renderCarousel();
+    showToast('已添加');
+  }
+
+  // ============================================================
+  //  Share - URL encoding
+  // ============================================================
+  function shareCards() {
+    const validCards = cards.filter(c => c.trim());
+    if (validCards.length === 0) {
+      showToast('还没有卡片内容');
+      return;
+    }
+
+    const encoded = encodeURIComponent(btoa(JSON.stringify(validCards)));
+    const url = window.location.origin + window.location.pathname + '#' + encoded;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => {
+        showToast('链接已复制 ✓');
+      }).catch(() => {
+        fallbackCopy(url);
+      });
+    } else {
+      fallbackCopy(url);
+    }
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showToast('链接已复制 ✓');
+    } catch(e) {
+      showToast('复制失败，请手动复制地址栏链接');
+    }
+    document.body.removeChild(ta);
+  }
+
+  // ============================================================
+  //  Touch Swipe
+  // ============================================================
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    if (document.getElementById('browseMode').style.display === 'none') return;
+    const modal = document.getElementById('quickAddModal');
+    if (modal.classList.contains('open')) return;
+
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextCard();
+      else prevCard();
+    }
+  }, { passive: true });
+
+  // Keyboard support
+  document.addEventListener('keydown', (e) => {
+    if (document.getElementById('browseMode').style.display === 'none') return;
+    if (e.key === 'ArrowLeft') prevCard();
+    if (e.key === 'ArrowRight') nextCard();
+  });
+
+  // ============================================================
+  //  Toast
+  // ============================================================
+  let toastTimer = null;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+  }
+
+  // ============================================================
+  //  Utils
+  // ============================================================
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // ============================================================
+  //  Start
+  // ============================================================
+  init();
+</script>
+
+</body>
+</html>
