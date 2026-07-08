@@ -315,7 +315,7 @@
     .card-inner::after{bottom:14px;right:14px;border-bottom-width:2px;border-right-width:2px;border-radius:0}
 
     .exit-btn{position:fixed;top:10px;right:10px;z-index:120;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;backdrop-filter:blur(4px);color:rgba(255,255,255,.6);background:rgba(0,0,0,.25)}.exit-btn:active{transform:scale(.85)}
-    .dl-btn{position:fixed;bottom:14px;left:14px;z-index:120;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:#FFF;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 8px rgba(0,0,0,.15)}.dl-btn:hover{background:rgba(255,255,255,.2)}.dl-btn:active{transform:scale(.85)}
+    .dl-btn{position:fixed;bottom:14px;left:14px;z-index:120;display:flex;align-items:center;gap:4px;padding:6px 14px;border-radius:6px;font-size:13px;font-weight:500;transition:all .2s;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:#FFF;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 8px rgba(0,0,0,.15)}.dl-btn:hover{background:rgba(255,255,255,.2)}.dl-btn:active{transform:scale(.94)}
     .nav-ar{position:fixed;bottom:14px;transform:none;z-index:110;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;transition:all .2s;background:rgba(255,255,255,.1);backdrop-filter:blur(4px);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.1)}.nav-ar:active{transform:scale(.88)}.nav-ar:disabled{opacity:.15;pointer-events:none}
     .nav-ar.l{left:calc(50% - 60px)}
     .nav-ar.r{right:calc(50% - 60px)}
@@ -339,7 +339,7 @@
       .card-inner{padding:52px 44px}
       .card-inner .txt{font-size:clamp(26px,3.8vw,42px)}
       .nav-ar{width:40px;height:40px;font-size:20px}
-      .exit-btn,.dl-btn{width:34px;height:34px;font-size:16px}
+      .exit-btn,.dl-btn{padding:6px 16px;font-size:14px}
       .exit-btn{top:16px;right:16px}.dl-btn{bottom:18px;left:18px}
     }
     @media(min-width:1024px){
@@ -391,7 +391,7 @@
   <div id="editMode"><div id="editorList"></div><button class="btn-add" onclick="addCard()">＋ 添加一张卡片</button></div>
   <div id="browseMode">
     <button class="exit-btn" onclick="exitBrowse()">✕</button>
-    <button class="dl-btn" onclick="downloadCard()" title="下载">⬇️</button>
+    <button class="dl-btn" onclick="downloadCard()" title="下载"><span>⬇️</span><span>下载</span></button>
     <button class="nav-ar l" id="prevBtn" onclick="prevCard()">‹</button>
     <button class="nav-ar r" id="nextBtn" onclick="nextCard()">›</button>
   </div>
@@ -444,7 +444,9 @@ let hc=0;document.addEventListener('dblclick',e=>{if(e.target.closest('.club-nam
 async function syncQuotesToGh(){const cfg=getGhConfig();if(!cfg.token||!cfg.repo){toast('未配置 GitHub');return}const qs=getQuotes();if(qs.length===0){toast('没有金句');return}try{let sha=null,existing=[];const getR=await fetch('https://api.github.com/repos/'+cfg.repo+'/contents/'+(cfg.path||'quotes/quotes.json'),{headers:{Authorization:'Bearer '+cfg.token,Accept:'application/vnd.github.v3+json'}});if(getR.ok){const d=await getR.json();sha=d.sha;try{existing=JSON.parse(atob(d.content))}catch(e){existing=[]}}const existingIds=new Set(existing.map(e=>e.id));const merged=[...existing,...qs.filter(q=>!existingIds.has(q.id))];const putR=await fetch('https://api.github.com/repos/'+cfg.repo+'/contents/'+(cfg.path||'quotes/quotes.json'),{method:'PUT',headers:{Authorization:'Bearer '+cfg.token,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:'sync '+qs.length+' quotes',content:btoa(unescape(encodeURIComponent(JSON.stringify(merged,null,2)))),sha:sha||undefined})});if(!putR.ok)throw new Error('同步失败');toast('同步成功 ✓')}catch(e){toast('同步失败')}}
 let hc2=0;document.addEventListener('click',e=>{if(e.target.closest('.club-name-area')){hc2++;if(hc2>=5){hc2=0;const c=getGhConfig();const t=prompt('GitHub Token:',c.token||'');if(t===null)return;const r=prompt('仓库 (owner/repo):',c.repo||'');if(r===null)return;const p=prompt('文件路径:',c.path||'quotes/quotes.json')||'quotes/quotes.json';if(p===null)return;saveGhConfig({token:t,repo:r,path:p});toast('GitHub 已配置')}}});
 function loadHtml2Canvas(cb){if(window.html2canvas){cb();return}const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=cb;s.onerror=()=>toast('加载失败');document.head.appendChild(s)}
-function downloadCard(){const active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}const ci=active.querySelector('.card-inner');if(!ci){toast('未找到卡片');return}loadHtml2Canvas(()=>{html2canvas(ci,{scale:2,useCORS:true,allowTaint:true}).then(c=>{const a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=c.toDataURL('image/png');a.click();toast('已下载 ✓')}).catch(e=>{toast('下载失败')})})}
+function downloadCard(){const active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}const ci=active.querySelector('.card-inner');if(!ci){toast('未找到卡片');return}loadHtml2Canvas(()=>{html2canvas(ci,{scale:2,useCORS:true,allowTaint:true}).then(c=>{c.toBlob(b=>{if(!b){simpleDownload(c);return}const f=new File([b],'touma-card-'+(cur+1)+'.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).catch(()=>blobDownload(b))}else{blobDownload(b)}},'image/png')}).catch(e=>{toast('下载失败，请截图保存')})})}
+function blobDownload(b){const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='touma-card-'+(cur+1)+'.png';document.body.appendChild(a);a.click();setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(u)},100);toast('已下载 ✓')}
+function simpleDownload(c){const a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=c.toDataURL('image/png');document.body.appendChild(a);a.click();setTimeout(()=>document.body.removeChild(a),100);toast('已下载 ✓')}
 document.addEventListener('click',e=>{if(!e.target.closest('.theme-wrap'))closeTheme()});
 let tx=0,lastTap=0;
 document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
