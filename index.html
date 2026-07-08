@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>头马语言官</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     *::before,*::after,*{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%;width:100%;overflow:hidden;-webkit-tap-highlight-color:transparent}
@@ -15,131 +18,194 @@
     input,textarea{font-family:inherit;outline:none;border:none}
     #app{height:100%;width:100%;display:flex;flex-direction:column;position:relative}
 
-    /* ========== Card Default BG (black) ========== */
+    /* ========== Card Default ========== */
     .card-inner{background:#000}
 
-    /* ========== THEMES ========== */
+    /* ===== Shared light-theme overrides ===== */
+    .t-shuimo .card-inner .txt,
+    .t-suya .card-inner .txt,
+    .t-zazhi .card-inner .txt{text-shadow:none}
+    .t-shuimo .card-inner::before,.t-shuimo .card-inner::after,
+    .t-suya .card-inner::before,.t-suya .card-inner::after,
+    .t-zazhi .card-inner::before,.t-zazhi .card-inner::after{border-color:rgba(0,0,0,.12)!important}
+    .t-shuimo .deco-line,.t-suya .deco-line,.t-zazhi .deco-line{background:linear-gradient(90deg,transparent,rgba(0,0,0,.06),transparent)!important}
+    .t-shuimo .num,.t-suya .num,.t-zazhi .num{color:rgba(0,0,0,.2)!important}
 
-    /* --- Dream: starry night --- */
-    .t-dream .bg1{background:linear-gradient(145deg,#2d1b69,#6c5ce7)}
-    .t-dream .bg2{background:linear-gradient(145deg,#6c5ce7,#a29bfe)}
-    .t-dream .bg3{background:linear-gradient(145deg,#2d1b69,#a29bfe)}
-    .t-dream .bg4{background:linear-gradient(145deg,#6c5ce7,#fd79a8)}
-    .t-dream .bg5{background:linear-gradient(145deg,#2d1b69,#fd79a8)}
-    .t-dream .pat{background-image:
-      radial-gradient(3px 3px at 12% 8%,rgba(255,255,255,.35) 0,transparent 100%),
-      radial-gradient(2.5px 2.5px at 48% 5%,rgba(255,255,255,.3) 0,transparent 100%),
-      radial-gradient(3.5px 3.5px at 78% 12%,rgba(255,255,255,.3) 0,transparent 100%),
-      radial-gradient(2px 2px at 22% 18%,rgba(255,255,255,.25) 0,transparent 100%),
-      radial-gradient(2px 2px at 35% 10%,rgba(255,255,255,.22) 0,transparent 100%),
-      radial-gradient(2px 2px at 62% 15%,rgba(255,255,255,.2) 0,transparent 100%),
-      radial-gradient(2px 2px at 88% 20%,rgba(255,255,255,.18) 0,transparent 100%),
-      radial-gradient(1.5px 1.5px at 28% 30%,rgba(255,255,255,.18) 0,transparent 100%),
-      radial-gradient(1.5px 1.5px at 55% 25%,rgba(255,255,255,.16) 0,transparent 100%),
-      radial-gradient(1px 1px at 42% 45%,rgba(255,255,255,.14) 0,transparent 100%),
-      radial-gradient(1px 1px at 68% 40%,rgba(255,255,255,.12) 0,transparent 100%),
-      radial-gradient(1.5px 1.5px at 18% 55%,rgba(255,255,255,.1) 0,transparent 100%),
-      radial-gradient(120px 120px at 18% 30%,rgba(162,155,254,.07) 0,transparent 100%),
-      radial-gradient(100px 100px at 75% 60%,rgba(253,121,168,.06) 0,transparent 100%),
-      radial-gradient(140px 140px at 45% 50%,rgba(108,92,231,.04) 0,transparent 100%)}
-    .t-dream .d1{width:10px;height:10px;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);background:rgba(255,255,255,.2);top:9%;left:14%}
-    .t-dream .d2{width:8px;height:8px;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);background:rgba(255,255,255,.15);top:6%;left:75%}
-    .t-dream .d3{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.12);top:55%;left:10%}
-    .t-dream .d4{width:14px;height:2px;border-radius:2px;background:rgba(255,255,255,.06);transform:rotate(-25deg);top:25%;left:40%}
-    .t-dream .d5{width:12px;height:2px;border-radius:2px;background:rgba(255,255,255,.05);transform:rotate(35deg);top:70%;left:80%}
-    .t-dream .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,215,0,.1);top:88%;left:30%}
-    .t-dream .d7{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.08);top:45%;left:85%}
-    .t-dream .nav-ar,.t-dream .exit-btn,.t-dream .dl-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12)}
+    /* ========== 1. 紫金国潮 ========== */
+    .t-zijin .bg1{background:linear-gradient(145deg,#1a1040,#3a1a6b)}
+    .t-zijin .bg2{background:linear-gradient(145deg,#3a1a6b,#5a2a8b)}
+    .t-zijin .bg3{background:linear-gradient(145deg,#1a1040,#5a2a8b)}
+    .t-zijin .bg4{background:linear-gradient(145deg,#3a1a6b,#7a3aab)}
+    .t-zijin .bg5{background:linear-gradient(145deg,#1a1040,#7a3aab)}
+    .t-zijin .pat{background-image:
+      radial-gradient(1.5px 1.5px at 20% 10%,rgba(212,175,55,.2) 0,transparent 100%),
+      radial-gradient(1.5px 1.5px at 60% 5%,rgba(212,175,55,.15) 0,transparent 100%),
+      radial-gradient(2px 2px at 40% 20%,rgba(212,175,55,.12) 0,transparent 100%),
+      radial-gradient(1px 1px at 80% 15%,rgba(212,175,55,.1) 0,transparent 100%),
+      radial-gradient(100px 100px at 25% 30%,rgba(212,175,55,.04) 0,transparent 100%),
+      radial-gradient(80px 80px at 70% 60%,rgba(212,175,55,.03) 0,transparent 100%)}
+    .t-zijin .d1{width:8px;height:8px;transform:rotate(45deg);background:rgba(212,175,55,.25);top:8%;left:15%}
+    .t-zijin .d2{width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.2);top:6%;left:78%}
+    .t-zijin .d3{width:5px;height:5px;transform:rotate(45deg);background:rgba(212,175,55,.15);top:52%;left:12%}
+    .t-zijin .d4{width:6px;height:6px;border-radius:50%;background:rgba(196,59,34,.18);top:68%;left:85%}
+    .t-zijin .d5{width:12px;height:2px;border-radius:1px;background:rgba(212,175,55,.08);transform:rotate(-20deg);top:32%;left:55%}
+    .t-zijin .d6{width:4px;height:4px;border-radius:50%;background:rgba(212,175,55,.1);top:85%;left:40%}
+    .t-zijin .d7{width:5px;height:5px;border:1px solid rgba(212,175,55,.15);background:transparent;top:42%;left:82%}
+    .t-zijin .card-inner{border:2px solid rgba(212,175,55,.3);box-shadow:0 0 0 4px rgba(212,175,55,.08),inset 0 0 0 0 rgba(212,175,55,.05),0 8px 40px rgba(0,0,0,.4)}
+    .t-zijin .card-inner::before,.t-zijin .card-inner::after{border-color:rgba(212,175,55,.25);border-width:2px}
+    .t-zijin .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.12),transparent)!important}
+    .t-zijin .nav-ar,.t-zijin .exit-btn,.t-zijin .dl-btn{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2)}
+    .t-zijin .card-inner .txt{font-family:"Noto Serif SC","楷体","KaiTi","STKaiti",serif;color:#FEFEF5}
 
-    /* --- Cyber: neon circuit --- */
-    .t-cyber .bg1{background:linear-gradient(145deg,#0d0221,#1a0033)}
-    .t-cyber .bg2{background:linear-gradient(145deg,#1a0033,#2d1b69)}
-    .t-cyber .bg3{background:linear-gradient(145deg,#0d0221,#2d1b69)}
-    .t-cyber .bg4{background:linear-gradient(145deg,#1a0033,#ff2a6d33)}
-    .t-cyber .bg5{background:linear-gradient(145deg,#0d0221,#ff2a6d22)}
-    .t-cyber .pat{background-image:
-      repeating-linear-gradient(rgba(255,255,255,.04) 0 1px,transparent 1px 24px),
-      repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 24px),
-      radial-gradient(4px 4px at 20% 15%,rgba(255,42,109,.25) 0,transparent 100%),
-      radial-gradient(3px 3px at 75% 25%,rgba(5,217,224,.2) 0,transparent 100%),
-      radial-gradient(3.5px 3.5px at 45% 70%,rgba(255,42,109,.18) 0,transparent 100%),
-      radial-gradient(2.5px 2.5px at 15% 50%,rgba(5,217,224,.15) 0,transparent 100%),
-      radial-gradient(2px 2px at 65% 10%,rgba(255,42,109,.12) 0,transparent 100%),
-      radial-gradient(2.5px 2.5px at 30% 80%,rgba(162,155,254,.1) 0,transparent 100%),
-      radial-gradient(100px 100px at 25% 35%,rgba(255,42,109,.06) 0,transparent 100%),
-      radial-gradient(80px 80px at 70% 55%,rgba(5,217,224,.05) 0,transparent 100%),
-      radial-gradient(60px 60px at 50% 15%,rgba(162,155,254,.04) 0,transparent 100%)}
-    .t-cyber .d1{width:8px;height:8px;transform:rotate(45deg);background:rgba(255,42,109,.2);top:10%;left:12%}
-    .t-cyber .d2{width:6px;height:6px;transform:rotate(45deg);background:rgba(5,217,224,.18);top:8%;left:80%}
-    .t-cyber .d3{width:5px;height:5px;border-radius:50%;background:rgba(255,42,109,.15);top:52%;left:88%}
-    .t-cyber .d4{width:14px;height:2px;border-radius:1px;background:rgba(5,217,224,.08);transform:rotate(45deg);top:35%;left:30%}
-    .t-cyber .d5{width:12px;height:2px;border-radius:1px;background:rgba(255,42,109,.07);transform:rotate(-45deg);top:60%;left:15%}
-    .t-cyber .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,215,0,.08);top:85%;left:70%}
-    .t-cyber .d7{width:6px;height:6px;border:1px solid rgba(5,217,224,.15);background:transparent;top:72%;left:50%}
-    .t-cyber .nav-ar,.t-cyber .exit-btn,.t-cyber .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,42,109,.25)}
+    /* ========== 2. 绛红金线 ========== */
+    .t-jianghong .bg1{background:linear-gradient(145deg,#260404,#4a0e0e)}
+    .t-jianghong .bg2{background:linear-gradient(145deg,#4a0e0e,#6a1818)}
+    .t-jianghong .bg3{background:linear-gradient(145deg,#260404,#6a1818)}
+    .t-jianghong .bg4{background:linear-gradient(145deg,#4a0e0e,#8a2828)}
+    .t-jianghong .bg5{background:linear-gradient(145deg,#260404,#8a2828)}
+    .t-jianghong .pat{background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 420'%3E%3Crect x='12' y='12' width='376' height='396' fill='none' stroke='rgba(212,175,55,.06)' stroke-width='1' rx='3'/%3E%3Crect x='18' y='18' width='364' height='384' fill='none' stroke='rgba(212,175,55,.03)' stroke-width='.5' rx='2'/%3E%3C/svg%3E")}
+    .t-jianghong .d1{width:8px;height:8px;border:1.5px solid rgba(212,175,55,.25);background:transparent;transform:rotate(45deg);top:8%;left:14%}
+    .t-jianghong .d2{width:6px;height:6px;border:1.5px solid rgba(212,175,55,.2);background:transparent;transform:rotate(45deg);top:6%;left:80%}
+    .t-jianghong .d3{width:5px;height:5px;border-radius:50%;background:rgba(212,175,55,.18);top:50%;left:10%}
+    .t-jianghong .d4{width:6px;height:6px;border:1.5px solid rgba(212,175,55,.15);background:transparent;transform:rotate(45deg);top:70%;left:85%}
+    .t-jianghong .d5{width:14px;height:1.5px;background:rgba(212,175,55,.1);transform:rotate(-15deg);top:35%;left:40%}
+    .t-jianghong .d6{width:4px;height:4px;border-radius:50%;background:rgba(212,175,55,.1);top:85%;left:30%}
+    .t-jianghong .d7{width:5px;height:5px;border:1px solid rgba(212,175,55,.12);background:transparent;top:45%;left:82%}
+    .t-jianghong .card-inner{border:1.5px solid rgba(212,175,55,.2)}
+    .t-jianghong .card-inner::before,.t-jianghong .card-inner::after{border-color:rgba(212,175,55,.2)}
+    .t-jianghong .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
+    .t-jianghong .nav-ar,.t-jianghong .exit-btn,.t-jianghong .dl-btn{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.18)}
+    .t-jianghong .card-inner .txt{font-family:"Noto Serif SC","楷体","KaiTi","STKaiti",serif;color:#FEF5E7}
 
-    /* --- Nature: landscape --- */
-    .t-nature .bg1{background:linear-gradient(165deg,#0b2d1b,#1a4a2e)}
-    .t-nature .bg2{background:linear-gradient(165deg,#1a4a2e,#2d6b4a)}
-    .t-nature .bg3{background:linear-gradient(165deg,#0b2d1b,#2d6b4a)}
-    .t-nature .bg4{background:linear-gradient(165deg,#1a4a2e,#4a8c6a)}
-    .t-nature .bg5{background:linear-gradient(165deg,#0b2d1b,#4a8c6a)}
-    .t-nature .pat{background-image:
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 420'%3E%3Cpath d='M0,170 Q70,110 140,145 Q210,90 280,130 Q350,85 400,118 L400,420 L0,420Z' fill='rgba(255,255,255,.025)'/%3E%3Cpath d='M0,240 Q60,175 130,210 Q200,160 270,195 Q340,150 400,182 L400,420 L0,420Z' fill='rgba(255,255,255,.035)'/%3E%3C/svg%3E")}
-    .t-nature .d1{width:9px;height:9px;border-radius:0 50% 50% 50%;background:rgba(143,188,143,.18);top:10%;left:10%}
-    .t-nature .d2{width:7px;height:7px;border-radius:0 50% 50% 50%;background:rgba(143,188,143,.14);top:7%;left:78%}
-    .t-nature .d3{width:5px;height:5px;border-radius:50%;background:rgba(143,188,143,.12);top:55%;left:90%}
-    .t-nature .d4{width:8px;height:8px;border-radius:0 50% 50% 50%;background:rgba(143,188,143,.1);top:72%;left:8%}
-    .t-nature .d5{width:12px;height:2px;border-radius:2px;background:rgba(143,188,143,.06);transform:rotate(-15deg);top:30%;left:45%}
-    .t-nature .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.06);top:88%;left:55%}
-    .t-nature .d7{width:6px;height:6px;border-radius:50% 0 50% 0;background:rgba(143,188,143,.08);top:45%;left:15%}
-    .t-nature .nav-ar,.t-nature .exit-btn,.t-nature .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(143,188,143,.25)}
+    /* ========== 3. 墨绿鎏金 ========== */
+    .t-molv .bg1{background:linear-gradient(145deg,#081a0e,#143a20)}
+    .t-molv .bg2{background:linear-gradient(145deg,#143a20,#1e5a30)}
+    .t-molv .bg3{background:linear-gradient(145deg,#081a0e,#1e5a30)}
+    .t-molv .bg4{background:linear-gradient(145deg,#143a20,#2a7a42)}
+    .t-molv .bg5{background:linear-gradient(145deg,#081a0e,#2a7a42)}
+    .t-molv .pat{background-image:
+      repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(201,168,76,.04) 28px,rgba(201,168,76,.04) 30px),
+      repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(201,168,76,.04) 28px,rgba(201,168,76,.04) 30px)}
+    .t-molv .d1{width:8px;height:8px;background:rgba(201,168,76,.2);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);top:8%;left:14%;opacity:.6}
+    .t-molv .d2{width:6px;height:6px;background:rgba(201,168,76,.16);top:6%;left:78%}
+    .t-molv .d3{width:5px;height:5px;border-radius:50%;background:rgba(201,168,76,.14);top:52%;left:88%}
+    .t-molv .d4{width:7px;height:7px;background:rgba(201,168,76,.12);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);top:68%;left:10%}
+    .t-molv .d5{width:12px;height:1.5px;background:rgba(201,168,76,.08);transform:rotate(-15deg);top:35%;left:50%}
+    .t-molv .d6{width:4px;height:4px;border-radius:50%;background:rgba(201,168,76,.08);top:85%;left:55%}
+    .t-molv .d7{width:6px;height:6px;border:1px solid rgba(201,168,76,.12);background:transparent;top:42%;left:12%}
+    .t-molv .card-inner{border:1.5px solid rgba(201,168,76,.18)}
+    .t-molv .card-inner::before,.t-molv .card-inner::after{border-color:rgba(201,168,76,.2)}
+    .t-molv .deco-line{background:linear-gradient(90deg,transparent,rgba(201,168,76,.1),transparent)!important}
+    .t-molv .nav-ar,.t-molv .exit-btn,.t-molv .dl-btn{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.16)}
+    .t-molv .card-inner .txt{font-family:"Noto Serif SC","楷体","KaiTi","STKaiti",serif;color:#FDF5E6}
 
-    /* --- Sky: clouds --- */
-    .t-sky .bg1{background:linear-gradient(160deg,#1a3a5c,#2d6a9f)}
-    .t-sky .bg2{background:linear-gradient(160deg,#2d6a9f,#6bb5e0)}
-    .t-sky .bg3{background:linear-gradient(160deg,#1a3a5c,#6bb5e0)}
-    .t-sky .bg4{background:linear-gradient(160deg,#2d6a9f,#a8d8ea)}
-    .t-sky .bg5{background:linear-gradient(160deg,#1a3a5c,#a8d8ea)}
-    .t-sky .pat{background-image:
-      radial-gradient(ellipse 70px 28px at 12% 18%,rgba(255,255,255,.12) 0,transparent 100%),
-      radial-gradient(ellipse 50px 22px at 20% 15%,rgba(255,255,255,.1) 0,transparent 100%),
-      radial-gradient(ellipse 90px 32px at 48% 16%,rgba(255,255,255,.08) 0,transparent 100%),
-      radial-gradient(ellipse 60px 25px at 38% 12%,rgba(255,255,255,.07) 0,transparent 100%),
-      radial-gradient(ellipse 75px 30px at 80% 20%,rgba(255,255,255,.1) 0,transparent 100%),
-      radial-gradient(ellipse 50px 22px at 30% 32%,rgba(255,255,255,.06) 0,transparent 100%),
-      radial-gradient(ellipse 55px 24px at 62% 35%,rgba(255,255,255,.05) 0,transparent 100%),
-      radial-gradient(ellipse 40px 18px at 90% 28%,rgba(255,255,255,.05) 0,transparent 100%),
-      radial-gradient(90px 90px at 85% 10%,rgba(240,217,181,.1) 0,transparent 100%),
-      radial-gradient(50px 50px at 85% 10%,rgba(255,255,200,.06) 0,transparent 100%)}
-    .t-sky .d1{width:10px;height:7px;border-radius:50%;background:rgba(255,255,255,.12);top:35%;left:12%}
-    .t-sky .d2{width:8px;height:6px;border-radius:50%;background:rgba(255,255,255,.1);top:12%;left:55%}
-    .t-sky .d3{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.07);top:55%;left:82%}
-    .t-sky .d4{width:12px;height:5px;border-radius:50%;background:rgba(255,255,255,.08);top:70%;left:25%}
-    .t-sky .d5{width:7px;height:5px;border-radius:50%;background:rgba(255,255,255,.06);top:28%;left:70%}
-    .t-sky .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.05);top:85%;left:50%}
-    .t-sky .d7{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.05);top:48%;left:45%}
-    .t-sky .nav-ar,.t-sky .exit-btn,.t-sky .dl-btn{background:rgba(255,255,255,.06);border:1px solid rgba(240,217,181,.25)}
+    /* ========== 4. 水墨意境 (亮色) ========== */
+    .t-shuimo .bg1{background:linear-gradient(165deg,#F5F0E8,#EDE6D6)}
+    .t-shuimo .bg2{background:linear-gradient(165deg,#EDE6D6,#E8DEC8)}
+    .t-shuimo .bg3{background:linear-gradient(165deg,#F5F0E8,#E8DEC8)}
+    .t-shuimo .bg4{background:linear-gradient(165deg,#F0EBE0,#E5DCC8)}
+    .t-shuimo .bg5{background:linear-gradient(165deg,#FAF5EE,#F0EBE0)}
+    .t-shuimo .card-inner{border:1px solid rgba(0,0,0,.08)}
+    .t-shuimo .pat{background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 420'%3E%3Cpath d='M0,380 Q100,360 200,370 Q300,355 400,365 L400,420 L0,420Z' fill='rgba(0,0,0,.02)'/%3E%3C/svg%3E")}
+    .t-shuimo .d1{width:8px;height:8px;border-radius:0 50% 50% 50%;background:rgba(191,58,43,.12);top:8%;left:14%}
+    .t-shuimo .d2{width:6px;height:6px;border-radius:50% 0 50% 0;background:rgba(27,58,92,.1);top:6%;left:78%}
+    .t-shuimo .d3{width:12px;height:3px;border-radius:2px;background:rgba(0,0,0,.04);transform:rotate(-10deg);top:30%;left:40%}
+    .t-shuimo .d4{width:5px;height:5px;border-radius:50%;background:rgba(191,58,43,.08);top:70%;left:85%}
+    .t-shuimo .d5{width:8px;height:8px;border-radius:0 50% 50% 50%;background:rgba(27,58,92,.06);top:50%;left:10%}
+    .t-shuimo .d6{width:4px;height:4px;border-radius:50%;background:rgba(0,0,0,.04);top:85%;left:55%}
+    .t-shuimo .d7{width:6px;height:6px;border:1px solid rgba(191,58,43,.08);background:transparent;top:42%;left:82%}
+    .t-shuimo .nav-ar,.t-shuimo .exit-btn,.t-shuimo .dl-btn{background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.1);color:#555}
+    .t-shuimo .card-inner .txt{font-family:"STKaiti","楷体","KaiTi","Noto Serif SC",serif;color:#2A2A2A}
 
-    /* --- Chinese: classical --- */
-    .t-chinese .bg1{background:linear-gradient(150deg,#3d0a0a,#6b1d1d)}
-    .t-chinese .bg2{background:linear-gradient(150deg,#6b1d1d,#8b3a3a)}
-    .t-chinese .bg3{background:linear-gradient(150deg,#3d0a0a,#8b3a3a)}
-    .t-chinese .bg4{background:linear-gradient(150deg,#5a1515,#7a2a2a)}
-    .t-chinese .bg5{background:linear-gradient(150deg,#3d0a0a,#5a1515)}
-    .t-chinese .pat{background-image:
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 420'%3E%3Crect x='15' y='15' width='370' height='390' fill='none' stroke='rgba(212,175,55,.04)' stroke-width='1' rx='4'/%3E%3Cg fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.1'%3E%3Cpath d='M40 90 Q60 60 80 70 Q100 55 120 65 Q140 52 160 65 Q180 50 200 65 L220 75'/%3E%3Cpath d='M250 110 Q270 85 290 95 Q310 83 325 93 Q340 83 355 93 L370 100'/%3E%3C/g%3E%3Cpath d='M25 30 L25 20 L35 20' fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.5'/%3E%3Cpath d='M375 30 L375 20 L365 20' fill='none' stroke='rgba(212,175,55,.07)' stroke-width='1.5'/%3E%3C/svg%3E");background-position:center center;background-size:100% 100%;background-repeat:no-repeat}
-    .t-chinese .d1{width:8px;height:8px;transform:rotate(45deg);background:rgba(212,175,55,.18);top:8%;left:18%}
-    .t-chinese .d2{width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.14);top:5%;left:72%}
-    .t-chinese .d3{width:8px;height:8px;transform:rotate(45deg);background:rgba(212,175,55,.12);top:50%;left:10%}
-    .t-chinese .d4{width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.1);top:68%;left:85%}
-    .t-chinese .d5{width:14px;height:2px;border-radius:2px;background:rgba(212,175,55,.07);transform:rotate(-20deg);top:35%;left:55%}
-    .t-chinese .d6{width:4px;height:4px;border-radius:50%;background:rgba(212,175,55,.08);top:85%;left:42%}
-    .t-chinese .d7{width:5px;height:5px;transform:rotate(45deg);background:rgba(212,175,55,.06);top:42%;left:80%}
-    .t-chinese .card-inner{border-color:rgba(212,175,55,.2)}
-    .t-chinese .card-inner::before,.t-chinese .card-inner::after{border-color:rgba(212,175,55,.25)}
-    .t-chinese .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
-    .t-chinese .nav-ar,.t-chinese .exit-btn,.t-chinese .dl-btn{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2)}
+    /* ========== 5. 素雅工笔 (亮色) ========== */
+    .t-suya .bg1{background:linear-gradient(165deg,#D4E4DC,#E8F0EA)}
+    .t-suya .bg2{background:linear-gradient(165deg,#E8F0EA,#F0EBE0)}
+    .t-suya .bg3{background:linear-gradient(165deg,#D4E4DC,#F0EBE0)}
+    .t-suya .bg4{background:linear-gradient(165deg,#C8DCD0,#E8E4D8)}
+    .t-suya .bg5{background:linear-gradient(165deg,#DEE8E0,#F0EBE0)}
+    .t-suya .card-inner{border:1px solid rgba(45,90,78,.12)}
+    .t-suya .pat{background-image:
+      radial-gradient(1px 1px at 15% 20%,rgba(45,90,78,.04) 0,transparent 100%),
+      radial-gradient(1px 1px at 60% 10%,rgba(45,90,78,.03) 0,transparent 100%),
+      radial-gradient(1px 1px at 80% 30%,rgba(45,90,78,.03) 0,transparent 100%),
+      radial-gradient(1px 1px at 40% 50%,rgba(45,90,78,.02) 0,transparent 100%)}
+    .t-suya .d1{width:7px;height:7px;border-radius:50%;background:rgba(45,90,78,.1);top:8%;left:16%}
+    .t-suya .d2{width:5px;height:5px;border-radius:50%;background:rgba(45,90,78,.08);top:6%;left:76%}
+    .t-suya .d3{width:10px;height:1.5px;border-radius:1px;background:rgba(45,90,78,.05);transform:rotate(0);top:30%;left:45%}
+    .t-suya .d4{width:5px;height:5px;border-radius:50%;background:rgba(45,90,78,.06);top:68%;left:88%}
+    .t-suya .d5{width:12px;height:1.5px;border-radius:1px;background:rgba(45,90,78,.04);transform:rotate(-10deg);top:55%;left:12%}
+    .t-suya .d6{width:3px;height:3px;border-radius:50%;background:rgba(45,90,78,.04);top:85%;left:50%}
+    .t-suya .d7{width:5px;height:5px;border:1px solid rgba(45,90,78,.06);border-radius:50%;background:transparent;top:42%;left:82%}
+    .t-suya .nav-ar,.t-suya .exit-btn,.t-suya .dl-btn{background:rgba(45,90,78,.06);border:1px solid rgba(45,90,78,.1);color:#445}
+    .t-suya .card-inner .txt{font-family:"Noto Serif SC","宋体","SimSun","STSong",serif;color:#5A7A6E}
+
+    /* ========== 6. 青绿重彩 ========== */
+    .t-qinglv .bg1{background:linear-gradient(145deg,#0C1445,#1A237E)}
+    .t-qinglv .bg2{background:linear-gradient(145deg,#1A237E,#2A3A9E)}
+    .t-qinglv .bg3{background:linear-gradient(145deg,#0C1445,#2A3A9E)}
+    .t-qinglv .bg4{background:linear-gradient(145deg,#1A237E,#3A5ABE)}
+    .t-qinglv .bg5{background:linear-gradient(145deg,#0C1445,#3A5ABE)}
+    .t-qinglv .pat{background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 420'%3E%3Cpath d='M50,60 Q70,40 90,55 Q110,38 130,50 Q150,36 170,48' fill='none' stroke='rgba(212,175,55,.04)' stroke-width='.8'/%3E%3Cpath d='M230,60 Q250,42 270,55 Q290,40 310,50 Q330,36 350,48' fill='none' stroke='rgba(212,175,55,.04)' stroke-width='.8'/%3E%3C/svg%3E"),
+      radial-gradient(2px 2px at 15% 10%,rgba(212,175,55,.12) 0,transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 8%,rgba(212,175,55,.08) 0,transparent 100%),
+      radial-gradient(2.5px 2.5px at 80% 15%,rgba(212,175,55,.06) 0,transparent 100%)}
+    .t-qinglv .d1{width:8px;height:8px;border-radius:50%;background:rgba(212,175,55,.2);top:8%;left:14%}
+    .t-qinglv .d2{width:6px;height:6px;transform:rotate(45deg);background:rgba(212,175,55,.16);top:6%;left:78%}
+    .t-qinglv .d3{width:5px;height:5px;border-radius:50%;background:rgba(212,175,55,.14);top:52%;left:90%}
+    .t-qinglv .d4{width:7px;height:7px;transform:rotate(45deg);background:rgba(212,175,55,.1);top:68%;left:10%}
+    .t-qinglv .d5{width:14px;height:1.5px;background:rgba(212,175,55,.08);transform:rotate(-25deg);top:35%;left:50%}
+    .t-qinglv .d6{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.06);top:85%;left:42%}
+    .t-qinglv .d7{width:6px;height:6px;border:1px solid rgba(212,175,55,.12);background:transparent;top:42%;left:82%}
+    .t-qinglv .card-inner{border:1.5px solid rgba(212,175,55,.18)}
+    .t-qinglv .card-inner::before,.t-qinglv .card-inner::after{border-color:rgba(212,175,55,.2)}
+    .t-qinglv .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
+    .t-qinglv .nav-ar,.t-qinglv .exit-btn,.t-qinglv .dl-btn{background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.15)}
+    .t-qinglv .card-inner .txt{font-family:"STKaiti","楷体","KaiTi","Noto Serif SC",serif;color:#FEFEF5}
+
+    /* ========== 7. 赛博认知 ========== */
+    .t-saibo .bg1{background:linear-gradient(145deg,#0D0D1A,#1A1A2E)}
+    .t-saibo .bg2{background:linear-gradient(145deg,#1A1A2E,#16213E)}
+    .t-saibo .bg3{background:linear-gradient(145deg,#0D0D1A,#16213E)}
+    .t-saibo .bg4{background:linear-gradient(145deg,#1A1A2E,#0F3460)}
+    .t-saibo .bg5{background:linear-gradient(145deg,#0D0D1A,#0F3460)}
+    .t-saibo .pat{background-image:
+      repeating-linear-gradient(rgba(0,212,255,.04) 0 1px,transparent 1px 28px),
+      repeating-linear-gradient(90deg,rgba(0,212,255,.04) 0 1px,transparent 1px 28px),
+      radial-gradient(60px 60px at 20% 30%,rgba(0,212,255,.06) 0,transparent 100%),
+      radial-gradient(50px 50px at 70% 60%,rgba(255,42,109,.05) 0,transparent 100%),
+      radial-gradient(40px 40px at 50% 15%,rgba(0,212,255,.04) 0,transparent 100%)}
+    .t-saibo .d1{width:7px;height:7px;transform:rotate(45deg);background:rgba(0,212,255,.2);top:10%;left:12%}
+    .t-saibo .d2{width:5px;height:5px;border-radius:50%;background:rgba(255,42,109,.18);top:8%;left:82%}
+    .t-saibo .d3{width:4px;height:4px;transform:rotate(45deg);background:rgba(0,212,255,.15);top:50%;left:90%}
+    .t-saibo .d4{width:14px;height:1.5px;border-radius:1px;background:rgba(0,212,255,.08);transform:rotate(45deg);top:32%;left:35%}
+    .t-saibo .d5{width:12px;height:1.5px;border-radius:1px;background:rgba(255,42,109,.06);transform:rotate(-45deg);top:62%;left:15%}
+    .t-saibo .d6{width:4px;height:4px;border-radius:50%;background:rgba(0,212,255,.08);top:85%;left:65%}
+    .t-saibo .d7{width:5px;height:5px;border:1px solid rgba(0,212,255,.1);background:transparent;top:72%;left:50%}
+    .t-saibo .card-inner{border:1px solid rgba(0,212,255,.15)}
+    .t-saibo .nav-ar,.t-saibo .exit-btn,.t-saibo .dl-btn{background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.12)}
+    .t-saibo .card-inner .txt{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;color:#C0C0C0}
+
+    /* ========== 8. 杂志风 (亮色) ========== */
+    .t-zazhi .bg1{background:linear-gradient(160deg,#FAF7EF,#F7F4EC)}
+    .t-zazhi .bg2{background:linear-gradient(160deg,#F7F4EC,#F5F2E8)}
+    .t-zazhi .bg3{background:linear-gradient(160deg,#FAF7EF,#F5F2E8)}
+    .t-zazhi .bg4{background:linear-gradient(160deg,#F7F4EC,#F0EDE3)}
+    .t-zazhi .bg5{background:linear-gradient(160deg,#FDFAF2,#FAF7EF)}
+    .t-zazhi .card-inner{border:1px solid rgba(0,0,0,.06)}
+    .t-zazhi .pat{background-image:
+      repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(178,58,44,.03) 48px,rgba(178,58,44,.03) 49px)}
+    .t-zazhi .d1{width:14px;height:3px;background:rgba(178,58,44,.15);top:8%;left:12%}
+    .t-zazhi .d2{width:8px;height:8px;border-radius:50%;background:rgba(61,90,128,.12);top:6%;left:78%}
+    .t-zazhi .d3{width:5px;height:5px;border-radius:50%;background:rgba(178,58,44,.1);top:50%;left:10%}
+    .t-zazhi .d4{width:10px;height:2px;background:rgba(61,90,128,.08);transform:rotate(0);top:68%;left:85%}
+    .t-zazhi .d5{width:8px;height:8px;border:1.5px solid rgba(178,58,44,.08);border-radius:50%;background:transparent;top:35%;left:50%}
+    .t-zazhi .d6{width:3px;height:3px;border-radius:50%;background:rgba(0,0,0,.04);top:85%;left:55%}
+    .t-zazhi .d7{width:6px;height:6px;border:1px solid rgba(61,90,128,.06);background:transparent;top:42%;left:82%}
+    .t-zazhi .nav-ar,.t-zazhi .exit-btn,.t-zazhi .dl-btn{background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);color:#444}
+    .t-zazhi .card-inner .txt{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;color:#1F1F1F;font-weight:500}
 
     /* ========== HEADER ========== */
     header{position:sticky;top:0;z-index:30;flex-shrink:0;background:#FFF;color:#2D3436;padding:10px 10px 6px;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,.06)}
@@ -185,12 +251,12 @@
     .card-full.prev{transform:translateX(-100%);opacity:0}
     .card-full.active{transform:translateX(0);opacity:1}
     .card-full.next{transform:translateX(100%);opacity:0}
-    .card-inner{width:100%;max-width:560px;height:calc(100% - 48px);max-height:780px;border:1.5px solid rgba(255,255,255,.15);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 28px;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06)}
+    .card-inner{width:100%;max-width:560px;height:calc(100% - 48px);max-height:780px;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 28px;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06)}
     .card-inner .pat{position:absolute;inset:0;z-index:0;pointer-events:none;background-position:center bottom;background-size:100% 100%;background-repeat:no-repeat}
     .card-inner .deco-html{position:absolute;inset:0;z-index:1;pointer-events:none}
     .card-inner .deco-html i{position:absolute}
-    .card-inner .txt{position:relative;z-index:2;font-size:clamp(20px,5.5vw,38px);font-weight:600;line-height:1.7;text-align:center;width:100%;word-break:break-word;text-shadow:0 2px 20px rgba(0,0,0,.3);padding:12px 0}
-    .card-inner .num{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:500;opacity:.2;letter-spacing:1px;z-index:2}
+    .card-inner .txt{position:relative;z-index:2;font-size:clamp(20px,5.5vw,38px);font-weight:600;line-height:1.7;text-align:center;width:100%;word-break:break-word;padding:12px 0;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+    .card-inner .num{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:500;opacity:.2;letter-spacing:1px;z-index:2;color:#fff}
     .card-inner .deco-line{position:absolute;left:20px;right:20px;height:1px;z-index:2;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
     .card-inner .deco-line.t{top:34px}
     .card-inner .deco-line.b{bottom:34px}
@@ -208,7 +274,6 @@
     .modal-ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
     .modal-ov.open{opacity:1;pointer-events:auto}
     .modal-sh{background:#FFF;border-radius:20px 20px 0 0;padding:16px 20px 26px;width:100%;color:#2D3436;transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);max-height:70vh;overflow-y:auto}
-    .modal-ov.open .modal-sh{transform:translateY(0)}
     .modal-h{width:32px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 12px}
     .modal-sh .t{font-size:15px;font-weight:600;margin-bottom:10px}
     .modal-sh .acts .btn{flex:1;justify-content:center;padding:7px 14px;border-radius:9px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:4px;background:#6C5CE7;color:#FFF}
@@ -258,11 +323,14 @@
       <div class="theme-wrap">
         <button class="theme-btn" onclick="toggleTheme()">风格 <span class="arr" id="themeArr">▼</span></button>
         <div class="theme-drop" id="themeDrop">
-          <button onclick="selTheme('dream')">🌈 梦境</button>
-          <button onclick="selTheme('cyber')">🤖 赛博</button>
-          <button onclick="selTheme('nature')">🌿 山水</button>
-          <button onclick="selTheme('sky')">☁️ 蓝天</button>
-          <button onclick="selTheme('chinese')">🏮 中国风</button>
+          <button onclick="selTheme('zijin')">👑 紫金国潮</button>
+          <button onclick="selTheme('jianghong')">❤️ 绛红金线</button>
+          <button onclick="selTheme('molv')">🌿 墨绿鎏金</button>
+          <button onclick="selTheme('shuimo')">🖌️ 水墨意境</button>
+          <button onclick="selTheme('suya')">🌸 素雅工笔</button>
+          <button onclick="selTheme('qinglv')">💎 青绿重彩</button>
+          <button onclick="selTheme('saibo')">🤖 赛博认知</button>
+          <button onclick="selTheme('zazhi')">📰 杂志风</button>
         </div>
       </div>
       <button class="hdr-btn pri" onclick="startBrowsing()"><span class="hi">👁️</span><span class="hl">预览</span></button>
@@ -281,13 +349,13 @@
 </div>
 
 <script>
-let cards=[],cur=0,curTheme='dream';
-const T={dream:'t-dream',cyber:'t-cyber',nature:'t-nature',sky:'t-sky',chinese:'t-chinese'},TK=Object.keys(T);
-const DEC={dream:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',cyber:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',nature:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',sky:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',chinese:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>'};
+let cards=[],cur=0,curTheme='zijin';
+const T={zijin:'t-zijin',jianghong:'t-jianghong',molv:'t-molv',shuimo:'t-shuimo',suya:'t-suya',qinglv:'t-qinglv',saibo:'t-saibo',zazhi:'t-zazhi'},TK=Object.keys(T);
+const DEC={zijin:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',jianghong:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',molv:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',shuimo:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',suya:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',qinglv:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',saibo:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>',zazhi:'<i class="d d1"></i><i class="d d2"></i><i class="d d3"></i><i class="d d4"></i><i class="d d5"></i><i class="d d6"></i><i class="d d7"></i>'};
 
 function init(){
   const n=localStorage.getItem('tm_clubName');if(n)document.getElementById('clubNameDisplay').textContent=n;
-  const t=localStorage.getItem('tm_theme');if(t&&T[t]){curTheme=t;TK.forEach(x=>document.body.classList.remove(T[x]));document.body.classList.add(T[t])}else setTheme('dream');
+  const t=localStorage.getItem('tm_theme');if(t&&T[t]){curTheme=t;TK.forEach(x=>document.body.classList.remove(T[x]));document.body.classList.add(T[t])}else setTheme('zijin');
   const h=window.location.hash;
   if(h&&h.length>1){try{const p=JSON.parse(atob(decodeURIComponent(h.slice(1))));if(Array.isArray(p)&&p.length>0){cards=p;renderEditors();goBrowse();renderCards();return}}catch(e){}}
   const s=localStorage.getItem('tm_cards');if(s){try{cards=JSON.parse(s)}catch(e){cards=[]}}
