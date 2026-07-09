@@ -358,6 +358,7 @@
     }
   .deco-line{position:relative}.deco-line::after{content:'';position:absolute;left:20%;right:20%;height:1px;background:inherit;opacity:.4}.deco-line.t::after{top:5px}.deco-line.b::after{bottom:5px}
 @media(max-width:768px){.dl-btn{display:none!important}}
+.card-inner .d2,.card-inner .d3,.card-inner .d6,.card-inner .d7{display:none!important}
 </style>
 </head>
 <body>
@@ -500,8 +501,10 @@ cx.beginPath();cx.moveTo(60,39);cx.lineTo(W-60,39);cx.stroke();
 cx.beginPath();cx.moveTo(20,H-54);cx.lineTo(W-20,H-54);cx.stroke();
 cx.beginPath();cx.moveTo(60,H-59);cx.lineTo(W-60,H-59);cx.stroke();
 cx.strokeStyle=cornerColor;cx.lineWidth=2;
-cx.strokeRect(12,12,22,22);cx.strokeRect(W-34,12,22,22);
-cx.strokeRect(12,H-34,22,22);cx.strokeRect(W-34,H-34,22,22);
+cx.beginPath();cx.moveTo(12,12);cx.lineTo(34,12);cx.moveTo(12,12);cx.lineTo(12,34);cx.stroke();
+cx.beginPath();cx.moveTo(W-12,12);cx.lineTo(W-34,12);cx.moveTo(W-12,12);cx.lineTo(W-12,34);cx.stroke();
+cx.beginPath();cx.moveTo(12,H-12);cx.lineTo(34,H-12);cx.moveTo(12,H-12);cx.lineTo(12,H-34);cx.stroke();
+cx.beginPath();cx.moveTo(W-12,H-12);cx.lineTo(W-34,H-12);cx.moveTo(W-12,H-12);cx.lineTo(W-12,H-34);cx.stroke();
 cx.strokeStyle=isLight?'rgba(0,0,0,.04)':'rgba(255,255,255,.04)';
 cx.lineWidth=1;cx.strokeRect(28,28,W-56,H-56);
 var lines=txt.split('\n');
