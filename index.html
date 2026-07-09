@@ -26,9 +26,7 @@
     .t-suya .card-inner .txt,
     .t-zazhi .card-inner .txt{text-shadow:none}
     .t-shuimo .card-inner::before,.t-shuimo .card-inner::after,
-    .t-suya .card-inner::before,.t-suya .card-inner::after,
-    .t-zazhi .card-inner::before,.t-zazhi .card-inner::after{border-color:rgba(0,0,0,.12)!important}
-    .t-shuimo .deco-line,.t-suya .deco-line,.t-zazhi .deco-line{background:linear-gradient(90deg,transparent,rgba(0,0,0,.06),transparent)!important}
+    
     .t-shuimo .num,.t-suya .num,.t-zazhi .num{color:rgba(0,0,0,.2)!important}
 
     /* ========== 1. 紫金国潮 ========== */
@@ -57,8 +55,8 @@
     .t-zijin .d8{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;background:
       radial-gradient(ellipse at 20% 50%,rgba(120,50,200,.08) 0%,transparent 60%),
       radial-gradient(ellipse at 80% 50%,rgba(60,20,120,.06) 0%,transparent 60%)}
-    .t-zijin .card-inner{border:2px solid rgba(212,175,55,.3);box-shadow:0 0 0 4px rgba(212,175,55,.08),inset 0 0 0 0 rgba(212,175,55,.05),0 8px 40px rgba(0,0,0,.4)}
-    .t-zijin .card-inner::before,.t-zijin .card-inner::after{border-color:rgba(212,175,55,.25);border-width:2px}
+    .t-zijin .card-inner{--cc:rgba(212,175,55,.3);--fc:rgba(212,175,55,.06);border:2px solid rgba(212,175,55,.3);box-shadow:0 0 0 4px rgba(212,175,55,.08),inset 0 0 0 0 rgba(212,175,55,.05),0 8px 40px rgba(0,0,0,.4)}
+    
     .t-zijin .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.12),transparent)!important}
     .t-zijin .nav-ar,.t-zijin .exit-btn,.t-zijin .dl-btn{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2)}
     .t-zijin .card-inner .txt{font-family:"Noto Serif SC","楷体","KaiTi","STKaiti",serif;color:#FEFEF5}
@@ -86,8 +84,8 @@
     .t-jianghong .d8{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;background:
       radial-gradient(ellipse at 30% 20%,rgba(180,30,30,.08) 0%,transparent 50%),
       radial-gradient(ellipse at 70% 80%,rgba(100,20,20,.06) 0%,transparent 50%)}
-    .t-jianghong .card-inner{border:1.5px solid rgba(212,175,55,.2)}
-    .t-jianghong .card-inner::before,.t-jianghong .card-inner::after{border-color:rgba(212,175,55,.2)}
+    .t-jianghong .card-inner{--cc:rgba(212,175,55,.25);--fc:rgba(212,175,55,.05);border:1.5px solid rgba(212,175,55,.2)}
+    
     .t-jianghong .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
     .t-jianghong .nav-ar,.t-jianghong .exit-btn,.t-jianghong .dl-btn{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.18)}
     .t-jianghong .card-inner .txt{font-family:"Noto Serif SC","楷体","KaiTi","STKaiti",serif;color:#FEF5E7}
@@ -114,8 +112,8 @@
     .t-molv .d8{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;background:
       radial-gradient(ellipse at 25% 30%,rgba(30,140,60,.07) 0%,transparent 50%),
       radial-gradient(ellipse at 75% 70%,rgba(20,80,40,.06) 0%,transparent 50%)}
-    .t-molv .card-inner{border:1.5px solid rgba(201,168,76,.18)}
-    .t-molv .card-inner::before,.t-molv .card-inner::after{border-color:rgba(201,168,76,.2)}
+    .t-molv .card-inner{--cc:rgba(201,168,76,.25);--fc:rgba(201,168,76,.05);border:1.5px solid rgba(201,168,76,.18)}
+    
     .t-molv .deco-line{background:linear-gradient(90deg,transparent,rgba(201,168,76,.1),transparent)!important}
     .t-molv .nav-ar,.t-molv .exit-btn,.t-molv .dl-btn{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.16)}
     .t-molv .card-inner .txt{font-family:"Noto Serif SC","楷体","KaiTi","STKaiti",serif;color:#FDF5E6}
@@ -126,7 +124,7 @@
     .t-shuimo .bg3{background:linear-gradient(165deg,#F5F0E8,#E8DEC8)}
     .t-shuimo .bg4{background:linear-gradient(165deg,#F0EBE0,#E5DCC8)}
     .t-shuimo .bg5{background:linear-gradient(165deg,#FAF5EE,#F0EBE0)}
-    .t-shuimo .card-inner{border:1px solid rgba(0,0,0,.08)}
+    .t-shuimo .card-inner{--cc:rgba(0,0,0,.15);--fc:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08)}
     .t-shuimo .pat{background-image:
       repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(0,0,0,.015) 80px,rgba(0,0,0,.015) 81px),
       repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(0,0,0,.015) 80px,rgba(0,0,0,.015) 81px),
@@ -152,7 +150,7 @@
     .t-suya .bg3{background:linear-gradient(165deg,#D4E4DC,#F0EBE0)}
     .t-suya .bg4{background:linear-gradient(165deg,#C8DCD0,#E8E4D8)}
     .t-suya .bg5{background:linear-gradient(165deg,#DEE8E0,#F0EBE0)}
-    .t-suya .card-inner{border:1px solid rgba(45,90,78,.12)}
+    .t-suya .card-inner{--cc:rgba(45,90,78,.15);--fc:rgba(45,90,78,.04);border:1px solid rgba(45,90,78,.12)}
     .t-suya .pat{background-image:
       repeating-linear-gradient(0deg,transparent,transparent 65px,rgba(45,90,78,.025) 65px,rgba(45,90,78,.025) 66px),
       repeating-linear-gradient(90deg,transparent,transparent 65px,rgba(45,90,78,.025) 65px,rgba(45,90,78,.025) 66px),
@@ -197,8 +195,8 @@
     .t-qinglv .d8{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;background:
       radial-gradient(ellipse at 30% 30%,rgba(40,80,200,.06) 0%,transparent 50%),
       radial-gradient(ellipse at 70% 70%,rgba(20,40,120,.04) 0%,transparent 50%)}
-    .t-qinglv .card-inner{border:1.5px solid rgba(212,175,55,.18)}
-    .t-qinglv .card-inner::before,.t-qinglv .card-inner::after{border-color:rgba(212,175,55,.2)}
+    .t-qinglv .card-inner{--cc:rgba(212,175,55,.25);--fc:rgba(212,175,55,.05);border:1.5px solid rgba(212,175,55,.18)}
+    
     .t-qinglv .deco-line{background:linear-gradient(90deg,transparent,rgba(212,175,55,.1),transparent)!important}
     .t-qinglv .nav-ar,.t-qinglv .exit-btn,.t-qinglv .dl-btn{background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.15)}
     .t-qinglv .card-inner .txt{font-family:"STKaiti","楷体","KaiTi","Noto Serif SC",serif;color:#FEFEF5}
@@ -227,7 +225,7 @@
       radial-gradient(ellipse at 25% 20%,rgba(0,212,255,.04) 0%,transparent 40%),
       radial-gradient(ellipse at 75% 80%,rgba(255,42,109,.03) 0%,transparent 40%),
       repeating-linear-gradient(0deg,transparent,transparent 14px,rgba(0,212,255,.015) 14px,rgba(0,212,255,.015) 14.5px)}
-    .t-saibo .card-inner{border:1px solid rgba(0,212,255,.15)}
+    .t-saibo .card-inner{--cc:rgba(0,212,255,.25);--fc:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.15)}
     .t-saibo .nav-ar,.t-saibo .exit-btn,.t-saibo .dl-btn{background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.12)}
     .t-saibo .card-inner .txt{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;color:#C0C0C0}
 
@@ -237,7 +235,7 @@
     .t-zazhi .bg3{background:linear-gradient(160deg,#FAF7EF,#F5F2E8)}
     .t-zazhi .bg4{background:linear-gradient(160deg,#F7F4EC,#F0EDE3)}
     .t-zazhi .bg5{background:linear-gradient(160deg,#FDFAF2,#FAF7EF)}
-    .t-zazhi .card-inner{border:1px solid rgba(0,0,0,.06)}
+    .t-zazhi .card-inner{--cc:rgba(0,0,0,.12);--fc:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06)}
     .t-zazhi .pat{background-image:
       linear-gradient(160deg,rgba(178,58,44,.015) 0%,transparent 30%,rgba(61,90,128,.015) 60%,transparent 100%),
       repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(178,58,44,.03) 48px,rgba(178,58,44,.03) 49px),
@@ -304,15 +302,15 @@
     .card-inner .pat{position:absolute;inset:0;z-index:0;pointer-events:none;background-position:center bottom;background-size:100% 100%;background-repeat:no-repeat}
     .card-inner .deco-html{position:absolute;inset:0;z-index:1;pointer-events:none}
     .card-inner .deco-html i{position:absolute}
-    .card-inner .txt{position:relative;z-index:2;font-size:clamp(20px,5.5vw,38px);font-weight:600;line-height:1.7;text-align:center;width:100%;word-break:break-word;padding:12px 0;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+    .card-inner .txt{position:relative;z-index:2;font-size:clamp(24px,5.5vw,42px);font-weight:600;line-height:1.7;text-align:center;width:100%;word-break:break-word;padding:12px 0;text-shadow:0 2px 30px rgba(0,0,0,.25),0 0 60px rgba(0,0,0,.1)}
     .card-inner .num{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:500;opacity:.2;letter-spacing:1px;z-index:2;color:#fff}
     .card-inner .deco-line{position:absolute;left:20px;right:20px;height:1px;z-index:2;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
     .card-inner .deco-line.t{top:34px}
     .card-inner .deco-line.b{bottom:34px}
     .card-inner .d8{width:100%;height:100%;position:absolute;inset:0;pointer-events:none;z-index:1}
-    .card-inner::before,.card-inner::after{content:'';position:absolute;z-index:2;width:16px;height:16px;border-color:rgba(255,255,255,.15);border-style:solid}
-    .card-inner::before{top:14px;left:14px;border-top-width:2px;border-left-width:2px;border-radius:0}
-    .card-inner::after{bottom:14px;right:14px;border-bottom-width:2px;border-right-width:2px;border-radius:0}
+    .card-inner::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;background-image:linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2))),linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2))),linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2))),linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2))),linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2))),linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2))),linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2))),linear-gradient(var(--cc,rgba(255,255,255,.2)),var(--cc,rgba(255,255,255,.2)));background-position:12px 12px,12px 12px,calc(100% - 34px) 12px,calc(100% - 12px) 12px,12px calc(100% - 34px),12px calc(100% - 12px),calc(100% - 34px) calc(100% - 34px),calc(100% - 12px) calc(100% - 12px);background-size:22px 2px,2px 22px,22px 2px,2px 22px,22px 2px,2px 22px,22px 2px,2px 22px;background-repeat:no-repeat}.card-inner::after{content:'';position:absolute;inset:11px;z-index:3;pointer-events:none;border:1px solid var(--fc,rgba(255,255,255,.06));border-radius:0}
+    
+    
 
     .exit-btn{position:fixed;top:10px;right:10px;z-index:120;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;backdrop-filter:blur(4px);color:rgba(255,255,255,.6);background:rgba(0,0,0,.25)}.exit-btn:active{transform:scale(.85)}
     .dl-btn{position:fixed;bottom:14px;left:14px;z-index:120;display:flex;align-items:center;gap:4px;padding:6px 14px;border-radius:6px;font-size:13px;font-weight:500;transition:all .2s;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:#FFF;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 8px rgba(0,0,0,.15)}.dl-btn:hover{background:rgba(255,255,255,.2)}.dl-btn:active{transform:scale(.94)}
@@ -324,7 +322,7 @@
     .modal-ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
     .modal-ov.open{opacity:1;pointer-events:auto}
     .modal-ov.open .modal-sh{transform:translateY(0)}
-    .modal-sh{background:#FFF;border-radius:20px 20px 0 0;padding:16px 20px 26px;width:100%;color:#2D3436;transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);max-height:70vh;overflow-y:auto}
+    .modal-sh{background:#FFF;border-radius:20px 20px 0 0;padding:16px 20px 26px;width:100%;color:#2D3436;transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);max-height:80vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
     .modal-h{width:32px;height:4px;background:#DDD;border-radius:2px;margin:0 auto 12px}
     .modal-sh .t{font-size:15px;font-weight:600;margin-bottom:10px}
     .modal-sh .acts .btn,.modal-sh .btn{flex:1;justify-content:center;padding:7px 14px;border-radius:9px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:4px;background:#6C5CE7;color:#FFF}
@@ -338,27 +336,28 @@
       .subtitle{font-size:14px;letter-spacing:4px}
       .card-full{padding:24px}
       .card-inner{padding:52px 44px}
-      .card-inner .txt{font-size:clamp(26px,3.8vw,42px)}
+      .card-inner .txt{font-size:clamp(28px,4vw,46px)}
       .nav-ar{width:40px;height:40px;font-size:20px}
       .exit-btn,.dl-btn{padding:6px 16px;font-size:14px}
       .exit-btn{top:16px;right:16px}.dl-btn{bottom:18px;left:18px}
     }
     @media(min-width:1024px){
       #clubNameDisplay{font-size:24px}
-      .card-inner .txt{font-size:clamp(30px,3.2vw,48px)}
+      .card-inner .txt{font-size:clamp(32px,3.5vw,52px)}
     }
     @media(max-width:420px){
       header{padding:7px 8px 5px}
       #clubNameDisplay{font-size:15px}
       .subtitle{font-size:11px}
       .card-inner{padding:28px 18px;border-radius:0}
-      .card-inner .txt{font-size:clamp(18px,5.5vw,28px)}
+      .card-inner .txt{font-size:clamp(20px,5.5vw,32px)}
       .card-full{padding:10px}
       .nav-ar{width:32px;height:32px;font-size:16px}
       .nav-ar.l{left:calc(50% - 45px)}
       .nav-ar.r{right:calc(50% - 45px)}
     }
-  </style>
+  .deco-line{position:relative}.deco-line::after{content:'';position:absolute;left:20%;right:20%;height:1px;background:inherit;opacity:.4}.deco-line.t::after{top:5px}.deco-line.b::after{bottom:5px}
+</style>
 </head>
 <body>
 <div id="app">
@@ -446,11 +445,118 @@ let hc2=0;document.addEventListener('click',e=>{if(e.target.closest('.club-name-
 function isMobile(){return /Android|iPhone|iPod|iPad|webOS|BlackBerry|IEMobile|Opera Mini|Mobi/i.test(navigator.userAgent)}
 function loadHtml2Canvas(cb,tm,tmout){var to=tmout||6000;if(window.html2canvas){cb();return}var CDNS=['https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js','https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js','https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'];var ti=0;tryN();function tryN(){if(ti>=CDNS.length||window.html2canvas){if(window.html2canvas)cb();else tm();return}var s=document.createElement('script');s.src=CDNS[ti];s.onload=function(){if(window.html2canvas)cb();else tryN()};s.onerror=tryN;document.head.appendChild(s);setTimeout(function(){if(window.html2canvas)cb();else{ti++;tryN()}},Math.min(to,3000))}}
 function downloadCard(){var active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}var ci=active.querySelector('.card-inner');if(!ci){toast('未找到卡片');return}function desktopDL(c){var a=document.createElement('a');a.download='touma-card-'+(cur+1)+'.png';a.href=c.toDataURL('image/png');document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a)},100);toast('已下载 ✓')}if(isMobile()){toast('生成中...');mobileSave();return}loadHtml2Canvas(function(){html2canvas(ci,{scale:2,useCORS:true,allowTaint:true}).then(desktopDL).catch(function(){canvasSave(ci)})},function(){canvasSave(ci)})}
-function mobileSave(){var active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}var ci=active.querySelector('.card-inner');if(!ci){toast('未找到卡片');return}var fl=document.querySelector('link[href*="fonts.googleapis"]');if(fl)fl.remove();loadHtml2Canvas(function(){html2canvas(ci,{scale:2,useCORS:false,allowTaint:false}).then(function(c){showSaveModal(c.toDataURL('image/png'))}).catch(function(){canvasSave(ci)})},function(){canvasSave(ci)},5000)}
-function canvasSave(ci){try{var txt=cards.filter(function(c){return c.trim()})[cur]||'';var club=document.getElementById('clubNameDisplay').textContent||'';var gs=getComputedStyle(ci);var bgStr=gs.backgroundImage||'';var txtEl=ci.querySelector('.txt');var txtColor=txtEl?getComputedStyle(txtEl).color:'#FEFEF5';var isLight=(curTheme==='shuimo'||curTheme==='suya'||curTheme==='zazhi');var dlColor=isLight?'rgba(0,0,0,.06)':'rgba(255,255,255,.08)';var cornerColor=isLight?'rgba(0,0,0,.15)':'rgba(255,255,255,.15)';var numColor=isLight?'rgba(0,0,0,.2)':'rgba(255,255,255,.2)';var W=595,H=842;var ca=document.createElement('canvas');ca.width=W*2;ca.height=H*2;var cx=ca.getContext('2d');cx.scale(2,2);cx.clearRect(0,0,W,H);try{var gi=bgStr.match(/linear-gradient\((\d+)deg,\s*(.+)\)/);if(gi){var ang=parseInt(gi[1]);var cols=gi[2].match(/rgb\([^)]+\)|rgba\([^)]+\)|#[0-9a-fA-F]{3,8}/g);if(cols&&cols.length>=2){var rad=(ang-90)*Math.PI/180;var len=Math.sqrt(W*W+H*H)/2;var g=cx.createLinearGradient(W/2-Math.cos(rad)*len,H/2-Math.sin(rad)*len,W/2+Math.cos(rad)*len,H/2+Math.sin(rad)*len);g.addColorStop(0,cols[0]);g.addColorStop(1,cols[cols.length-1]);cx.fillStyle=g;cx.fillRect(0,0,W,H)}else{cx.fillStyle='#1a1a2e';cx.fillRect(0,0,W,H)}}else{cx.fillStyle='#1a1a2e';cx.fillRect(0,0,W,H)}}catch(e){cx.fillStyle='#1a1a2e';cx.fillRect(0,0,W,H)}cx.strokeStyle=dlColor;cx.lineWidth=1;cx.beginPath();cx.moveTo(20,34);cx.lineTo(W-20,34);cx.stroke();cx.beginPath();cx.moveTo(20,H-34);cx.lineTo(W-20,H-34);cx.stroke();cx.strokeStyle=cornerColor;cx.lineWidth=2;cx.strokeRect(14,14,16,16);cx.strokeRect(W-30,14,16,16);cx.strokeRect(14,H-30,16,16);cx.strokeRect(W-30,H-30,16,16);var lines=txt.split('\n');var mw=W-80,mh=H-100;var fs=38;var totalLines=lines.reduce(function(s,l){return s+Math.max(1,Math.ceil(l.length/(mw/(fs*0.6))))},0);var maxFit=Math.floor(mh/(fs*1.7));if(totalLines>maxFit)fs=Math.max(18,Math.floor(fs*maxFit/totalLines));fs=Math.min(40,Math.max(16,fs));cx.font='600 '+fs+'px sans-serif';cx.fillStyle=txtColor;cx.textAlign='center';cx.textBaseline='top';var lh=fs*1.7;var cl=Math.floor(mw/(fs*0.6));var y=Math.max(40,(H-(totalLines*lh))/2);lines.forEach(function(line){if(line.length<=cl){cx.fillText(line,W/2,y);y+=lh}else{for(var i=0;i<line.length;i+=cl){cx.fillText(line.substring(i,i+cl),W/2,y);y+=lh}}});cx.textAlign='left';cx.fillStyle=numColor;cx.font='13px sans-serif';if(club)cx.fillText(club,28,H-12);showSaveModal(ca.toDataURL('image/png'))}catch(e){showFullCard()}}
+function mobileSave(){
+var active=document.querySelector('#browseMode .card-full.active');
+if(!active){toast('没有卡片');return}
+var ci=active.querySelector('.card-inner');
+if(!ci){toast('未找到卡片');return}
+toast('生成中...');
+loadHtml2Canvas(function(){
+html2canvas(ci,{scale:2,useCORS:false,allowTaint:false,backgroundColor:null}).then(function(c){
+try{showSaveModal(c.toDataURL('image/png'))}
+catch(e){canvasSave(ci)}
+}).catch(function(){canvasSave(ci)})
+},function(){canvasSave(ci)},3000)
+}
+function canvasSave(ci){
+try{
+var txt=cards.filter(function(c){return c.trim()})[cur]||'';
+var club=document.getElementById('clubNameDisplay').textContent||'';
+var today=new Date();
+var dateStr=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+var gs=getComputedStyle(ci);
+var bgStr=gs.backgroundImage||'';
+var txtEl=ci.querySelector('.txt');
+var txtColor=txtEl?getComputedStyle(txtEl).color:'#FEFEF5';
+var isLight=(curTheme==='shuimo'||curTheme==='suya'||curTheme==='zazhi');
+var dlColor=isLight?'rgba(0,0,0,.06)':'rgba(255,255,255,.08)';
+var cornerColor=isLight?'rgba(0,0,0,.15)':'rgba(255,255,255,.15)';
+var subColor=isLight?'rgba(0,0,0,.35)':'rgba(255,255,255,.35)';
+var W=595,H=842;
+var ca=document.createElement('canvas');
+ca.width=W*2;ca.height=H*2;
+var cx=ca.getContext('2d');
+cx.scale(2,2);
+try{
+var gi=bgStr.match(/linear-gradient\((\d+)deg,\s*(.+)\)/);
+if(gi){
+var ang=parseInt(gi[1]);
+var cols=gi[2].match(/rgb\([^)]+\)|rgba\([^)]+\)|#[0-9a-fA-F]{3,8}/g);
+if(cols&&cols.length>=2){
+var rad=(ang-90)*Math.PI/180;
+var len=Math.sqrt(W*W+H*H)/2;
+var g=cx.createLinearGradient(W/2-Math.cos(rad)*len,H/2-Math.sin(rad)*len,W/2+Math.cos(rad)*len,H/2+Math.sin(rad)*len);
+g.addColorStop(0,cols[0]);
+g.addColorStop(1,cols[cols.length-1]);
+cx.fillStyle=g;
+}else{cx.fillStyle=isLight?'#F5F0E8':'#1a1a2e';}
+}else{cx.fillStyle=isLight?'#F5F0E8':'#1a1a2e';}
+}catch(e){cx.fillStyle=isLight?'#F5F0E8':'#1a1a2e';}
+cx.fillRect(0,0,W,H);
+cx.strokeStyle=dlColor;cx.lineWidth=1;
+cx.beginPath();cx.moveTo(20,34);cx.lineTo(W-20,34);cx.stroke();
+cx.beginPath();cx.moveTo(60,39);cx.lineTo(W-60,39);cx.stroke();
+cx.beginPath();cx.moveTo(20,H-54);cx.lineTo(W-20,H-54);cx.stroke();
+cx.beginPath();cx.moveTo(60,H-59);cx.lineTo(W-60,H-59);cx.stroke();
+cx.strokeStyle=cornerColor;cx.lineWidth=2;
+cx.strokeRect(12,12,22,22);cx.strokeRect(W-34,12,22,22);
+cx.strokeRect(12,H-34,22,22);cx.strokeRect(W-34,H-34,22,22);
+cx.strokeStyle=isLight?'rgba(0,0,0,.04)':'rgba(255,255,255,.04)';
+cx.lineWidth=1;cx.strokeRect(28,28,W-56,H-56);
+var lines=txt.split('\n');
+var mw=W-80;
+var topPad=50;
+var botPad=75;
+var mh=H-topPad-botPad;
+function calcLayout(fs){
+cx.font='600 '+fs+'px sans-serif';
+var sampleW=cx.measureText('\u5b57').width;
+var charW=Math.max(sampleW,fs*0.55);
+var cl=Math.floor(mw/charW);
+if(cl<2)cl=2;
+var lh=fs*1.8;
+var wrapped=[];
+for(var i=0;i<lines.length;i++){
+var line=lines[i];
+if(line.length<=cl){wrapped.push(line);}
+else{for(var j=0;j<line.length;j+=cl){wrapped.push(line.substring(j,j+cl));}}
+}
+return{wrapped:wrapped,totalLines:wrapped.length,lh:lh,cl:cl};
+}
+var fs=42;
+var layout;
+for(var attempt=0;attempt<8;attempt++){
+layout=calcLayout(fs);
+if(layout.totalLines*layout.lh<=mh)break;
+var newFs=Math.floor(fs*0.88);
+if(newFs<16){fs=16;layout=calcLayout(16);break;}
+fs=newFs;
+}
+var wrapped=layout.wrapped;
+var lh=layout.lh;
+var totalH=wrapped.length*lh;
+var y=topPad+(mh-totalH)/2;
+cx.font='600 '+fs+'px sans-serif';
+cx.fillStyle=txtColor;
+cx.textAlign='center';
+cx.textBaseline='top';
+for(var i=0;i<wrapped.length;i++){
+cx.fillText(wrapped[i],W/2,y);
+y+=lh;
+}
+cx.font='13px sans-serif';
+cx.fillStyle=subColor;
+cx.textAlign='center';
+cx.textBaseline='bottom';
+var bottomText=club+(club?'  \u00b7  ':'')+dateStr;
+cx.fillText(bottomText,W/2,H-20);
+showSaveModal(ca.toDataURL('image/png'));
+}catch(e){
+showFullCard();
+}
+}
 function showFullCard(){var o=document.getElementById('fullCardOv');if(o)o.remove();var active=document.querySelector('#browseMode .card-full.active');if(!active){toast('没有卡片');return}var clone=active.cloneNode(true);clone.style.cssText='display:flex;align-items:center;justify-content:center;padding:14px';var ci2=clone.querySelector('.card-inner');if(ci2){var sw=window.innerWidth,sh=window.innerHeight;var cw=sw-28,ch=cw*10/7;if(ch>sh-80){ch=sh-80;cw=ch*7/10}ci2.style.width=cw+'px';ci2.style.height=ch+'px';ci2.style.maxWidth='none';ci2.style.borderRadius='0'}var ov=document.createElement('div');ov.id='fullCardOv';ov.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center';var hint=document.createElement('div');hint.style.cssText='color:rgba(255,255,255,.6);font-size:13px;padding:14px 20px;text-align:center;position:absolute;top:0;left:0;right:0;z-index:10;background:linear-gradient(180deg,rgba(0,0,0,.7),transparent);line-height:1.6';hint.innerHTML='📱 手机截图<br><span style="font-size:11px;opacity:.7">（电源键+音量减）</span><br><span style="font-size:11px">点击返回</span>';var wrap=document.createElement('div');wrap.style.cssText='width:100%;max-width:560px;padding:14px';wrap.appendChild(clone);ov.appendChild(hint);ov.appendChild(wrap);ov.addEventListener('click',function(){ov.remove()});document.body.appendChild(ov)}
-function showSaveModal(src){var m=document.getElementById('saveModal');if(!m){var d=document.createElement('div');d.id='saveModal';d.className='modal-ov';d.innerHTML='<div class="modal-sh" style="text-align:center"><div class="modal-h"></div><div class="t">保存卡片</div><div style="width:100%;max-width:320px;margin:0 auto 12px;background:#F5F3F0;border:1px solid #E0DCD8;line-height:0"><img id="saveImg" style="width:100%;display:block"></div><div style="color:#E17055;font-size:15px;font-weight:600;margin-bottom:14px">👆 长按图片保存到手机</div><button class="btn" onclick="closeSaveModal()" style="width:100%">关闭</button></div>';document.body.appendChild(d)}document.getElementById('saveImg').src=src;setTimeout(function(){document.getElementById('saveModal').classList.add('open')},50)}
-function closeSaveModal(){const m=document.getElementById('saveModal');if(m)m.classList.remove('open')}
+function showSaveModal(src){var m=document.getElementById('saveModal');if(!m){var d=document.createElement('div');d.id='saveModal';d.className='modal-ov';d.innerHTML='<div class="modal-sh" style="text-align:center;-webkit-overflow-scrolling:touch"><div class="modal-h"></div><div class="t">保存卡片</div><div style="width:100%;margin:0 auto 10px;background:#F5F3F0;border:1px solid #E0DCD8;line-height:0;border-radius:4px;overflow:hidden"><img id="saveImg" style="width:100%;display:block"></div><div style="color:#E17055;font-size:14px;font-weight:600;margin-bottom:12px;line-height:1.5">👆 长按图片保存到手机</div><button class="btn" onclick="closeSaveModal()" style="width:100%">关闭</button></div>';document.body.appendChild(d)}document.getElementById('saveImg').src=src;setTimeout(function(){document.getElementById('saveModal').classList.add('open')},50)}function closeSaveModal(){const m=document.getElementById('saveModal');if(m)m.classList.remove('open')}
 document.addEventListener('click',e=>{if(!e.target.closest('.theme-wrap'))closeTheme()});
 let tx=0,lastTap=0;
 document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
